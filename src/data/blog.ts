@@ -56,6 +56,100 @@ export const categoryColors: Record<BlogCategory, string> = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "sweet-home-oregon-affordable-cascade-living",
+    title: "Sweet Home, Oregon: The Most Affordable City in the Mid-Willamette Valley",
+    excerpt:
+      "At $330K average home price, Sweet Home offers Cascade Range access and small-town living at the lowest price point in the region. Here's what buyers need to know.",
+    date: "April 10, 2026",
+    isoDate: "2026-04-10",
+    category: "Lifestyle",
+    author: "Team Gillott",
+    readTime: "5 min read",
+    seoTitle: "Sweet Home Oregon Real Estate Guide 2026 | Affordable Cascade Living",
+    seoDescription:
+      "Sweet Home Oregon real estate guide. $330K avg price, outdoor recreation, neighborhoods, and why buyers are choosing Sweet Home over pricier valley alternatives.",
+    highlights: [
+      { label: "Avg Home Price", value: "$330,467", change: "-4.8%", direction: "down" },
+      { label: "Active Listings", value: "49", change: "", direction: "flat" },
+      { label: "Avg Days on Market", value: "102", change: "", direction: "flat" },
+      { label: "Price per Sq Ft", value: "$212", change: "", direction: "flat" },
+    ],
+    content: [
+      "Sweet Home, Oregon sits 12 miles east of Lebanon at the foot of the Cascade Range, and it's quietly become one of the best-value real estate markets in the Willamette Valley. With an average sold price of $330,467 in Q1 2026, it's the most affordable city Team Gillott serves — and the outdoor access is unmatched.",
+
+      "## Why Sweet Home?",
+
+      "The draw is simple: you get mountain-town living at valley prices. Foster Reservoir, Green Peter Lake, and the Santiam River are all within 15 minutes. McDowell Creek Falls and Cascadia State Park offer world-class hiking. The Oregon Jamboree brings 20,000+ visitors annually. And a 15-minute drive puts you in Lebanon for groceries, healthcare, and services.",
+
+      "## The Market Right Now",
+
+      "Sweet Home's market is buyer-friendly in Q1 2026. Prices declined 4.8% year-over-year, creating opportunity for those who've been priced out of Albany or Lebanon. With 49 active listings and only 37 sales in Q1, inventory is strong. Homes average 102 days on market, giving buyers time to negotiate.",
+
+      "## Four Neighborhoods to Know",
+
+      "Downtown Sweet Home ($250K–$340K) is the walkable core with local shops and updated older homes. North Sweet Home ($300K–$380K) has the newer subdivisions popular with families. Holley/South Valley ($350K–$500K) is where you'll find hobby farms and horse properties. And the Foster/Upper Santiam corridor ($280K–$450K) is the outdoor enthusiast's dream — waterfront properties near the reservoirs.",
+
+      "## The Commute Factor",
+
+      "Sweet Home is 15 minutes to Lebanon and 30 minutes to Albany via US-20. Many residents work in Lebanon or Albany and enjoy Sweet Home's lower costs of living. The drive is scenic rather than stressful — no highway congestion, just the Santiam Canyon.",
+
+      "## Who Should Consider Sweet Home?",
+
+      "Sweet Home is ideal for outdoor enthusiasts, retirees on a fixed income, remote workers, and families who prioritize space over urban amenities. At $212 per square foot — the lowest in the mid-valley — your budget goes further here than anywhere else Team Gillott serves.",
+
+      "If you're exploring options in the mid-Willamette Valley, Sweet Home deserves a serious look. Contact Team Gillott for a personalized tour.",
+    ],
+    relatedSlugs: [
+      "q1-2026-lebanon-market-report",
+      "5-reasons-families-moving-to-lebanon",
+    ],
+  },
+  {
+    slug: "best-neighborhoods-willamette-valley-2026",
+    title: "Best Neighborhoods in the Willamette Valley: A City-by-City Guide",
+    excerpt:
+      "From Lebanon's walkable downtown to Corvallis's university district, here are the top neighborhoods across four mid-valley cities for every budget and lifestyle.",
+    date: "April 10, 2026",
+    isoDate: "2026-04-10",
+    category: "Neighborhoods",
+    author: "Team Gillott",
+    readTime: "7 min read",
+    seoTitle: "Best Neighborhoods Willamette Valley Oregon 2026 | Team Gillott",
+    seoDescription:
+      "Top neighborhoods in Lebanon, Albany, Corvallis, and Sweet Home Oregon. Price ranges, lifestyle, schools, and outdoor access for every budget.",
+    content: [
+      "Choosing where to live in the Willamette Valley comes down to more than just price. Each of the four cities Team Gillott serves has distinct neighborhoods with their own character. Here's the definitive guide for 2026.",
+
+      "## Lebanon: Small-Town Heart, Big Value",
+
+      "Lebanon ($377K average) offers four distinct areas. South Lebanon ($280K–$380K) is the walkable downtown core with established homes and the weekly farmers market. East Lebanon ($320K–$420K) sits in the Cascade foothills with larger lots and McDowell Creek Falls nearby. North Lebanon ($350K–$450K) has modern builds, Sand Ridge Charter School, and easy Highway 20 commuting. And Hamilton Creek ($520K–$650K) is the premium address — estate-sized lots, creek frontage, and no HOA.",
+
+      "## Albany: History Meets Convenience",
+
+      "Albany ($446K average) anchors the central valley with four neighborhoods. The Historic Districts ($280K–$450K) boast 700+ Victorian and Craftsman homes across four National Register districts — walkable and full of character. North Albany ($400K–$600K) is the family favorite with top schools and easy Corvallis access. East Albany ($350K–$500K) offers newer construction near I-5. South Albany ($320K–$420K) provides the most affordable entry with larger lots.",
+
+      "## Corvallis: University Town Premium",
+
+      "Corvallis ($593K average) commands the highest prices but delivers nationally ranked schools and a vibrant downtown. North Corvallis ($500K–$750K) is the premier family area near Bald Hill. South Corvallis ($400K–$600K) has an artsy, walkable character near natural areas. West Corvallis/Philomath ($450K–$650K) features newer developments with valley views. Downtown/Campus ($350K–$550K) offers urban walkability near OSU.",
+
+      "## Sweet Home: Maximum Value, Maximum Outdoors",
+
+      "Sweet Home ($330K average) is the budget leader with unmatched outdoor access. Downtown ($250K–$340K) has the walkable main street with local shops. North Sweet Home ($300K–$380K) is where young families find new construction. Holley/South Valley ($350K–$500K) offers hobby farms and horse properties. And Foster/Upper Santiam ($280K–$450K) puts you minutes from Foster Reservoir and Green Peter Lake.",
+
+      "## Quick Comparison by Budget",
+
+      "Under $300K: Downtown Sweet Home or South Lebanon. $300K–$400K: North Sweet Home, North Lebanon, or South Albany. $400K–$500K: East Albany, West Corvallis, or Historic Albany. $500K+: Hamilton Creek, North Corvallis, or North Albany. These ranges are based on Q1 2026 MLS data and shift quarterly.",
+
+      "## The Bottom Line",
+
+      "The Willamette Valley offers something for every lifestyle and budget within a 30-minute driving radius. Whether you want a $250K starter near the Cascades or a $750K family home near Oregon State, Team Gillott can help you find the right neighborhood. Use our interactive city comparison tool to explore the data, or contact us for a personalized tour.",
+    ],
+    relatedSlugs: [
+      "sweet-home-oregon-affordable-cascade-living",
+      "q1-2026-lebanon-market-report",
+    ],
+  },
+  {
     slug: "q1-2026-lebanon-market-report",
     title: "Lebanon Market Report: Q1 2026 -- Sales Up 21%, Prices Climb to $377K",
     excerpt:
@@ -115,6 +209,7 @@ export const blogPosts: BlogPost[] = [
       "Data sourced from the Willamette Valley MLS, as of March 31, 2026. For a personalized market analysis of your property or neighborhood, contact Team Gillott.",
     ],
     relatedSlugs: [
+      "sweet-home-oregon-affordable-cascade-living",
       "5-reasons-families-moving-to-lebanon",
       "hamilton-creek-vs-south-lebanon",
     ],

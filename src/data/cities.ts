@@ -317,8 +317,136 @@ export const corvallis: CityHub = {
   ],
 };
 
+// ─── SWEET HOME ────────────────────────────────────────────
+export const sweetHome: CityHub = {
+  slug: "sweet-home",
+  name: "Sweet Home",
+  state: "Oregon",
+  county: "Linn County",
+  tagline: "Gateway to the Cascades at Willamette Valley price",
+  heroDescription:
+    "Nestled at the foothills of the Cascade Range, Sweet Home offers the most affordable housing in the mid-valley with unmatched outdoor recreation access. Fishing, hiking, and mountain living — without the mountain price tag.",
+  population: 9680,
+  populationGrowth: "+0.5% annually",
+  distanceFromLebanon: "12 miles east",
+  driveTime: "15 minutes via US-20",
+
+  avgSoldPrice: 330467,
+  avgListPrice: 333693,
+  avgDOM: 102,
+  numberSold: 37,
+  activeListings: 49,
+  pricePerSqft: 212,
+  yoyPriceChange: -4.8,
+  prevYearAvgPrice: 347126,
+  prevYearSold: 35,
+
+  highlights: [
+    { label: "Avg Sold Price", value: "$330K", detail: "Q1 2026" },
+    { label: "Homes Sold Q1", value: "37", detail: "Up from 35" },
+    { label: "Avg Days on Market", value: "102", detail: "Residential <1 acre" },
+    { label: "Active Listings", value: "49", detail: "Strong inventory" },
+  ],
+
+  whyLiveHere: [
+    "Most affordable city in the mid-Willamette Valley — $330K average, 12% below Lebanon",
+    "Gateway to the Cascades: Foster Reservoir, Green Peter Lake, and Santiam River at your doorstep",
+    "Small-town community feel with a population under 10,000 and low crime rates",
+    "15 minutes to Lebanon, 30 minutes to Albany — easy commute to valley jobs",
+    "Oregon Jamboree — one of the Pacific Northwest's largest country music festivals",
+    "Excellent hunting, fishing, and off-road recreation access year-round",
+  ],
+
+  neighborhoods: [
+    {
+      name: "Downtown Sweet Home",
+      tagline: "Walkable main street, local shops",
+      priceRange: "$250K–$340K",
+      character:
+        "The heart of Sweet Home along Main Street (US-20) with local shops, restaurants, and easy access to services. Older housing stock with character, many updated. Walking distance to schools and parks.",
+    },
+    {
+      name: "North Sweet Home",
+      tagline: "Newer subdivisions, family-friendly",
+      priceRange: "$300K–$380K",
+      character:
+        "Sweet Home's primary growth area with newer construction, cul-de-sac neighborhoods, and proximity to Sweet Home High School. Popular with young families seeking affordable new builds.",
+    },
+    {
+      name: "Holley / South Valley",
+      tagline: "Rural acreage, hobby farms",
+      priceRange: "$350K–$500K",
+      character:
+        "Rural properties south of town along Holley Road. Larger lots and small acreages popular with hobby farmers, horse owners, and those seeking privacy. Mix of older farmhouses and custom builds.",
+    },
+    {
+      name: "Foster / Upper Santiam",
+      tagline: "Waterfront and mountain access",
+      priceRange: "$280K–$450K",
+      character:
+        "Properties east of town along the Santiam Highway toward Foster Reservoir and Green Peter Lake. Ideal for outdoor enthusiasts — fishing, boating, and hiking are minutes away. Mix of cabins, manufactured homes, and stick-built.",
+    },
+  ],
+
+  topEmployers: [
+    { name: "Sweet Home School District", sector: "Education", employees: "400+" },
+    { name: "Linn County Government", sector: "Government", employees: "150+" },
+    { name: "Bi-Mart", sector: "Retail", employees: "100+" },
+    { name: "Frank Lumber", sector: "Timber/Manufacturing", employees: "200+" },
+    { name: "Samaritan Lebanon Community Hospital", sector: "Healthcare (commute)", employees: "Regional" },
+  ],
+
+  schoolDistrict: "Sweet Home School District 55",
+  schoolHighlights: [
+    "Serves 2,200+ students across 5 schools",
+    "Sweet Home High School known for strong career technical education (CTE) programs",
+    "Foster Elementary rated for small class sizes and community involvement",
+    "District offers outdoor education programs leveraging Cascade Range location",
+  ],
+
+  outdoorRec: [
+    "Foster Reservoir — 1,200 acres for boating, fishing, swimming, and camping",
+    "Green Peter Reservoir — remote mountain lake with excellent bass and trout fishing",
+    "Santiam River — steelhead, salmon, and trout fishing year-round",
+    "McDowell Creek Falls — triple waterfall hike, 15 minutes from town",
+    "Cascadia State Park — camping, hiking, and natural hot springs",
+    "Oregon Jamboree grounds — annual music festival and community events",
+  ],
+
+  comparedToLebanon:
+    "Sweet Home is the most affordable option in the mid-valley at $330K average — 12% below Lebanon ($377K). You trade some urban convenience for direct Cascade Range access and a quieter, smaller community. Sweet Home has more inventory per capita (49 active listings for 9,680 residents) and similar days on market (102 vs 105). Many buyers who work in Lebanon or Albany choose Sweet Home for maximum square footage and outdoor lifestyle.",
+
+  faqs: [
+    {
+      question: "Is Sweet Home, Oregon a good place to live?",
+      answer:
+        "Sweet Home is ideal for outdoor enthusiasts and budget-conscious buyers. At $330K average home price, it's the most affordable city in the mid-Willamette Valley. The trade-off is fewer urban amenities — but Lebanon is just 15 minutes away, and Albany is 30 minutes. The Cascade Range access (Foster Lake, Green Peter, Santiam River) is unmatched.",
+    },
+    {
+      question: "What is the average home price in Sweet Home, Oregon?",
+      answer:
+        "As of Q1 2026, the average sold price in Sweet Home is $330,467 for residential properties under 1 acre. Prices have decreased 4.8% year-over-year, making it a buyer-friendly market. 37 homes sold in Q1 2026, with 49 currently active — the highest inventory-to-sales ratio in the area.",
+    },
+    {
+      question: "How far is Sweet Home from Lebanon?",
+      answer:
+        "Sweet Home is approximately 12 miles east of Lebanon, about a 15-minute drive via US-20 (Santiam Highway). Many residents commute to Lebanon, Albany, or Corvallis for work while enjoying Sweet Home's lower housing costs and outdoor lifestyle.",
+    },
+    {
+      question: "What outdoor recreation is near Sweet Home?",
+      answer:
+        "Sweet Home is the gateway to the Oregon Cascades. Foster Reservoir (1,200 acres) and Green Peter Lake are within 15 minutes. The Santiam River offers year-round fishing. McDowell Creek Falls, Cascadia State Park, and thousands of acres of national forest are nearby. The annual Oregon Jamboree draws 20,000+ visitors.",
+    },
+    {
+      question: "Is Sweet Home a good place to buy investment property?",
+      answer:
+        "Sweet Home offers strong value for investors. At $212/sq ft (lowest in the valley) and $330K average price, entry costs are low. The rental market is supported by workers commuting to Lebanon and Albany. The area's growing reputation for outdoor tourism (Foster Lake, Green Peter, Oregon Jamboree) also supports short-term rental demand.",
+    },
+  ],
+};
+
 // ─── ALL CITIES ─────────────────────────────────────────────
-export const cities: CityHub[] = [albany, corvallis];
+export const cities: CityHub[] = [albany, corvallis, sweetHome];
 
 export function getCity(slug: string): CityHub | undefined {
   return cities.find((c) => c.slug === slug);

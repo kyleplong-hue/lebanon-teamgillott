@@ -24,6 +24,7 @@ const navLinks = [
     children: [
       { href: '/cities/albany', label: 'Albany' },
       { href: '/cities/corvallis', label: 'Corvallis' },
+      { href: '/cities/sweet-home', label: 'Sweet Home' },
       { href: '/cities/compare', label: 'Compare Cities' },
     ],
   },

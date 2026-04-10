@@ -244,14 +244,129 @@ export default function CityComparePage() {
                 OSU, tech sector, nationally ranked schools.
               </p>
             </Link>
-            <div className="p-6 rounded-2xl border border-dashed border-[#e2e8f0]">
-              <h3 className="text-lg font-semibold text-[#94a3b8] mb-1">
+            <Link
+              href="/cities/sweet-home"
+              className="group p-6 rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-lg transition-all duration-300"
+            >
+              <h3 className="text-lg font-semibold text-[#354652] group-hover:text-[#CA3121] mb-1">
                 Sweet Home
               </h3>
-              <p className="text-sm text-[#94a3b8] mb-2">Coming soon</p>
-              <p className="text-sm text-[#94a3b8]">
-                Gateway to the Cascades. Full guide in development.
+              <p className="text-sm text-[#64748b] mb-2">Gateway to the Cascades</p>
+              <p className="text-sm text-[#64748b]">
+                Most affordable mid-valley option, outdoor recreation paradise.
               </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Cross-City Neighborhood Comparison */}
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-semibold tracking-tight text-[#354652] mb-3">
+            Neighborhoods across the valley
+          </h2>
+          <p className="text-[#64748b] leading-relaxed mb-10 max-w-2xl">
+            Every city has distinct neighborhoods. Here are the top picks by buyer profile,
+            drawn from all four service areas.
+          </p>
+
+          {/* By buyer profile */}
+          <div className="space-y-8">
+            {/* Most Affordable */}
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] overflow-hidden">
+              <div className="px-6 py-4 bg-emerald-50 border-b border-[#e2e8f0]">
+                <h3 className="text-base font-semibold text-[#354652]">Most affordable entry points</h3>
+                <p className="text-xs text-[#64748b] mt-0.5">Best for first-time buyers and budget-conscious families</p>
+              </div>
+              <div className="divide-y divide-[#f1f5f9]">
+                {[
+                  { neighborhood: "Downtown Sweet Home", city: "Sweet Home", range: "$250K–$340K", note: "Walkable main street, updated older homes", href: "/cities/sweet-home" },
+                  { neighborhood: "South Lebanon", city: "Lebanon", range: "$280K–$380K", note: "Walkable downtown, farmers market, Cheadle Lake", href: "/neighborhoods/south-lebanon" },
+                  { neighborhood: "South Albany", city: "Albany", range: "$320K–$420K", note: "Affordable starter homes, larger lots", href: "/cities/albany" },
+                  { neighborhood: "Foster / Upper Santiam", city: "Sweet Home", range: "$280K–$450K", note: "Waterfront access, mountain living", href: "/cities/sweet-home" },
+                ].map((n) => (
+                  <Link key={n.neighborhood} href={n.href} className="flex items-center justify-between px-6 py-4 hover:bg-[#f8fafb] transition-colors group">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors">{n.neighborhood}</p>
+                      <p className="text-xs text-[#94a3b8] mt-0.5">{n.city} · {n.note}</p>
+                    </div>
+                    <span className="text-sm font-semibold text-[#354652] tabular-nums ml-4 whitespace-nowrap">{n.range}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Best for Families */}
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] overflow-hidden">
+              <div className="px-6 py-4 bg-blue-50 border-b border-[#e2e8f0]">
+                <h3 className="text-base font-semibold text-[#354652]">Best for families</h3>
+                <p className="text-xs text-[#64748b] mt-0.5">Top schools, safe streets, parks, and community feel</p>
+              </div>
+              <div className="divide-y divide-[#f1f5f9]">
+                {[
+                  { neighborhood: "North Lebanon", city: "Lebanon", range: "$350K–$450K", note: "Sand Ridge Charter, modern builds, Highway 20 commute", href: "/neighborhoods/north-lebanon" },
+                  { neighborhood: "North Albany", city: "Albany", range: "$400K–$600K", note: "Top-rated schools, parks, easy Corvallis commute", href: "/cities/albany" },
+                  { neighborhood: "North Corvallis", city: "Corvallis", range: "$500K–$750K", note: "Bald Hill access, excellent schools, quiet streets", href: "/cities/corvallis" },
+                  { neighborhood: "North Sweet Home", city: "Sweet Home", range: "$300K–$380K", note: "Newer subdivisions, near Sweet Home High School", href: "/cities/sweet-home" },
+                ].map((n) => (
+                  <Link key={n.neighborhood} href={n.href} className="flex items-center justify-between px-6 py-4 hover:bg-[#f8fafb] transition-colors group">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors">{n.neighborhood}</p>
+                      <p className="text-xs text-[#94a3b8] mt-0.5">{n.city} · {n.note}</p>
+                    </div>
+                    <span className="text-sm font-semibold text-[#354652] tabular-nums ml-4 whitespace-nowrap">{n.range}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Premium / Acreage */}
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] overflow-hidden">
+              <div className="px-6 py-4 bg-amber-50 border-b border-[#e2e8f0]">
+                <h3 className="text-base font-semibold text-[#354652]">Premium &amp; acreage living</h3>
+                <p className="text-xs text-[#64748b] mt-0.5">Space, privacy, and upscale properties</p>
+              </div>
+              <div className="divide-y divide-[#f1f5f9]">
+                {[
+                  { neighborhood: "Hamilton Creek", city: "Lebanon", range: "$520K–$650K", note: "Estate lots, creek frontage, equestrian, no HOA", href: "/neighborhoods/hamilton-creek" },
+                  { neighborhood: "North Corvallis", city: "Corvallis", range: "$500K–$750K", note: "Bald Hill access, valley views, premium schools", href: "/cities/corvallis" },
+                  { neighborhood: "Historic Districts", city: "Albany", range: "$280K–$450K", note: "700+ Victorian and Craftsman homes, walkable downtown", href: "/cities/albany" },
+                  { neighborhood: "Holley / South Valley", city: "Sweet Home", range: "$350K–$500K", note: "Hobby farms, horse properties, custom builds", href: "/cities/sweet-home" },
+                ].map((n) => (
+                  <Link key={n.neighborhood} href={n.href} className="flex items-center justify-between px-6 py-4 hover:bg-[#f8fafb] transition-colors group">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors">{n.neighborhood}</p>
+                      <p className="text-xs text-[#94a3b8] mt-0.5">{n.city} · {n.note}</p>
+                    </div>
+                    <span className="text-sm font-semibold text-[#354652] tabular-nums ml-4 whitespace-nowrap">{n.range}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Outdoor Enthusiasts */}
+            <div className="bg-white rounded-2xl border border-[#e2e8f0] overflow-hidden">
+              <div className="px-6 py-4 bg-green-50 border-b border-[#e2e8f0]">
+                <h3 className="text-base font-semibold text-[#354652]">Outdoor enthusiasts</h3>
+                <p className="text-xs text-[#64748b] mt-0.5">Trails, water, mountains, and nature at your doorstep</p>
+              </div>
+              <div className="divide-y divide-[#f1f5f9]">
+                {[
+                  { neighborhood: "Foster / Upper Santiam", city: "Sweet Home", range: "$280K–$450K", note: "Foster Lake, Green Peter, Santiam River fishing", href: "/cities/sweet-home" },
+                  { neighborhood: "East Lebanon", city: "Lebanon", range: "$320K–$420K", note: "Cascade foothills, McDowell Creek Falls, larger lots", href: "/neighborhoods/east-lebanon" },
+                  { neighborhood: "South Corvallis", city: "Corvallis", range: "$400K–$600K", note: "Willamette River, natural areas, artsy vibe", href: "/cities/corvallis" },
+                  { neighborhood: "West Corvallis / Philomath", city: "Corvallis", range: "$450K–$650K", note: "Coast Range access, valley views, newer homes", href: "/cities/corvallis" },
+                ].map((n) => (
+                  <Link key={n.neighborhood} href={n.href} className="flex items-center justify-between px-6 py-4 hover:bg-[#f8fafb] transition-colors group">
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors">{n.neighborhood}</p>
+                      <p className="text-xs text-[#94a3b8] mt-0.5">{n.city} · {n.note}</p>
+                    </div>
+                    <span className="text-sm font-semibold text-[#354652] tabular-nums ml-4 whitespace-nowrap">{n.range}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>

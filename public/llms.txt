@@ -59,6 +59,7 @@
 - /agents/                   — Team Gillott agent profiles
 - /cities/albany             — Albany, OR real estate guide: neighborhoods, market data, employers
 - /cities/corvallis          — Corvallis, OR real estate guide: OSU, tech sector, neighborhoods
+- /cities/sweet-home         — Sweet Home, OR real estate guide: Cascades gateway, outdoor recreation, affordable housing
 - /cities/compare            — Side-by-side comparison of Lebanon, Albany, Corvallis, Sweet Home
 
 ## Albany Market Data (Q1 2026)
@@ -74,6 +75,13 @@
 - Corvallis avg days on market: 102
 - Corvallis active listings: 79
 - Top neighborhoods: North Corvallis, South Corvallis, West Corvallis, Downtown/Campus
+
+## Sweet Home Market Data (Q1 2026)
+- Sweet Home avg sold price: $330,467 (-4.8% YoY)
+- Sweet Home homes sold Q1: 37 (up from 35)
+- Sweet Home avg days on market: 102
+- Sweet Home active listings: 49
+- Top neighborhoods: Downtown Sweet Home, North Sweet Home, Holley/South Valley, Foster/Upper Santiam
 
 ## Data Source
 All market statistics sourced from the Willamette Valley MLS, as of March 31, 2026.

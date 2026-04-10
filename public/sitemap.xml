@@ -44,6 +44,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lebanon.justsoldle.com/blog/sweet-home-oregon-affordable-cascade-living</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lebanon.justsoldle.com/blog/best-neighborhoods-willamette-valley-2026</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lebanon.justsoldle.com/neighborhoods</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -123,6 +135,12 @@
   </url>
   <url>
     <loc>https://lebanon.justsoldle.com/cities/corvallis</loc>
+    <lastmod>2026-04-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lebanon.justsoldle.com/cities/sweet-home</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -21,8 +21,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[#94a3b8] text-sm leading-relaxed max-w-xs">
-              Serving Lebanon, Corvallis, and Albany with expert real estate
-              services. Your trusted partner in the Willamette Valley.
+              Serving Lebanon, Albany, Corvallis, and Sweet Home with expert real estate services. Your trusted partner in the Willamette Valley.
             </p>
           </div>
 
@@ -36,6 +35,7 @@ export default function Footer() {
                 { href: '/neighborhoods', label: 'Lebanon Neighborhoods' },
                 { href: '/cities/albany', label: 'Albany' },
                 { href: '/cities/corvallis', label: 'Corvallis' },
+                { href: '/cities/sweet-home', label: 'Sweet Home' },
                 { href: '/cities/compare', label: 'Compare Cities' },
               ].map((link) => (
                 <li key={link.href}>
