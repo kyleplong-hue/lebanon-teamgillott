@@ -119,7 +119,7 @@ export default function FirstTimeBuyersPage() {
       <WebPageSchema
         title="First-Time Home Buyer Guide — Lebanon, Oregon 2026"
         description="Complete guide for first-time homebuyers in Lebanon, Oregon, including Oregon assistance programs that can save you $60,000."
-        url="https://lebanon.teamgillott.com/first-time-buyers"
+        url="https://lebanon.justsoldle.com/first-time-buyers"
       />
 
       {/* Hero Section */}

@@ -125,7 +125,7 @@ export default function FAQPage() {
       <WebPageSchema
         title="Frequently Asked Questions - Lebanon Real Estate"
         description="Get answers to your Lebanon real estate questions: median home prices, schools, neighborhoods, first-time buyer programs, and more."
-        url="https://lebanon.teamgillott.com/faq"
+        url="https://lebanon.justsoldle.com/faq"
       />
 
       <section className="w-full bg-gradient-to-br from-[#0099cc] to-[#0077aa] py-16 px-4 sm:px-6 lg:px-8">

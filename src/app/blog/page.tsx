@@ -26,7 +26,7 @@ export default function BlogPage() {
       <WebPageSchema
         title="Lebanon Real Estate Blog"
         description="Stay informed on Lebanon, Corvallis, and Albany real estate trends, market insights, and community news."
-        url="https://lebanon.teamgillott.com/blog"
+        url="https://lebanon.justsoldle.com/blog"
       />
 
       {/* Hero */}

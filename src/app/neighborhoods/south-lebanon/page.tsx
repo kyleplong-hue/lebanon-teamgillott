@@ -22,7 +22,7 @@ export default function SouthLebanon() {
       <WebPageSchema
         title="South Lebanon Real Estate Guide"
         description="Complete guide to South Lebanon neighborhoods, homes, schools, and lifestyle. Explore properties close to downtown with walkable access to parks and amenities."
-        url="https://lebanon.teamgillott.com/neighborhoods/south-lebanon"
+        url="https://lebanon.justsoldle.com/neighborhoods/south-lebanon"
       />
       <LocalBusinessSchema
         name="Team Gillott - South Lebanon Real Estate"

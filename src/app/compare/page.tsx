@@ -16,7 +16,7 @@ export default function ComparePage() {
       <WebPageSchema
         title="Compare Lebanon Neighborhoods"
         description="Interactive side-by-side comparison tool for Lebanon, Oregon neighborhoods. Compare prices, statistics, schools, and characteristics."
-        url="https://lebanon.teamgillott.com/compare"
+        url="https://lebanon.justsoldle.com/compare"
       />
 
       {/* Hero Section */}

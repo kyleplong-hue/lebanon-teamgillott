@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description:
       'Get answers to your Lebanon real estate questions: median home prices, schools, neighborhoods, first-time buyer programs, and more.',
     type: 'website',
-    url: 'https://lebanon.teamgillott.com/faq',
+    url: 'https://lebanon.justsoldle.com/faq',
   },
 };
 

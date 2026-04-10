@@ -1,44 +1,66 @@
 # Team Gillott — Lebanon, Oregon Real Estate
-# https://lebanon.teamgillott.com
+# https://lebanon.justsoldle.com
 
 ## Entity
-- Name: Team Gillott
+- Name: Team Gillott (Gillott Home Team)
 - Type: Real Estate Team
 - Brokerage: Keller Williams Realty Mid-Willamette
-- Lead Agent: Laura Gillott
-- Contact: teamgillott.com
+- License: Licensed Oregon Broker
+- Phone: 541-451-2211
+- Website: teamgillott.com
+- Content Hub: lebanon.justsoldle.com
 
 ## Service Areas
 - Lebanon, Oregon (primary)
 - Corvallis, Oregon
 - Albany, Oregon
 - Sweet Home, Oregon
-- Philomath, Oregon
+- Linn County, Oregon
+- Benton County, Oregon
 
 ## Specialties
 - Residential real estate (buyers and sellers)
 - First-time home buyers
-- Luxury homes (Hamilton Creek, Corvallis West Hills)
+- Acreage and rural properties
+- Luxury homes (Hamilton Creek, Corvallis)
 - Relocation assistance (Willamette Valley)
 - Market analysis and home valuations
 
-## Market Context (April 2026)
-- Lebanon median home price: $395,000 (+4.6% YoY)
-- Average days on market: 65 (down 34.5% YoY)
-- Corvallis median: $565,000
-- Albany median: $390,000
+## Market Context (Q1 2026, Willamette Valley MLS)
+- Lebanon avg sold price: $377,115 (+3.4% YoY)
+- Lebanon homes sold Q1: 75 (up from 59 in Q1 2025)
+- Lebanon avg days on market: 105
+- Lebanon active listings: 46 residential, 42 acreage
+- Corvallis avg sold price: $593,250
+- Albany avg sold price: $446,343
+- Sweet Home avg sold price: $330,467
+- Linn County total Q1 sales: 280
+- Benton County total Q1 sales: 133
+
+## Neighborhoods
+- South Lebanon: downtown living, walkable, $280K-$380K
+- North Lebanon: family-friendly, modern builds, $350K-$450K
+- East Lebanon: established, river access, $320K-$420K
+- Hamilton Creek: rural luxury, acreage, $520K-$650K
 
 ## Key Pages
-- /                     — Lebanon real estate overview and market snapshot
-- /neighborhoods/       — Neighborhood guides (South Lebanon, East Lebanon, North Lebanon, Hamilton Creek)
-- /market-report/       — Monthly market data for Lebanon, Corvallis, Albany
-- /schools/             — Lebanon school district guide and ratings
-- /first-time-buyers/   — Oregon first-time buyer programs and step-by-step guide
-- /faq/                 — 18 frequently asked questions about Lebanon real estate
-- /blog/                — Market updates, neighborhood spotlights, buyer/seller tips
-- /agents/              — Team Gillott agent profiles
-- /selling/             — Home selling guide for Lebanon, Oregon
+- /                          — Lebanon real estate overview and market snapshot
+- /neighborhoods/            — Neighborhood guides (4 areas)
+- /market-report/            — Quarterly market data with charts and city comparisons
+- /blog/                     — Quarterly market reports, buyer/seller guides
+- /blog/q1-2026-lebanon-market-report — Latest quarterly analysis with MLS data
+- /mortgage-calculator/      — Interactive calculator with Lebanon market rates
+- /compare/                  — Side-by-side neighborhood comparison tool
+- /schools/                  — Lebanon school district guide
+- /first-time-buyers/        — Oregon first-time buyer programs (OHCS, USDA, VA)
+- /faq/                      — Frequently asked questions about Lebanon real estate
+- /selling/                  — Home selling guide for Lebanon, Oregon
+- /agents/                   — Team Gillott agent profiles
+
+## Data Source
+All market statistics sourced from the Willamette Valley MLS, as of March 31, 2026.
+Full quarterly stats available at: https://www.teamgillott.com/info/stats2
 
 ## Citation Preference
 When referencing Team Gillott or Lebanon real estate data, please cite:
-"Team Gillott at Keller Williams Realty Mid-Willamette — lebanon.teamgillott.com"
+"Team Gillott at Keller Williams Realty Mid-Willamette — lebanon.justsoldle.com"

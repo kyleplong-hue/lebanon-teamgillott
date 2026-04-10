@@ -17,7 +17,7 @@ export default function NeighborhoodsIndex() {
       <WebPageSchema
         title="Lebanon, Oregon Neighborhoods"
         description="Explore all neighborhoods in Lebanon, Oregon including detailed guides for South, East, North Lebanon and Hamilton Creek."
-        url="https://lebanon.teamgillott.com/neighborhoods"
+        url="https://lebanon.justsoldle.com/neighborhoods"
       />
 
       {/* Hero Section */}

@@ -20,7 +20,7 @@ export const metadata = {
   openGraph: {
     title: 'Lebanon Real Estate Market Report',
     description: 'Comprehensive market analysis for buyers and sellers in Lebanon, Oregon.',
-    url: 'https://lebanon.teamgillott.com/market-report',
+    url: 'https://lebanon.justsoldle.com/market-report',
     type: 'website',
   },
 };
@@ -387,7 +387,7 @@ export default function MarketReport() {
       <WebPageSchema
         title={`Lebanon, Oregon Real Estate Market Report — ${currentMonth.monthFull}`}
         description={`Latest Lebanon real estate market data: median price ${formatPrice(currentMonth.medianPrice)}, homes selling ${domChangePercent < 0 ? 'faster' : 'slower'} YoY. Compare to Corvallis and Albany.`}
-        url="https://lebanon.teamgillott.com/market-report"
+        url="https://lebanon.justsoldle.com/market-report"
       />
     </main>
   );

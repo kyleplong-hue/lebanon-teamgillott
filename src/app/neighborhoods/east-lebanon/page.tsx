@@ -22,7 +22,7 @@ export default function EastLebanon() {
       <WebPageSchema
         title="East Lebanon Real Estate Guide"
         description="Complete guide to East Lebanon neighborhoods, homes with larger lots, outdoor recreation access, and lifestyle. Gateway to Cascade foothills hiking and lakes."
-        url="https://lebanon.teamgillott.com/neighborhoods/east-lebanon"
+        url="https://lebanon.justsoldle.com/neighborhoods/east-lebanon"
       />
       <LocalBusinessSchema
         name="Team Gillott - East Lebanon Real Estate"

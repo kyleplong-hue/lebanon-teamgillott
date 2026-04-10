@@ -22,7 +22,7 @@ export default function NorthLebanon() {
       <WebPageSchema
         title="North Lebanon Real Estate Guide"
         description="Complete guide to North Lebanon neighborhoods with newer developments, family-friendly features, and excellent commute access to Corvallis and Albany."
-        url="https://lebanon.teamgillott.com/neighborhoods/north-lebanon"
+        url="https://lebanon.justsoldle.com/neighborhoods/north-lebanon"
       />
       <LocalBusinessSchema
         name="Team Gillott - North Lebanon Real Estate"

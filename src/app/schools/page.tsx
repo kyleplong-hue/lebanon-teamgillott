@@ -7,7 +7,7 @@ export default function SchoolsPage() {
       <WebPageSchema
         title="Lebanon, Oregon Schools Guide — Top-Rated School Districts"
         description="Explore Lebanon schools: 91% graduation rate, Sand Ridge Charter School, Lebanon Community School District 9. Find homes near top-rated schools."
-        url="https://lebanon.teamgillott.com/schools"
+        url="https://lebanon.justsoldle.com/schools"
       />
 
       <section className="w-full bg-gradient-to-br from-[#0099cc] to-[#0077aa] py-16 px-4 sm:px-6 lg:px-8">

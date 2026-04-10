@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description:
       'Latest Lebanon real estate market data: median price $395K, homes selling 34.5% faster. Compare to Corvallis and Albany.',
     type: 'website',
-    url: 'https://lebanon.teamgillott.com/market-report',
+    url: 'https://lebanon.justsoldle.com/market-report',
   },
 };
 

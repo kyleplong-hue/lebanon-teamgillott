@@ -22,7 +22,7 @@ export default function HamiltonCreek() {
       <WebPageSchema
         title="Hamilton Creek Real Estate Guide"
         description="Complete guide to Hamilton Creek upscale neighborhoods with premium custom estates, rolling hills, and privacy in Lebanon, Oregon."
-        url="https://lebanon.teamgillott.com/neighborhoods/hamilton-creek"
+        url="https://lebanon.justsoldle.com/neighborhoods/hamilton-creek"
       />
       <LocalBusinessSchema
         name="Team Gillott - Hamilton Creek Real Estate"

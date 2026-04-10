@@ -70,7 +70,7 @@ export default function SellingPage() {
       <WebPageSchema
         title="Selling Your Lebanon, Oregon Home — A Complete Guide"
         description="Step-by-step guide to selling your Lebanon home with Team Gillott. Learn our proven selling process."
-        url="https://lebanon.teamgillott.com/selling"
+        url="https://lebanon.justsoldle.com/selling"
       />
 
       {/* Hero Section */}

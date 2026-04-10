@@ -60,7 +60,7 @@ export default function AgentsPage() {
       <WebPageSchema
         title="Meet the Team Gillott Agents"
         description="Professional real estate agents serving Lebanon, Corvallis, Albany, Sweet Home, and Philomath, Oregon."
-        url="https://lebanon.teamgillott.com/agents"
+        url="https://lebanon.justsoldle.com/agents"
       />
 
       <section className="w-full bg-gradient-to-b from-[#0099cc] to-[#0077aa] text-white py-16 px-4 sm:px-6 lg:px-8">

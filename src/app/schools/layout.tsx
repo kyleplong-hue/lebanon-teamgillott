@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description:
       'Explore Lebanon schools: 91% graduation rate, Sand Ridge Charter School, Lebanon Community School District 9. Find homes near top-rated schools.',
     type: 'website',
-    url: 'https://lebanon.teamgillott.com/schools',
+    url: 'https://lebanon.justsoldle.com/schools',
   },
 };
 

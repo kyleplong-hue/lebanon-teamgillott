@@ -47,8 +47,49 @@ export default async function BlogPostPage({
 
   const related = getRelatedPosts(slug);
 
+  // Article structured data for SEO
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.isoDate,
+    dateModified: post.isoDate,
+    author: {
+      "@type": "Organization",
+      name: "Team Gillott",
+      url: "https://www.teamgillott.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Team Gillott at Keller Williams Realty Mid-Willamette",
+      url: "https://lebanon.justsoldle.com",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://lebanon.justsoldle.com/blog/${post.slug}`,
+    },
+    ...(post.category === "Market Report" && {
+      about: {
+        "@type": "Place",
+        name: "Lebanon, Oregon",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Lebanon",
+          addressRegion: "OR",
+          addressCountry: "US",
+        },
+      },
+    }),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#0a2540] to-[#0e3a5c] py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-6">
