@@ -75,29 +75,29 @@ export const blogPosts: BlogPost[] = [
       { label: "Price per Sq Ft", value: "$212", change: "", direction: "flat" },
     ],
     content: [
-      "Sweet Home, Oregon sits 12 miles east of Lebanon at the foot of the Cascade Range, and it's quietly become one of the best-value real estate markets in the Willamette Valley. With an average sold price of $330,467 in Q1 2026, it's the most affordable city Team Gillott serves — and the outdoor access is unmatched.",
+      "Sweet Home, Oregon sits 12 miles east of Lebanon at the foot of the Cascade Range, and it's quietly become one of the best-value real estate markets in the Willamette Valley. With an average sold price of $330,467 in Q1 2026, it's the most affordable city [Team Gillott](/) serves — and the outdoor access is unmatched.",
 
       "## Why Sweet Home?",
 
-      "The draw is simple: you get mountain-town living at valley prices. Foster Reservoir, Green Peter Lake, and the Santiam River are all within 15 minutes. McDowell Creek Falls and Cascadia State Park offer world-class hiking. The Oregon Jamboree brings 20,000+ visitors annually. And a 15-minute drive puts you in Lebanon for groceries, healthcare, and services.",
+      "The draw is simple: you get mountain-town living at valley prices. Foster Reservoir, Green Peter Lake, and the Santiam River are all within 15 minutes. McDowell Creek Falls and Cascadia State Park offer world-class hiking. The Oregon Jamboree brings 20,000+ visitors annually. And a 15-minute drive puts you in [Lebanon](/) for groceries, healthcare, and services.",
 
       "## The Market Right Now",
 
-      "Sweet Home's market is buyer-friendly in Q1 2026. Prices declined 4.8% year-over-year, creating opportunity for those who've been priced out of Albany or Lebanon. With 49 active listings and only 37 sales in Q1, inventory is strong. Homes average 102 days on market, giving buyers time to negotiate.",
+      "Sweet Home's market is buyer-friendly in Q1 2026. Prices declined 4.8% year-over-year, creating opportunity for those who've been priced out of [Albany](/cities/albany) or [Lebanon](/). With 49 active listings and only 37 sales in Q1, inventory is strong. Homes average 102 days on market, giving buyers time to negotiate.",
 
       "## Four Neighborhoods to Know",
 
-      "Downtown Sweet Home ($250K–$340K) is the walkable core with local shops and updated older homes. North Sweet Home ($300K–$380K) has the newer subdivisions popular with families. Holley/South Valley ($350K–$500K) is where you'll find hobby farms and horse properties. And the Foster/Upper Santiam corridor ($280K–$450K) is the outdoor enthusiast's dream — waterfront properties near the reservoirs.",
+      "[Downtown Sweet Home](/cities/sweet-home) ($250K–$340K) is the walkable core with local shops and updated older homes. North Sweet Home ($300K–$380K) has the newer subdivisions popular with families. Holley/South Valley ($350K–$500K) is where you'll find hobby farms and horse properties. And the Foster/Upper Santiam corridor ($280K–$450K) is the outdoor enthusiast's dream — waterfront properties near the reservoirs.",
 
       "## The Commute Factor",
 
-      "Sweet Home is 15 minutes to Lebanon and 30 minutes to Albany via US-20. Many residents work in Lebanon or Albany and enjoy Sweet Home's lower costs of living. The drive is scenic rather than stressful — no highway congestion, just the Santiam Canyon.",
+      "Sweet Home is 15 minutes to [Lebanon](/) and 30 minutes to [Albany](/cities/albany) via US-20. Many residents work in Lebanon or Albany and enjoy Sweet Home's lower costs of living. The drive is scenic rather than stressful — no highway congestion, just the Santiam Canyon.",
 
       "## Who Should Consider Sweet Home?",
 
-      "Sweet Home is ideal for outdoor enthusiasts, retirees on a fixed income, remote workers, and families who prioritize space over urban amenities. At $212 per square foot — the lowest in the mid-valley — your budget goes further here than anywhere else Team Gillott serves.",
+      "Sweet Home is ideal for outdoor enthusiasts, retirees on a fixed income, remote workers, and families who prioritize space over urban amenities. At $212 per square foot — the lowest in the mid-valley — your budget goes further here than anywhere else Team Gillott serves. Use our [city comparison tool](/cities/compare) to see how Sweet Home stacks up.",
 
-      "If you're exploring options in the mid-Willamette Valley, Sweet Home deserves a serious look. Contact Team Gillott for a personalized tour.",
+      "If you're exploring options in the mid-Willamette Valley, Sweet Home deserves a serious look. Contact [Team Gillott](/) for a personalized tour.",
     ],
     relatedSlugs: [
       "q1-2026-lebanon-market-report",
@@ -122,19 +122,19 @@ export const blogPosts: BlogPost[] = [
 
       "## Lebanon: Small-Town Heart, Big Value",
 
-      "Lebanon ($377K average) offers four distinct areas. South Lebanon ($280K–$380K) is the walkable downtown core with established homes and the weekly farmers market. East Lebanon ($320K–$420K) sits in the Cascade foothills with larger lots and McDowell Creek Falls nearby. North Lebanon ($350K–$450K) has modern builds, Sand Ridge Charter School, and easy Highway 20 commuting. And Hamilton Creek ($520K–$650K) is the premium address — estate-sized lots, creek frontage, and no HOA.",
+      "Lebanon ($377K average) offers four distinct areas. [South Lebanon](/neighborhoods/south-lebanon) ($280K–$380K) is the walkable downtown core with established homes and the weekly farmers market. [East Lebanon](/neighborhoods/east-lebanon) ($320K–$420K) sits in the Cascade foothills with larger lots and McDowell Creek Falls nearby. [North Lebanon](/neighborhoods/north-lebanon) ($350K–$450K) has modern builds, Sand Ridge Charter School, and easy Highway 20 commuting. And [Hamilton Creek](/neighborhoods/hamilton-creek) ($520K–$650K) is the premium address — estate-sized lots, creek frontage, and no HOA.",
 
       "## Albany: History Meets Convenience",
 
-      "Albany ($446K average) anchors the central valley with four neighborhoods. The Historic Districts ($280K–$450K) boast 700+ Victorian and Craftsman homes across four National Register districts — walkable and full of character. North Albany ($400K–$600K) is the family favorite with top schools and easy Corvallis access. East Albany ($350K–$500K) offers newer construction near I-5. South Albany ($320K–$420K) provides the most affordable entry with larger lots.",
+      "[Albany](/cities/albany) ($446K average) anchors the central valley with four neighborhoods. The Historic Districts ($280K–$450K) boast 700+ Victorian and Craftsman homes across four National Register districts — walkable and full of character. North Albany ($400K–$600K) is the family favorite with top schools and easy Corvallis access. East Albany ($350K–$500K) offers newer construction near I-5. South Albany ($320K–$420K) provides the most affordable entry with larger lots.",
 
       "## Corvallis: University Town Premium",
 
-      "Corvallis ($593K average) commands the highest prices but delivers nationally ranked schools and a vibrant downtown. North Corvallis ($500K–$750K) is the premier family area near Bald Hill. South Corvallis ($400K–$600K) has an artsy, walkable character near natural areas. West Corvallis/Philomath ($450K–$650K) features newer developments with valley views. Downtown/Campus ($350K–$550K) offers urban walkability near OSU.",
+      "[Corvallis](/cities/corvallis) ($593K average) commands the highest prices but delivers nationally ranked schools and a vibrant downtown. North Corvallis ($500K–$750K) is the premier family area near Bald Hill. South Corvallis ($400K–$600K) has an artsy, walkable character near natural areas. West Corvallis/Philomath ($450K–$650K) features newer developments with valley views. Downtown/Campus ($350K–$550K) offers urban walkability near OSU.",
 
       "## Sweet Home: Maximum Value, Maximum Outdoors",
 
-      "Sweet Home ($330K average) is the budget leader with unmatched outdoor access. Downtown ($250K–$340K) has the walkable main street with local shops. North Sweet Home ($300K–$380K) is where young families find new construction. Holley/South Valley ($350K–$500K) offers hobby farms and horse properties. And Foster/Upper Santiam ($280K–$450K) puts you minutes from Foster Reservoir and Green Peter Lake.",
+      "[Sweet Home](/cities/sweet-home) ($330K average) is the budget leader with unmatched outdoor access. Downtown ($250K–$340K) has the walkable main street with local shops. North Sweet Home ($300K–$380K) is where young families find new construction. Holley/South Valley ($350K–$500K) offers hobby farms and horse properties. And Foster/Upper Santiam ($280K–$450K) puts you minutes from Foster Reservoir and Green Peter Lake.",
 
       "## Quick Comparison by Budget",
 
@@ -142,7 +142,7 @@ export const blogPosts: BlogPost[] = [
 
       "## The Bottom Line",
 
-      "The Willamette Valley offers something for every lifestyle and budget within a 30-minute driving radius. Whether you want a $250K starter near the Cascades or a $750K family home near Oregon State, Team Gillott can help you find the right neighborhood. Use our interactive city comparison tool to explore the data, or contact us for a personalized tour.",
+      "The Willamette Valley offers something for every lifestyle and budget within a 30-minute driving radius. Whether you want a $250K starter near the Cascades or a $750K family home near Oregon State, Team Gillott can help you find the right neighborhood. Use our [interactive city comparison tool](/cities/compare) to explore the data, or contact [Team Gillott](/) for a personalized tour.",
     ],
     relatedSlugs: [
       "sweet-home-oregon-affordable-cascade-living",
@@ -188,7 +188,7 @@ export const blogPosts: BlogPost[] = [
 
       "## How Lebanon Compares to Nearby Cities",
 
-      "Lebanon continues to offer the strongest value proposition in the mid-Willamette Valley. At $377,115, the average home price is significantly below Corvallis ($593,250) and more affordable than Albany ($446,343). Only Sweet Home comes in lower at $330,467, though that market saw a 4.8% price decline year-over-year.",
+      "Lebanon continues to offer the strongest value proposition in the mid-Willamette Valley. At $377,115, the average home price is significantly below [Corvallis](/cities/corvallis) ($593,250) and more affordable than [Albany](/cities/albany) ($446,343). Only [Sweet Home](/cities/sweet-home) comes in lower at $330,467, though that market saw a 4.8% price decline year-over-year.",
 
       "Corvallis saw its average sold price rise 4.1% to $593,250 with 68 sales in Q1, while Albany posted 147 sales (the highest volume in the region) but experienced a slight 1.5% price decrease to $446,343.",
 
@@ -202,11 +202,11 @@ export const blogPosts: BlogPost[] = [
 
       "## What This Means for Buyers and Sellers",
 
-      "For buyers: Lebanon remains the best value in the region, with prices roughly 36% below Corvallis. The increase in active inventory means more choices, and the longer days on market provide more negotiating room than during the frenzied 2021-2022 period.",
+      "For buyers: Lebanon remains the [best value in the region](/cities/compare), with prices roughly 36% below Corvallis. The increase in active inventory means more choices, and the longer days on market provide more negotiating room than during the frenzied 2021-2022 period.",
 
       "For sellers: Prices are rising, and the gap between list and sold prices is narrow, meaning well-priced homes are being received well by the market. The key is accurate pricing, as the longer average days on market suggest buyers are being selective.",
 
-      "Data sourced from the Willamette Valley MLS, as of March 31, 2026. For a personalized market analysis of your property or neighborhood, contact Team Gillott.",
+      "Data sourced from the Willamette Valley MLS, as of March 31, 2026. For a personalized market analysis of your property or neighborhood, contact [Team Gillott](/)",
     ],
     relatedSlugs: [
       "sweet-home-oregon-affordable-cascade-living",
@@ -228,29 +228,29 @@ export const blogPosts: BlogPost[] = [
     seoDescription:
       "Why families choose Lebanon Oregon. Affordable homes, great schools, outdoor recreation, and community. Learn what makes Lebanon a top choice.",
     content: [
-      "Lebanon, Oregon has been quietly attracting families from across the Willamette Valley and beyond. While cities like Corvallis and Albany get more name recognition, Lebanon offers a combination of affordability, community, and quality of life that's hard to beat. Here are five reasons families are making the move.",
+      "Lebanon, Oregon has been quietly attracting families from across the Willamette Valley and beyond. While cities like [Corvallis](/cities/corvallis) and [Albany](/cities/albany) get more name recognition, Lebanon offers a combination of affordability, community, and quality of life that's hard to beat. Here are five reasons families are making the move.",
 
       "## 1. Affordability That Actually Means Something",
 
-      "With an average home price of $377,115 in Q1 2026, Lebanon offers homes at roughly 36% less than Corvallis and 16% less than Albany. For a family, that difference can mean the gap between a cramped starter home and a comfortable 3-bedroom with a yard. The math is simple: your dollar goes further here.",
+      "With an average home price of $377,115 in Q1 2026, Lebanon offers homes at roughly 36% less than Corvallis and 16% less than Albany. For a family, that difference can mean the gap between a cramped starter home and a comfortable 3-bedroom with a yard. See our [full market report](/market-report) for the latest data.",
 
       "## 2. Strong School Options",
 
-      "Lebanon Community Schools serve the area with several well-regarded elementary schools, a middle school, and Lebanon High School. The district has invested in both academics and extracurricular programs. For families with younger children, the smaller class sizes compared to larger Corvallis or Albany schools are a draw.",
+      "[Lebanon Community Schools](/schools) serve the area with several well-regarded elementary schools, a middle school, and Lebanon High School. The district has invested in both academics and extracurricular programs. For families with younger children, the smaller class sizes compared to larger Corvallis or Albany schools are a draw.",
 
       "## 3. Outdoor Recreation at Your Doorstep",
 
-      "Lebanon sits at the gateway to the Cascade foothills. Cheadle Lake, Waterloo County Park, and McDowell Creek Falls are all within a short drive. The Santiam River offers fishing, kayaking, and swimming in summer. For families who value weekend adventures without a long drive, the access is unmatched.",
+      "Lebanon sits at the gateway to the Cascade foothills. Cheadle Lake, Waterloo County Park, and McDowell Creek Falls are all within a short drive. The [Cascade foothills](/neighborhoods/east-lebanon) offer fishing, kayaking, and swimming in summer. For families who value weekend adventures without a long drive, the access is unmatched.",
 
       "## 4. A Genuine Small-Town Community",
 
-      "The Strawberry Festival, Friday night football, local coffee shops where the barista knows your name. Lebanon has the kind of community fabric that's become rare. Neighbors look out for each other, local businesses thrive, and there's a pace of life that lets families actually spend time together.",
+      "The Strawberry Festival, Friday night football, and local coffee shops where the barista knows your name. Lebanon has the kind of community fabric that's become rare. Neighbors look out for each other, local businesses thrive, and there's a pace of life that lets families actually spend time together.",
 
       "## 5. Growing Without Losing Its Character",
 
-      "Lebanon is growing, but thoughtfully. New construction in areas like North Lebanon and Hamilton Creek is adding inventory without the overdevelopment that has changed the character of some other Willamette Valley towns. The city has invested in infrastructure, parks, and downtown revitalization while keeping the small-town feel intact.",
+      "Lebanon is growing, but thoughtfully. New construction in areas like [North Lebanon](/neighborhoods/north-lebanon) and [Hamilton Creek](/neighborhoods/hamilton-creek) is adding inventory without the overdevelopment that has changed the character of some other Willamette Valley towns. The city has invested in infrastructure, parks, and downtown revitalization while keeping the small-town feel intact.",
 
-      "If you're considering a move to Lebanon, Team Gillott can help you explore neighborhoods, understand the market, and find the right fit for your family.",
+      "If you're considering a move to Lebanon, [Team Gillott](/) can help you explore neighborhoods, understand the market, and find the right fit for your family.",
     ],
     relatedSlugs: [
       "q1-2026-lebanon-market-report",
@@ -280,7 +280,7 @@ export const blogPosts: BlogPost[] = [
 
       "## USDA Rural Development Loans",
 
-      "Lebanon qualifies for USDA Rural Development loans, which offer zero down payment financing for eligible buyers. Income limits apply, but for a family of four, the limit is generous enough to cover most first-time buyers in the area. This is one of Lebanon's hidden advantages over larger cities like Corvallis or Albany, which don't qualify.",
+      "[Lebanon](/) qualifies for USDA Rural Development loans, which offer zero down payment financing for eligible buyers. Income limits apply, but for a family of four, the limit is generous enough to cover most first-time buyers in the area. This is one of Lebanon's hidden advantages over larger cities like [Corvallis](/cities/corvallis) or [Albany](/cities/albany), which don't qualify.",
 
       "## VA Loans",
 
@@ -288,9 +288,9 @@ export const blogPosts: BlogPost[] = [
 
       "## What This Means in Real Numbers",
 
-      "On a $377,000 home (Lebanon's current average), a conventional loan with 5% down means $18,850 out of pocket. With Oregon's down payment assistance, that drops to roughly $3,850. A USDA loan brings it to zero down. The monthly payment difference between a 5% down conventional and a USDA loan on this price point is roughly $150/month in PMI savings.",
+      "On a $377,000 home ([Lebanon's current average](/market-report)), a conventional loan with 5% down means $18,850 out of pocket. With Oregon's down payment assistance, that drops to roughly $3,850. A USDA loan brings it to zero down. The monthly payment difference between a 5% down conventional and a USDA loan on this price point is roughly $150/month in PMI savings.",
 
-      "Ready to explore your options? Team Gillott works with lenders who specialize in these programs and can walk you through the process.",
+      "Ready to explore your options? [Team Gillott](/) works with lenders who specialize in these programs and can walk you through the process.",
     ],
     relatedSlugs: [
       "q1-2026-lebanon-market-report",
@@ -308,7 +308,7 @@ export const blogPosts: BlogPost[] = [
     author: "Team Gillott",
     readTime: "4 min read",
     content: [
-      "Lebanon has distinct neighborhoods, each with its own character. Two of the most searched are Hamilton Creek (the rural, upscale area) and South Lebanon (the walkable, established core). Here's how they compare.",
+      "Lebanon has distinct neighborhoods, each with its own character. Two of the most searched are [Hamilton Creek](/neighborhoods/hamilton-creek) (the rural, upscale area) and [South Lebanon](/neighborhoods/south-lebanon) (the walkable, established core). Here's how they compare.",
 
       "## Price Point",
 
@@ -330,9 +330,9 @@ export const blogPosts: BlogPost[] = [
 
       "## The Bottom Line",
 
-      "Choose Hamilton Creek if you want space, privacy, and a rural feel and have a higher budget. Choose South Lebanon if you want walkability, community, and a lower entry point. Both are great places to live, just for different reasons.",
+      "Choose [Hamilton Creek](/neighborhoods/hamilton-creek) if you want space, privacy, and a rural feel and have a higher budget. Choose [South Lebanon](/neighborhoods/south-lebanon) if you want walkability, community, and a lower entry point. Both are great places to live, just for different reasons.",
 
-      "Want to tour properties in either neighborhood? Team Gillott knows every street in Lebanon and can help you find the right fit.",
+      "Want to tour properties in either neighborhood? [Team Gillott](/) knows every street in Lebanon and can help you find the right fit.",
     ],
     relatedSlugs: [
       "q1-2026-lebanon-market-report",

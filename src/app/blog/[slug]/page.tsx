@@ -10,6 +10,59 @@ import { currentMonth, mlsSource, formatPriceFull } from "@/data/market";
 import { SITE_URL, TEAM_URL, siteUrl, teamUrl } from "@/data/config";
 import CTABanner from "@/components/CTABanner";
 
+/**
+ * Parse markdown-style inline links [text](/path) and render as Next.js Links.
+ * Supports both internal (/path) and external (https://) links.
+ */
+function renderInlineLinks(text: string): React.ReactNode[] {
+  const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = linkPattern.exec(text)) !== null) {
+    // Text before the link
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    const linkText = match[1];
+    const href = match[2];
+    const isExternal = href.startsWith("http");
+
+    if (isExternal) {
+      parts.push(
+        <a
+          key={match.index}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[#CA3121] underline underline-offset-2 hover:text-[#a82919] transition-colors"
+        >
+          {linkText}
+        </a>
+      );
+    } else {
+      parts.push(
+        <Link
+          key={match.index}
+          href={href}
+          className="text-[#CA3121] underline underline-offset-2 hover:text-[#a82919] transition-colors"
+        >
+          {linkText}
+        </Link>
+      );
+    }
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Remaining text after last link
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : [text];
+}
+
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
@@ -183,7 +236,7 @@ export default async function BlogPostPage({
                 key={i}
                 className="text-[#374151] leading-relaxed mb-5 text-[16.5px]"
               >
-                {block}
+                {renderInlineLinks(block)}
               </p>
             );
           })}
