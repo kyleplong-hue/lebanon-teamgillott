@@ -5,22 +5,47 @@ interface CTABannerProps {
   subheading?: string;
   ctaText?: string;
   ctaUrl?: string;
+  variant?: 'primary' | 'dark' | 'subtle';
 }
 
 export default function CTABanner({
-  heading = 'Ready to Find Your Lebanon Home?',
-  subheading = 'Let Team Gillott guide you through the process.',
-  ctaText = 'Search Homes on Team Gillott',
+  heading = 'Ready to find your Lebanon home?',
+  subheading = 'Let Team Gillott guide you through every step.',
+  ctaText = 'Search Homes',
   ctaUrl = 'https://www.teamgillott.com',
+  variant = 'primary',
 }: CTABannerProps) {
+  const variants = {
+    primary: {
+      bg: 'bg-[#0099cc]',
+      heading: 'text-white',
+      sub: 'text-white/70',
+      btn: 'bg-white text-[#0099cc] hover:bg-white/90',
+    },
+    dark: {
+      bg: 'bg-[#0f1c24]',
+      heading: 'text-white',
+      sub: 'text-[#94a3b8]',
+      btn: 'bg-[#0099cc] text-white hover:bg-[#00708f]',
+    },
+    subtle: {
+      bg: 'bg-[#f1f5f9]',
+      heading: 'text-[#1a2b36]',
+      sub: 'text-[#64748b]',
+      btn: 'bg-[#0099cc] text-white hover:bg-[#00708f]',
+    },
+  };
+
+  const v = variants[variant];
+
   return (
-    <section className="w-full bg-gradient-to-r from-[#0099cc] to-[#0077aa] py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 font-sans">
+    <section className={`w-full ${v.bg} noise-overlay`}>
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <h2 className={`text-3xl sm:text-4xl font-semibold tracking-tight ${v.heading} mb-4`}>
           {heading}
         </h2>
         {subheading && (
-          <p className="text-lg text-blue-100 mb-8">
+          <p className={`text-lg ${v.sub} mb-8 max-w-xl mx-auto`}>
             {subheading}
           </p>
         )}
@@ -28,9 +53,12 @@ export default function CTABanner({
           href={ctaUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block px-8 py-3 bg-[#ca3121] text-white font-semibold rounded-lg hover:bg-[#b8270d] transition-colors duration-200"
+          className={`inline-flex items-center px-6 py-3 text-sm font-semibold rounded-lg ${v.btn} transition-all duration-200 active:scale-[0.98]`}
         >
           {ctaText}
+          <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
         </a>
       </div>
     </section>

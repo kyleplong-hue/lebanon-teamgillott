@@ -24,15 +24,15 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
       {items.map((item) => (
         <div
           key={item.id}
-          className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+          className="border border-[#e2e8f0] rounded-2xl overflow-hidden hover:shadow-md hover:border-[#0099cc]/30 transition-all duration-300 bg-white"
         >
           <button
             onClick={() => toggleAccordion(item.id)}
-            className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors text-left"
+            className="w-full px-6 py-4 flex items-center justify-between hover:bg-[#f8fafb] transition-colors duration-300 text-left"
             aria-expanded={expandedId === item.id}
             aria-controls={`faq-content-${item.id}`}
           >
-            <span className="font-semibold text-[#354652] text-lg pr-4">{item.question}</span>
+            <span className="font-semibold text-[#1a2b36] text-lg pr-4 tracking-tight">{item.question}</span>
             <span
               className={`flex-shrink-0 text-[#0099cc] font-bold text-2xl transition-transform duration-200 ${
                 expandedId === item.id ? 'rotate-45' : ''
@@ -44,7 +44,7 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
           {expandedId === item.id && (
             <div
               id={`faq-content-${item.id}`}
-              className="px-6 py-4 bg-gray-50 border-t border-gray-200 text-[#354652]"
+              className="px-6 py-4 bg-[#f8fafb] border-t border-[#e2e8f0] text-[#1a2b36]"
             >
               <p className="text-base leading-relaxed">{item.answer}</p>
             </div>

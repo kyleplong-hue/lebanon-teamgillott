@@ -1,287 +1,360 @@
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import CTABanner from '@/components/CTABanner';
 import { WebPageSchema } from '@/components/SchemaMarkup';
+import { PriceTrendChart, SalesVolumeChart } from '@/components/MarketCharts';
+import {
+  currentMonth,
+  marketTrends,
+  cityComparisons,
+  recentSales,
+  formatPrice,
+  formatPriceFull,
+  getYoYChange,
+} from '@/data/market';
+
+export const metadata = {
+  title: 'Lebanon, Oregon Real Estate Market Report',
+  description: `Latest Lebanon real estate market data: median price ${formatPrice(currentMonth.medianPrice)}, homes selling faster YoY. Compare to Corvallis and Albany.`,
+  openGraph: {
+    title: 'Lebanon Real Estate Market Report',
+    description: 'Comprehensive market analysis for buyers and sellers in Lebanon, Oregon.',
+    url: 'https://lebanon.teamgillott.com/market-report',
+    type: 'website',
+  },
+};
 
 export default function MarketReport() {
+  const yoYChange = getYoYChange();
+  const yearAgoPrice = marketTrends[0].medianPrice;
+  const currentPrice = currentMonth.medianPrice;
+  const priceChangePercent = ((currentPrice - yearAgoPrice) / yearAgoPrice) * 100;
+  const domChangePercent = yoYChange.dom;
+
   return (
-    <div className="flex flex-col min-h-screen bg-[#ebeff2]">
-      <Header />
-      <main className="flex-1 w-full">
-        {/* Hero Section */}
-        <section className="w-full bg-gradient-to-br from-[#0099cc] to-[#0077aa] py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 font-sans">
-              Lebanon, Oregon Real Estate Market Report
-            </h1>
-            <p className="text-lg text-blue-100">
-              April 2026 — Comprehensive market analysis for buyers and sellers
-            </p>
+    <main className="flex-1 w-full">
+      {/* Hero Section */}
+      <section className="w-full bg-gradient-to-br from-[#0099cc] via-[#0088bb] to-[#007799] py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=%2260%27 height=%2760%27 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27none%27 fill-rule=%27evenodd%27%3E%3Cg fill=%27%23ffffff%27 fill-opacity=%270.1%27%3E%3Cpath d=%27M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <div className="mb-3 inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
+            <span className="text-sm font-semibold text-white">{currentMonth.monthFull}</span>
           </div>
-        </section>
+          <h1 className="text-5xl sm:text-6xl font-bold text-white mb-6 tracking-tight">
+            Lebanon Real Estate Market
+          </h1>
+          <p className="text-xl text-white/90 max-w-2xl leading-relaxed">
+            Comprehensive market analysis for buyers and sellers. This month: homes selling faster, prices rising steadily.
+          </p>
+        </div>
+      </section>
 
-        {/* Key Metrics Cards */}
-        <section className="w-full py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              {/* Median Price Card */}
-              <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#0099cc]">
-                <p className="text-gray-600 text-sm font-semibold uppercase mb-2">Median Price</p>
-                <p className="text-3xl font-bold text-[#354652] mb-2">$395K</p>
-                <p className="text-sm text-green-600 font-semibold">
-                  +4.6% YoY
-                </p>
-              </div>
-
-              {/* Days on Market Card */}
-              <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#ca3121]">
-                <p className="text-gray-600 text-sm font-semibold uppercase mb-2">Avg Days on Market</p>
-                <p className="text-3xl font-bold text-[#354652] mb-2">65</p>
-                <p className="text-sm text-green-600 font-semibold">
-                  -34.5% YoY (faster)
-                </p>
-              </div>
-
-              {/* Price per Sqft Card */}
-              <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#0099cc]">
-                <p className="text-gray-600 text-sm font-semibold uppercase mb-2">Price per Sq Ft</p>
-                <p className="text-3xl font-bold text-[#354652] mb-2">$254</p>
-                <p className="text-sm text-gray-500">
-                  Regional benchmark
-                </p>
-              </div>
-
-              {/* Avg Offers Card */}
-              <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-[#ca3121]">
-                <p className="text-gray-600 text-sm font-semibold uppercase mb-2">Avg Offers per Home</p>
-                <p className="text-3xl font-bold text-[#354652] mb-2">2</p>
-                <p className="text-sm text-gray-500">
-                  Competitive market
-                </p>
+      {/* Key Metrics Grid (Bento) */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Median Price */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Median Price</p>
+              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+                {formatPrice(currentMonth.medianPrice)}
+              </p>
+              <div className={`flex items-center gap-2 ${priceChangePercent >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d={priceChangePercent >= 0 ? "M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414-1.414L13.586 7H12z" : "M12 13a1 1 0 110 2H7a1 1 0 01-1-1V9a1 1 0 112 0v3.586l4.293-4.293a1 1 0 011.414 1.414L9.414 13H12z"} clipRule="evenodd" />
+                </svg>
+                <span className="text-sm font-semibold">{priceChangePercent > 0 ? '+' : ''}{priceChangePercent.toFixed(1)}% YoY</span>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Market Summary */}
-        <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-[#354652] mb-6 font-sans">Market Summary</h2>
-            <div className="prose prose-sm max-w-none text-[#354652]">
-              <p className="text-lg leading-relaxed mb-4">
-                Lebanon's real estate market is accelerating. Homes are selling{' '}
-                <strong>34.5% faster</strong> than last year, driven by strong buyer demand and
-                limited inventory. The median price of{' '}
-                <strong>$395,000</strong> makes Lebanon significantly more affordable than
-                neighboring Corvallis ($565K) while offering similar quality of life, excellent
-                schools, and proximity to recreation.
+            {/* Days on Market */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Avg Days on Market</p>
+              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+                {currentMonth.avgDOM}
               </p>
-              <p className="text-lg leading-relaxed">
-                With an average of 2 offers per home, the market is competitive but not
-                aggressive. This is an excellent time for sellers to capitalize on strong
-                demand, while buyers benefit from a wider selection than in previous years.
+              <div className={`flex items-center gap-2 ${domChangePercent < 0 ? 'text-emerald-600' : 'text-red-600'}`}>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d={domChangePercent < 0 ? "M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414-1.414L13.586 7H12z" : "M12 13a1 1 0 110 2H7a1 1 0 01-1-1V9a1 1 0 112 0v3.586l4.293-4.293a1 1 0 011.414 1.414L9.414 13H12z"} clipRule="evenodd" />
+                </svg>
+                <span className="text-sm font-semibold">{domChangePercent.toFixed(1)}% YoY {domChangePercent < 0 ? '(faster)' : '(slower)'}</span>
+              </div>
+            </div>
+
+            {/* Price Per Sqft */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Price per Sq Ft</p>
+              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+                ${currentMonth.pricePerSqft}
               </p>
+              <p className="text-sm text-[#64748b]">vs. Corvallis at ${cityComparisons[1].pricePerSqft}</p>
+            </div>
+
+            {/* Avg Offers */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Avg Offers per Home</p>
+              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+                {currentMonth.avgOffers}
+              </p>
+              <p className="text-sm text-[#64748b]">Competitive market</p>
+            </div>
+
+            {/* Active Listings */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 col-span-1">
+              <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Active Listings</p>
+              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+                {currentMonth.activeListings}
+              </p>
+              <p className="text-sm text-[#64748b]">Months of supply: {currentMonth.inventory.toFixed(1)}</p>
+            </div>
+
+            {/* New Listings */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">New Listings</p>
+              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+                {currentMonth.newListings}
+              </p>
+              <p className="text-sm text-[#64748b]">This month</p>
+            </div>
+
+            {/* Closed Sales */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Closed Sales</p>
+              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+                {currentMonth.closedSales}
+              </p>
+              <p className="text-sm text-[#64748b]">This month</p>
+            </div>
+
+            {/* Mortgage Rate */}
+            <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+              <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">30-Yr Rate</p>
+              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+                {currentMonth.mortgageRate.toFixed(2)}%
+              </p>
+              <p className="text-sm text-[#64748b]">Current average</p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Comparison Table */}
-        <section className="w-full py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">How Lebanon Compares</h2>
+      {/* Market Trends Charts */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#1a2b36] mb-2 tracking-tight">12-Month Trends</h2>
+          <p className="text-[#64748b] mb-10">See how the market has evolved over the past year</p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            {/* Price Chart */}
+            <div className="bg-[#f8fafb] rounded-2xl p-6 border border-[#e2e8f0]">
+              <h3 className="text-lg font-semibold text-[#1a2b36] mb-4">Median Price Trend</h3>
+              <PriceTrendChart />
+            </div>
+
+            {/* Volume Chart */}
+            <div className="bg-[#f8fafb] rounded-2xl p-6 border border-[#e2e8f0]">
+              <h3 className="text-lg font-semibold text-[#1a2b36] mb-4">Closed Sales Volume</h3>
+              <SalesVolumeChart />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* City Comparison Section */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#1a2b36] mb-2 tracking-tight">How Lebanon Compares</h2>
+          <p className="text-[#64748b] mb-10">Lebanon vs. nearby markets</p>
+
+          <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#e2e8f0]">
             <div className="overflow-x-auto">
-              <table className="w-full bg-white rounded-lg shadow-md overflow-hidden">
-                <thead className="bg-[#0099cc] text-white">
-                  <tr>
-                    <th className="px-6 py-4 text-left font-semibold">Metric</th>
-                    <th className="px-6 py-4 text-left font-semibold">Lebanon</th>
-                    <th className="px-6 py-4 text-left font-semibold">Corvallis</th>
-                    <th className="px-6 py-4 text-left font-semibold">Albany</th>
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-[#e2e8f0] bg-[#f8fafb]">
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">City</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">Median Price</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">Days on Market</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">Price/Sq Ft</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">YoY Growth</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-gray-200">
-                    <td className="px-6 py-4 font-semibold text-[#354652]">Median Price</td>
-                    <td className="px-6 py-4 text-[#354652]">$395,000</td>
-                    <td className="px-6 py-4 text-[#354652]">$565,000</td>
-                    <td className="px-6 py-4 text-[#354652]">$390,000</td>
-                  </tr>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <td className="px-6 py-4 font-semibold text-[#354652]">Avg Days on Market</td>
-                    <td className="px-6 py-4 text-[#354652]">65 days</td>
-                    <td className="px-6 py-4 text-[#354652]">70 days</td>
-                    <td className="px-6 py-4 text-[#354652]">88 days</td>
-                  </tr>
-                  <tr className="border-b border-gray-200">
-                    <td className="px-6 py-4 font-semibold text-[#354652]">Price per Sq Ft</td>
-                    <td className="px-6 py-4 text-[#354652]">$254</td>
-                    <td className="px-6 py-4 text-[#354652]">$326</td>
-                    <td className="px-6 py-4 text-[#354652]">$265</td>
-                  </tr>
+                  {cityComparisons.map((city, idx) => (
+                    <tr key={idx} className={`border-b border-[#e2e8f0] ${idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafb]'} hover:bg-[#f0f4f8] transition-colors`}>
+                      <td className="px-6 py-4 font-semibold text-[#1a2b36]">{city.city}</td>
+                      <td className="px-6 py-4 text-[#1a2b36] font-tabular-nums">{formatPriceFull(city.medianPrice)}</td>
+                      <td className="px-6 py-4 text-[#1a2b36] font-tabular-nums">{city.avgDOM} days</td>
+                      <td className="px-6 py-4 text-[#1a2b36] font-tabular-nums">${city.pricePerSqft}</td>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-2">
+                          <span className={`font-semibold font-tabular-nums ${city.yoyGrowth > 4 ? 'text-emerald-600' : 'text-[#64748b]'}`}>
+                            {city.yoyGrowth > 0 ? '+' : ''}{city.yoyGrowth.toFixed(1)}%
+                          </span>
+                          <div className="w-12 h-2 bg-[#e2e8f0] rounded-full overflow-hidden">
+                            <div
+                              className={`h-full ${city.yoyGrowth > 4 ? 'bg-emerald-600' : 'bg-[#0099cc]'}`}
+                              style={{ width: `${Math.min(city.yoyGrowth * 15, 100)}%` }}
+                            ></div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* What This Means for Buyers */}
-        <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-[#354652] mb-6 font-sans">
-              What This Means for Buyers
-            </h2>
-            <div className="space-y-4">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#0099cc] text-white font-bold">
-                    1
+      {/* Recently Sold Homes */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#1a2b36] mb-2 tracking-tight">Recently Sold Homes</h2>
+          <p className="text-[#64748b] mb-10">Latest market activity in Lebanon</p>
+
+          <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#e2e8f0]">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-[#e2e8f0] bg-[#f8fafb]">
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">Address</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">Beds/Baths</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">Price</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">DOM</th>
+                    <th className="px-6 py-4 text-left text-xs font-semibold text-[#64748b] uppercase tracking-wide">Sold</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {recentSales.map((sale, idx) => (
+                    <tr key={idx} className={`border-b border-[#e2e8f0] ${idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafb]'} hover:bg-[#f0f4f8] transition-colors`}>
+                      <td className="px-6 py-4">
+                        <div>
+                          <p className="font-semibold text-[#1a2b36]">{sale.address}</p>
+                          <p className="text-sm text-[#64748b]">{sale.neighborhood}</p>
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 text-[#1a2b36] font-semibold">{sale.beds}/{sale.baths}</td>
+                      <td className="px-6 py-4 font-tabular-nums font-semibold text-[#1a2b36]">{formatPriceFull(sale.price)}</td>
+                      <td className="px-6 py-4 font-tabular-nums text-[#64748b]">{sale.dom}d</td>
+                      <td className="px-6 py-4 text-sm text-[#64748b]">{sale.dateSold}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Buyer & Seller Insights */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#1a2b36] mb-12 tracking-tight">Market Insights</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* Buyers */}
+            <div className="bg-white rounded-2xl p-8 border border-[#e2e8f0]">
+              <h3 className="text-xl font-bold text-[#1a2b36] mb-6">What This Means for Buyers</h3>
+              <ul className="space-y-4">
+                <li className="flex gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0099cc] flex items-center justify-center text-white text-sm font-bold">1</div>
+                  <div>
+                    <p className="font-semibold text-[#1a2b36] mb-1">Market Moving Fast</p>
+                    <p className="text-[#64748b] text-sm">With an average of {currentMonth.avgDOM} days on market, homes aren't lingering. Be prepared to move quickly with a strong offer.</p>
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#354652] mb-2">Market Moving Fast</h3>
-                  <p className="text-[#354652]">
-                    With an average days on market of 65 days, homes aren't lingering on the
-                    market. If you find a home you like, be prepared to move quickly with a
-                    strong offer.
-                  </p>
-                </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0099cc] flex items-center justify-center text-white text-sm font-bold">2</div>
+                  <div>
+                    <p className="font-semibold text-[#1a2b36] mb-1">Good Affordability</p>
+                    <p className="text-[#64748b] text-sm">At {formatPrice(currentMonth.medianPrice)}, Lebanese homes offer strong value compared to Corvallis while maintaining vibrant community living.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0099cc] flex items-center justify-center text-white text-sm font-bold">3</div>
+                  <div>
+                    <p className="font-semibold text-[#1a2b36] mb-1">Competitive but Fair</p>
+                    <p className="text-[#64748b] text-sm">With {currentMonth.avgOffers} offers per home, you'll face competition but it's not an all-out bidding war. Smart offers can still win.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            {/* Sellers */}
+            <div className="bg-white rounded-2xl p-8 border border-[#e2e8f0]">
+              <h3 className="text-xl font-bold text-[#1a2b36] mb-6">What This Means for Sellers</h3>
+              <ul className="space-y-4">
+                <li className="flex gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#c4371a] flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <div>
+                    <p className="font-semibold text-[#1a2b36] mb-1">Strong Demand</p>
+                    <p className="text-[#64748b] text-sm">Homes are selling fast with robust buyer interest. Expect less time on market and multiple offers.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#c4371a] flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <div>
+                    <p className="font-semibold text-[#1a2b36] mb-1">Prices on the Rise</p>
+                    <p className="text-[#64748b] text-sm">With a {priceChangePercent.toFixed(1)}% year-over-year increase, home values are appreciating. List now to capture momentum.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#c4371a] flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <div>
+                    <p className="font-semibold text-[#1a2b36] mb-1">Homes Moving Quickly</p>
+                    <p className="text-[#64748b] text-sm">Average time to sale is just {currentMonth.avgDOM} days—faster than nearly any market in the region.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interest Rates Card */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-[#0099cc]/10 to-[#0088bb]/10 rounded-2xl p-8 border border-[#0099cc]/20">
+            <h3 className="text-2xl font-bold text-[#1a2b36] mb-6">Current Interest Rates</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <p className="text-5xl font-bold text-[#0099cc] mb-2 font-tabular-nums">{currentMonth.mortgageRate.toFixed(2)}%</p>
+                <p className="text-[#64748b] font-semibold">30-Year Fixed Rate</p>
+                <p className="text-sm text-[#64748b] mt-2">As of {currentMonth.monthFull}</p>
               </div>
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#0099cc] text-white font-bold">
-                    2
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#354652] mb-2">Good Affordability</h3>
-                  <p className="text-[#354652]">
-                    At $395K, Lebanese homes offer strong value compared to Corvallis and are
-                    more affordable than many West Coast markets, while still being in a vibrant
-                    community.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#0099cc] text-white font-bold">
-                    3
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#354652] mb-2">Competitive but Fair</h3>
-                  <p className="text-[#354652]">
-                    With 2 offers per home on average, you'll face competition, but it's not an
-                    all-out bidding war. Smart offers and clean inspections can still win.
-                  </p>
-                </div>
+              <div className="bg-white rounded-xl p-4 border border-[#e2e8f0]">
+                <p className="text-sm font-semibold text-[#1a2b36] mb-3">Monthly payment estimate:</p>
+                <p className="text-2xl font-bold text-[#1a2b36] mb-2 font-tabular-nums">$1,895</p>
+                <p className="text-xs text-[#64748b]">Principal & interest on {formatPrice(currentMonth.medianPrice)} with 20% down at {currentMonth.mortgageRate.toFixed(2)}%</p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* What This Means for Sellers */}
-        <section className="w-full py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-[#354652] mb-6 font-sans">
-              What This Means for Sellers
-            </h2>
-            <div className="space-y-4">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#ca3121] text-white font-bold">
-                    ✓
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#354652] mb-2">Strong Demand</h3>
-                  <p className="text-[#354652]">
-                    The market has robust buyer interest. Homes are selling fast, which means
-                    less time on the market and more potential offers.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#ca3121] text-white font-bold">
-                    ✓
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#354652] mb-2">Prices on the Rise</h3>
-                  <p className="text-[#354652]">
-                    With a 4.6% year-over-year price increase, home values are appreciating.
-                    Listing now captures this upward momentum.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-8 w-8 rounded-full bg-[#ca3121] text-white font-bold">
-                    ✓
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#354652] mb-2">Homes Moving Quickly</h3>
-                  <p className="text-[#354652]">
-                    Average time on market is just 65 days, meaning you'll transition from
-                    listing to sold faster than nearly any market in the region.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* CTA Banner */}
+      <CTABanner
+        heading="Ready to Buy or Sell in Lebanon?"
+        subheading="Get a personalized market analysis and find your next home with Team Gillott."
+        ctaText="Contact Team Gillott"
+        ctaUrl="https://www.teamgillott.com"
+        variant="primary"
+      />
 
-        {/* Interest Rate Context */}
-        <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-bold text-[#354652] mb-6 font-sans">Current Interest Rates</h2>
-            <div className="bg-blue-50 border-l-4 border-[#0099cc] p-6 rounded">
-              <p className="text-lg text-[#354652] mb-4">
-                <strong>30-Year Fixed Rate:</strong> 6.12% (as of April 2026)
-              </p>
-              <p className="text-[#354652] mb-4">
-                Rates have come down from the March highs near 6.50%, providing some relief for
-                borrowers. However, even small changes in rates can impact monthly payments and
-                affordability. If you've been waiting for rates to improve, now is a good time to
-                get pre-approved.
-              </p>
-              <div className="bg-white p-4 rounded mt-4 border border-blue-200">
-                <p className="text-sm text-[#354652]">
-                  <strong>On a $395K home with 20% down ($79K):</strong> Monthly payment
-                  (principal &amp; interest) is approximately $1,895 at current rates.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Banner */}
-        <CTABanner
-          heading="Get a Custom Market Analysis"
-          subheading="Understand your home's value or find the right property in Lebanon."
-          ctaText="Contact Team Gillott"
-          ctaUrl="https://www.teamgillott.com"
-        />
-
-        {/* Data Note */}
-        <section className="w-full py-8 px-4 sm:px-6 lg:px-8 bg-gray-100">
-          <div className="max-w-4xl mx-auto text-center text-sm text-gray-600">
-            <p>
-              <strong>Updated monthly.</strong> Data sourced from MLS and public records. Figures
-              are current as of April 2026 and subject to change.
-            </p>
-          </div>
-        </section>
-      </main>
-      <Footer />
+      {/* Data Note */}
+      <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-[#f8fafb] border-t border-[#e2e8f0]">
+        <div className="max-w-4xl mx-auto text-center text-sm text-[#64748b]">
+          <p>
+            <strong className="text-[#1a2b36]">Updated monthly.</strong> Data sourced from MLS and public records. Figures are current as of {currentMonth.monthFull} and subject to change. Market data reflects Lebanon, Oregon area.
+          </p>
+        </div>
+      </section>
 
       {/* Schema Markup */}
       <WebPageSchema
-        title="Lebanon, Oregon Real Estate Market Report — April 2026"
-        description="Latest Lebanon real estate market data: median price $395K, homes selling 34.5% faster. Compare to Corvallis and Albany."
+        title={`Lebanon, Oregon Real Estate Market Report — ${currentMonth.monthFull}`}
+        description={`Latest Lebanon real estate market data: median price ${formatPrice(currentMonth.medianPrice)}, homes selling ${domChangePercent < 0 ? 'faster' : 'slower'} YoY. Compare to Corvallis and Albany.`}
         url="https://lebanon.teamgillott.com/market-report"
       />
-    </div>
+    </main>
   );
 }

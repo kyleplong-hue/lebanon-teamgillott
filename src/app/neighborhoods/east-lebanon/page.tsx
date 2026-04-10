@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { WebPageSchema, LocalBusinessSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
+import { getNeighborhood, getOtherNeighborhoods } from '@/data/neighborhoods';
 
 export const metadata = {
   title: 'East Lebanon Real Estate Guide | Team Gillott',
@@ -11,6 +12,11 @@ export const metadata = {
 };
 
 export default function EastLebanon() {
+  const neighborhood = getNeighborhood('east-lebanon');
+  const otherNeighborhoods = getOtherNeighborhoods('east-lebanon');
+
+  if (!neighborhood) return null;
+
   return (
     <>
       <WebPageSchema
@@ -27,236 +33,137 @@ export default function EastLebanon() {
 
       {/* Hero Section */}
       <section className="w-full bg-gradient-to-b from-[#0099cc] to-[#0077aa] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 font-sans">
-            East Lebanon Real Estate Guide
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
+            {neighborhood.name}
           </h1>
           <p className="text-lg text-blue-100 mb-6">
-            Gateway to Cascade foothills with larger lots, rural character, and abundant outdoor
-            recreation.
+            {neighborhood.tagline}
           </p>
-          <div className="flex flex-wrap gap-4 text-lg font-semibold">
+          <div className="flex items-baseline gap-6">
             <div>
-              <div className="text-3xl text-[#ca3121]">$350K - $475K</div>
+              <div className="text-3xl font-bold text-[#c4371a] tabular-nums">
+                ${Math.round(neighborhood.priceRange.low / 1000)}K – ${Math.round(neighborhood.priceRange.high / 1000)}K
+              </div>
               <div className="text-blue-100 text-sm">Typical Price Range</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Overview Section */}
+      {/* Character & Property Types */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">About East Lebanon</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
             <div>
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Character & Location</h3>
-              <p className="text-gray-700 mb-4">
-                East Lebanon is Lebanon's gateway to the natural wonders of the Cascade foothills.
-                This area offers a unique blend of rural charm and city convenience, perfect for
-                those seeking more space and outdoor lifestyle opportunities.
-              </p>
-              <p className="text-gray-700">
-                Larger lots provide room for gardens, workshops, and outdoor pursuits while remaining
-                convenient to downtown Lebanon and surrounding communities.
+              <h2 className="text-2xl font-bold text-[#1a2b36] mb-4 tracking-tight">Character</h2>
+              <p className="text-[#1a2b36] leading-relaxed">
+                {neighborhood.character}
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Property Types</h3>
-              <p className="text-gray-700 mb-4">
-                East Lebanon features a range of properties from smaller acreage homesteads to
-                mid-sized rural estates. Many homes sit on half-acre to multi-acre parcels.
-              </p>
-              <p className="text-gray-700">
-                Properties often include mature trees, privacy, and views of surrounding foothills.
-                Popular for those who want horses, gardens, or simply more personal outdoor space.
+              <h2 className="text-2xl font-bold text-[#1a2b36] mb-4 tracking-tight">Property Types</h2>
+              <p className="text-[#1a2b36] leading-relaxed">
+                {neighborhood.propertyTypes}
               </p>
             </div>
           </div>
 
-          <h3 className="text-xl font-bold text-[#0099cc] mb-6 font-sans">Key Highlights</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {[
-              {
-                icon: '⛰️',
-                title: 'Cascade Access',
-                description: 'Gateway to hiking, camping, and mountain recreation',
-              },
-              {
-                icon: '🌲',
-                title: 'McDowell Creek Falls',
-                description: 'Popular hiking destination with scenic waterfall',
-              },
-              {
-                icon: '💧',
-                title: 'Cheadle Lake',
-                description: 'Water recreation and scenic lake activities nearby',
-              },
-              {
-                icon: '🏞️',
-                title: 'Larger Lots',
-                description: 'Properties with more land for privacy and outdoor space',
-              },
-            ].map((highlight, idx) => (
-              <div key={idx} className="bg-[#ebeff2] p-6 rounded-lg">
-                <div className="text-3xl mb-3">{highlight.icon}</div>
-                <h4 className="font-bold text-[#354652] mb-2 font-sans">{highlight.title}</h4>
-                <p className="text-gray-700 text-sm">{highlight.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Outdoor Recreation Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#ebeff2]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">Outdoor Recreation</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Hiking & Nature</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>McDowell Creek Falls Trail - beautiful waterfall hike</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Cascade Range foothills with numerous trails</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Scenic viewpoints and old-growth forest access</span>
-                </li>
-              </ul>
+          {/* Key Highlights Cards */}
+          <div>
+            <h2 className="text-2xl font-bold text-[#1a2b36] mb-6 tracking-tight">Key Highlights</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {neighborhood.highlights.map((highlight) => (
+                <div
+                  key={highlight}
+                  className="bg-[#f8fafb] border border-[#e2e8f0] rounded-2xl p-4 hover:shadow-md hover:border-[#0099cc]/30 transition-all duration-300"
+                >
+                  <p className="text-[#1a2b36] text-sm font-semibold">{highlight}</p>
+                </div>
+              ))}
             </div>
-
-            <div className="bg-white p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Water Activities</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Cheadle Lake for swimming, kayaking, and picnicking</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Fish hatchery visits and wildlife viewing</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Pleasant year-round water recreation opportunities</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Schools Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">Schools & Education</h2>
-          <div className="bg-[#ebeff2] p-8 rounded-lg border-l-4 border-[#0099cc]">
-            <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">
-              Lebanon Community Schools
-            </h3>
-            <p className="text-gray-700 mb-4">
-              East Lebanon families benefit from the Lebanon Community School District with school bus
-              service throughout the area and strong rural community values.
-            </p>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex gap-3">
-                <span className="text-[#ca3121] font-bold">•</span>
-                <span>Quality education in a rural community setting</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#ca3121] font-bold">•</span>
-                <span>Strong connection to outdoor education and nature programs</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#ca3121] font-bold">•</span>
-                <span>Regional college and career preparation pathways</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* What Residents Love */}
-      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">What Residents Love</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              'Mountain Access & Hiking',
-              'Larger Home Sites',
-              'Privacy & Seclusion',
-              'Outdoor Recreation',
-              'Lake Activities',
-              'Rural Character',
-              'Scenic Views',
-              'Wildlife & Nature',
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-4 p-4 bg-[#ebeff2] rounded-lg">
-                <div className="text-2xl text-[#0099cc]">✓</div>
-                <span className="font-semibold text-[#354652]">{item}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Market Stats */}
-      <section className="w-full bg-gradient-to-r from-[#0099cc] to-[#0077aa] text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold mb-8 text-center font-sans">Market Insights</h2>
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1a2b36] mb-8 tracking-tight">Market Stats</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2 font-sans">$412K</div>
-              <p className="text-blue-100">Average Home Price</p>
+            <div className="bg-white border border-[#e2e8f0] rounded-2xl p-8 text-center">
+              <div className="text-3xl font-bold text-[#0099cc] tabular-nums mb-2">
+                ${Math.round(neighborhood.avgPrice / 1000)}K
+              </div>
+              <p className="text-[#64748b] text-sm font-medium">Average Home Price</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2 font-sans">72 days</div>
-              <p className="text-blue-100">Avg Days on Market</p>
+            <div className="bg-white border border-[#e2e8f0] rounded-2xl p-8 text-center">
+              <div className="text-3xl font-bold text-[#0099cc] tabular-nums mb-2">
+                {neighborhood.avgDOM} days
+              </div>
+              <p className="text-[#64748b] text-sm font-medium">Avg Days on Market</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2 font-sans">38%</div>
-              <p className="text-blue-100">Inventory Turnover</p>
+            <div className="bg-white border border-[#e2e8f0] rounded-2xl p-8 text-center">
+              <div className="text-3xl font-bold text-[#0099cc] tabular-nums mb-2">
+                {neighborhood.turnoverRate}%
+              </div>
+              <p className="text-[#64748b] text-sm font-medium">Inventory Turnover</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Nearby Neighborhoods */}
+      {/* Schools */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1a2b36] mb-8 tracking-tight">Schools</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {neighborhood.schools.map((school) => (
+              <div
+                key={school}
+                className="bg-[#f8fafb] border border-[#e2e8f0] rounded-2xl p-6"
+              >
+                <p className="text-[#1a2b36] font-semibold">{school}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What Residents Love */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1a2b36] mb-8 tracking-tight">What Residents Love</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {neighborhood.lovelist.map((item) => (
+              <div key={item} className="flex items-start gap-3 bg-white border border-[#e2e8f0] rounded-2xl p-4">
+                <span className="text-[#0099cc] font-bold mt-0.5 flex-shrink-0">+</span>
+                <span className="text-[#1a2b36] font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Other Neighborhoods */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1a2b36] mb-8 tracking-tight">
             Explore Other Lebanon Neighborhoods
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Link
-              href="/neighborhoods/south-lebanon"
-              className="p-4 bg-[#ebeff2] rounded-lg hover:bg-[#dde5ea] transition-colors"
-            >
-              <h3 className="font-bold text-[#354652] mb-2 font-sans">South Lebanon</h3>
-              <p className="text-sm text-gray-700">Close to downtown</p>
-            </Link>
-            <Link
-              href="/neighborhoods/north-lebanon"
-              className="p-4 bg-[#ebeff2] rounded-lg hover:bg-[#dde5ea] transition-colors"
-            >
-              <h3 className="font-bold text-[#354652] mb-2 font-sans">North Lebanon</h3>
-              <p className="text-sm text-gray-700">Family-friendly developments</p>
-            </Link>
-            <Link
-              href="/neighborhoods/hamilton-creek"
-              className="p-4 bg-[#ebeff2] rounded-lg hover:bg-[#dde5ea] transition-colors"
-            >
-              <h3 className="font-bold text-[#354652] mb-2 font-sans">Hamilton Creek</h3>
-              <p className="text-sm text-gray-700">Upscale custom estates</p>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {otherNeighborhoods.map((n) => (
+              <Link
+                key={n.slug}
+                href={`/neighborhoods/${n.slug}`}
+                className="bg-[#f8fafb] border border-[#e2e8f0] rounded-2xl p-6 hover:shadow-md hover:border-[#0099cc]/30 transition-all duration-300 group"
+              >
+                <h3 className="font-bold text-[#1a2b36] mb-2 group-hover:text-[#0099cc] transition-colors">
+                  {n.name}
+                </h3>
+                <p className="text-[#64748b] text-sm">{n.tagline}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

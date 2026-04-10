@@ -74,42 +74,42 @@ export default function SellingPage() {
       />
 
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-b from-[#ca3121] to-[#b8270d] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-6 font-sans">
+      <section className="w-full bg-gradient-to-b from-[#c4371a] to-[#a8300f] text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-left">
+          <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-6 tracking-tight">
             Selling Your Lebanon, Oregon Home — A Complete Guide
           </h1>
-          <p className="text-lg sm:text-xl text-red-100 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-orange-100 max-w-2xl">
             Lebanon homes are selling 34.5% faster than last year — seller leverage is strong heading into spring 2026.
           </p>
         </div>
       </section>
 
       {/* Market Context */}
-      <section className="w-full bg-white py-12 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
+      <section className="w-full bg-[#f8fafb] py-12 px-4 sm:px-6 lg:px-8 border-b border-[#e2e8f0]">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#ca3121] font-sans mb-2">
+            <div className="text-left">
+              <div className="text-3xl font-bold text-[#c4371a] mb-2 tabular-nums">
                 $395K
               </div>
-              <p className="text-gray-700 text-sm">
+              <p className="text-[#1a2b36] text-sm">
                 Lebanon Median Home Price
               </p>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#ca3121] font-sans mb-2">
+            <div className="text-left">
+              <div className="text-3xl font-bold text-[#c4371a] mb-2 tabular-nums">
                 65 days
               </div>
-              <p className="text-gray-700 text-sm">
+              <p className="text-[#1a2b36] text-sm">
                 Average Days on Market
               </p>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-[#ca3121] font-sans mb-2">
+            <div className="text-left">
+              <div className="text-3xl font-bold text-[#c4371a] mb-2 tabular-nums">
                 2 offers
               </div>
-              <p className="text-gray-700 text-sm">
+              <p className="text-[#1a2b36] text-sm">
                 Average Competing Offers
               </p>
             </div>
@@ -118,9 +118,9 @@ export default function SellingPage() {
       </section>
 
       {/* Four-Step Process */}
-      <section className="w-full bg-[#ebeff2] py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 text-center font-sans">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
             Our Four-Step Selling Process
           </h2>
 
@@ -128,22 +128,22 @@ export default function SellingPage() {
             {sellingSteps.map(step => (
               <div
                 key={step.number}
-                className="bg-white rounded-lg shadow-md p-8 border-l-4 border-[#ca3121]"
+                className="bg-white rounded-2xl shadow-md hover:shadow-md transition-all duration-300 p-8 border border-[#e2e8f0]"
               >
                 <div className="flex gap-6">
                   {/* Step Number */}
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-14 w-14 rounded-full bg-[#ca3121] text-white font-bold text-xl font-sans">
+                    <div className="flex items-center justify-center h-14 w-14 rounded-full bg-[#c4371a] text-white font-bold text-xl">
                       {step.number}
                     </div>
                   </div>
 
                   {/* Step Content */}
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-[#354652] mb-3 font-sans">
+                    <h3 className="text-2xl font-bold text-[#1a2b36] mb-3 tracking-tight">
                       {step.title}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed">
+                    <p className="text-[#1a2b36] leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -155,25 +155,25 @@ export default function SellingPage() {
       </section>
 
       {/* Why Sell With Team Gillott */}
-      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-[#f8fafb] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 text-center font-sans">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
             Why Sell With Team Gillott?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {whyChoose.map((item, idx) => (
-              <div key={idx} className="flex gap-4">
+              <div key={idx} className="flex gap-4 bg-white p-6 rounded-2xl border border-[#e2e8f0] hover:shadow-md transition-all duration-300">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-md bg-[#ca3121] text-white font-bold font-sans">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-[#c4371a] text-white font-bold">
                     ✓
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#354652] mb-2 font-sans">
+                  <h3 className="text-lg font-bold text-[#1a2b36] mb-2 tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-gray-700">
+                  <p className="text-[#1a2b36]">
                     {item.description}
                   </p>
                 </div>
@@ -184,9 +184,9 @@ export default function SellingPage() {
       </section>
 
       {/* Selling Timeline */}
-      <section className="w-full bg-[#ebeff2] py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 text-center font-sans">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
             Typical Timeline
           </h2>
 
@@ -199,45 +199,45 @@ export default function SellingPage() {
               { phase: 'Inspection Period & Appraisal', duration: '1–2 weeks' },
               { phase: 'Closing Coordination', duration: '1–2 weeks' },
             ].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-4 bg-white p-4 rounded-lg">
-                <div className="text-2xl font-bold text-[#ca3121] font-sans min-w-12">
+              <div key={idx} className="flex items-center gap-4 bg-[#f8fafb] p-4 rounded-2xl border border-[#e2e8f0]">
+                <div className="text-2xl font-bold text-[#c4371a] min-w-12 tabular-nums">
                   {idx + 1}
                 </div>
                 <div className="flex-1">
-                  <p className="font-semibold text-[#354652]">{item.phase}</p>
+                  <p className="font-semibold text-[#1a2b36]">{item.phase}</p>
                 </div>
-                <div className="text-gray-600 text-sm">{item.duration}</div>
+                <div className="text-[#64748b] text-sm">{item.duration}</div>
               </div>
             ))}
           </div>
 
-          <p className="mt-8 text-center text-gray-700 text-sm">
+          <p className="mt-8 text-[#1a2b36] text-sm">
             Total time to closing: typically 45–90 days depending on market conditions and your situation.
           </p>
         </div>
       </section>
 
       {/* Price Range by Area */}
-      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-[#f8fafb] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 text-center font-sans">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
             Lebanon Pricing by Neighborhood
           </h2>
 
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b-2 border-[#ca3121]">
-                  <th className="text-left py-4 px-4 font-bold text-[#354652] text-sm">
+                <tr className="border-b-2 border-[#c4371a]">
+                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36] text-sm">
                     Neighborhood
                   </th>
-                  <th className="text-left py-4 px-4 font-bold text-[#354652] text-sm">
+                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36] text-sm">
                     Median Price
                   </th>
-                  <th className="text-left py-4 px-4 font-bold text-[#354652] text-sm">
+                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36] text-sm">
                     Range
                   </th>
-                  <th className="text-left py-4 px-4 font-bold text-[#354652] text-sm">
+                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36] text-sm">
                     Days on Market
                   </th>
                 </tr>
@@ -271,32 +271,32 @@ export default function SellingPage() {
                 ].map((item, idx) => (
                   <tr
                     key={idx}
-                    className={`border-b ${
-                      idx % 2 === 0 ? 'bg-[#ebeff2]' : 'bg-white'
+                    className={`border-b border-[#e2e8f0] ${
+                      idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafb]'
                     }`}
                   >
-                    <td className="py-4 px-4 text-[#354652] font-semibold">
+                    <td className="py-4 px-4 text-[#1a2b36] font-semibold">
                       {item.area}
                     </td>
-                    <td className="py-4 px-4 text-gray-700">{item.median}</td>
-                    <td className="py-4 px-4 text-gray-700">{item.range}</td>
-                    <td className="py-4 px-4 text-gray-700">{item.dom}</td>
+                    <td className="py-4 px-4 text-[#1a2b36] tabular-nums">{item.median}</td>
+                    <td className="py-4 px-4 text-[#64748b]">{item.range}</td>
+                    <td className="py-4 px-4 text-[#64748b]">{item.dom}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <p className="mt-8 text-center text-gray-700 text-sm">
+          <p className="mt-8 text-[#1a2b36] text-sm">
             * Data represents recent market trends in Lebanon, Oregon. Prices vary by condition, lot size, and amenities.
           </p>
         </div>
       </section>
 
       {/* Staging Tips */}
-      <section className="w-full bg-[#ebeff2] py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 text-center font-sans">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
             Home Staging Tips for Lebanon Buyers
           </h2>
 
@@ -335,14 +335,14 @@ export default function SellingPage() {
                 ],
               },
             ].map((section, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-6">
-                <h3 className="text-xl font-bold text-[#354652] mb-4 font-sans">
+              <div key={idx} className="bg-[#f8fafb] rounded-2xl p-6 border border-[#e2e8f0] hover:shadow-md transition-all duration-300">
+                <h3 className="text-xl font-bold text-[#1a2b36] mb-4 tracking-tight">
                   {section.title}
                 </h3>
                 <ul className="space-y-3">
                   {section.tips.map((tip, tipIdx) => (
-                    <li key={tipIdx} className="flex gap-3 text-gray-700">
-                      <span className="text-[#ca3121] font-bold">•</span>
+                    <li key={tipIdx} className="flex gap-3 text-[#1a2b36]">
+                      <span className="text-[#c4371a] font-bold">•</span>
                       <span>{tip}</span>
                     </li>
                   ))}
@@ -354,19 +354,19 @@ export default function SellingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full bg-gradient-to-r from-[#ca3121] to-[#b8270d] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 font-sans">
+      <section className="w-full bg-gradient-to-r from-[#c4371a] to-[#a8300f] text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-left">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6 tracking-tight">
             Ready to Sell?
           </h2>
-          <p className="text-lg text-red-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-orange-100 mb-8 max-w-2xl">
             Get your free home valuation today and discover what your Lebanon home is worth in today's market.
           </p>
           <a
             href="https://www.teamgillott.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-white text-[#ca3121] font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            className="inline-block px-8 py-3 bg-white text-[#c4371a] font-semibold rounded-2xl hover:shadow-md transition-all duration-300"
           >
             Get Your Free Home Valuation
           </a>

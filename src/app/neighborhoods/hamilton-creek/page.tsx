@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { WebPageSchema, LocalBusinessSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
+import { getNeighborhood, getOtherNeighborhoods } from '@/data/neighborhoods';
 
 export const metadata = {
   title: 'Hamilton Creek Real Estate Guide | Team Gillott',
@@ -11,6 +12,11 @@ export const metadata = {
 };
 
 export default function HamiltonCreek() {
+  const neighborhood = getNeighborhood('hamilton-creek');
+  const otherNeighborhoods = getOtherNeighborhoods('hamilton-creek');
+
+  if (!neighborhood) return null;
+
   return (
     <>
       <WebPageSchema
@@ -27,272 +33,137 @@ export default function HamiltonCreek() {
 
       {/* Hero Section */}
       <section className="w-full bg-gradient-to-b from-[#0099cc] to-[#0077aa] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 font-sans">
-            Hamilton Creek Real Estate Guide
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
+            {neighborhood.name}
           </h1>
           <p className="text-lg text-blue-100 mb-6">
-            Southwestern Lebanon's upscale neighborhoods featuring rolling hills, custom estates,
-            and premium privacy.
+            {neighborhood.tagline}
           </p>
-          <div className="flex flex-wrap gap-4 text-lg font-semibold">
+          <div className="flex items-baseline gap-6">
             <div>
-              <div className="text-3xl text-[#ca3121]">$425K - $600K+</div>
+              <div className="text-3xl font-bold text-[#c4371a] tabular-nums">
+                ${Math.round(neighborhood.priceRange.low / 1000)}K – ${Math.round(neighborhood.priceRange.high / 1000)}K
+              </div>
               <div className="text-blue-100 text-sm">Premium Price Range</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Overview Section */}
+      {/* Character & Property Types */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">About Hamilton Creek</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
             <div>
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Character & Location</h3>
-              <p className="text-gray-700 mb-4">
-                Hamilton Creek represents Lebanon's most prestigious neighborhood. Located in
-                southwestern Lebanon, this area features rolling hills, expansive green spaces, and
-                distinctly upscale properties designed for those seeking the finest in rural Oregon
-                living.
-              </p>
-              <p className="text-gray-700">
-                Properties typically sit on multiple acres with views, privacy, and space for horses,
-                gardens, and extensive outdoor pursuits. This is Lebanon's signature luxury community.
+              <h2 className="text-2xl font-bold text-[#1a2b36] mb-4 tracking-tight">Character</h2>
+              <p className="text-[#1a2b36] leading-relaxed">
+                {neighborhood.character}
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Property Types</h3>
-              <p className="text-gray-700 mb-4">
-                Hamilton Creek features custom estates, luxury homes, and upscale properties. Many homes
-                are custom-built with high-end finishes, expansive floor plans, and premium materials.
-              </p>
-              <p className="text-gray-700">
-                Properties include acreage estates (often 2-10+ acres), custom designs, premium
-                architectures, and often feature guest houses, workshops, stables, and extensive
-                landscaping.
+              <h2 className="text-2xl font-bold text-[#1a2b36] mb-4 tracking-tight">Property Types</h2>
+              <p className="text-[#1a2b36] leading-relaxed">
+                {neighborhood.propertyTypes}
               </p>
             </div>
           </div>
 
-          <h3 className="text-xl font-bold text-[#0099cc] mb-6 font-sans">Key Highlights</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            {[
-              {
-                icon: '👑',
-                title: 'Upscale Community',
-                description: 'Lebanon\'s most prestigious neighborhoods and estates',
-              },
-              {
-                icon: '🏞️',
-                title: 'Rolling Hills',
-                description: 'Scenic terrain with views and natural beauty',
-              },
-              {
-                icon: '🏡',
-                title: 'Custom Estates',
-                description: 'Premium builds with luxury finishes and design',
-              },
-              {
-                icon: '🌳',
-                title: 'Privacy & Space',
-                description: 'Multi-acre parcels for ultimate seclusion',
-              },
-            ].map((highlight, idx) => (
-              <div key={idx} className="bg-[#ebeff2] p-6 rounded-lg">
-                <div className="text-3xl mb-3">{highlight.icon}</div>
-                <h4 className="font-bold text-[#354652] mb-2 font-sans">{highlight.title}</h4>
-                <p className="text-gray-700 text-sm">{highlight.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Luxury Living Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#ebeff2]">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">
-            The Hamilton Creek Lifestyle
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Property Features</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>2-10+ acre estate parcels with room for horses</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Custom architectural homes with premium finishes</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Guest houses, workshops, and outbuildings</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Gated entries and professional landscaping</span>
-                </li>
-              </ul>
+          {/* Key Highlights Cards */}
+          <div>
+            <h2 className="text-2xl font-bold text-[#1a2b36] mb-6 tracking-tight">Key Highlights</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {neighborhood.highlights.map((highlight) => (
+                <div
+                  key={highlight}
+                  className="bg-[#f8fafb] border border-[#e2e8f0] rounded-2xl p-4 hover:shadow-md hover:border-[#0099cc]/30 transition-all duration-300"
+                >
+                  <p className="text-[#1a2b36] text-sm font-semibold">{highlight}</p>
+                </div>
+              ))}
             </div>
-
-            <div className="bg-white p-6 rounded-lg">
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Outdoor Living</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Horse farms and equestrian facilities</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Gardens, orchards, and private recreation areas</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Hill views and natural surroundings</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Room for hobby farms and personal projects</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Schools Section */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">Schools & Education</h2>
-          <div className="bg-[#ebeff2] p-8 rounded-lg border-l-4 border-[#0099cc]">
-            <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">
-              Lebanon Community Schools
-            </h3>
-            <p className="text-gray-700 mb-4">
-              Hamilton Creek families have access to Lebanon Community School District with school
-              transportation and comprehensive educational services.
-            </p>
-            <ul className="space-y-2 text-gray-700">
-              <li className="flex gap-3">
-                <span className="text-[#ca3121] font-bold">•</span>
-                <span>Quality education within a rural estate setting</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#ca3121] font-bold">•</span>
-                <span>School transportation to and from Hamilton Creek</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#ca3121] font-bold">•</span>
-                <span>College prep and advanced learning programs</span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-[#ca3121] font-bold">•</span>
-                <span>Regional college and university pathways</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* What Residents Love */}
-      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">What Residents Love</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              'Premium Estates & Acreage',
-              'Absolute Privacy',
-              'Scenic Rolling Hills',
-              'Custom Homes',
-              'Space for Horses & Projects',
-              'Exclusive Community',
-              'Rural Luxury Living',
-              'Natural Beauty & Views',
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-4 p-4 bg-[#ebeff2] rounded-lg">
-                <div className="text-2xl text-[#0099cc]">✓</div>
-                <span className="font-semibold text-[#354652]">{item}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Market Stats */}
-      <section className="w-full bg-gradient-to-r from-[#0099cc] to-[#0077aa] text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold mb-8 text-center font-sans">Market Insights</h2>
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1a2b36] mb-8 tracking-tight">Market Stats</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2 font-sans">$525K</div>
-              <p className="text-blue-100">Average Home Price</p>
+            <div className="bg-white border border-[#e2e8f0] rounded-2xl p-8 text-center">
+              <div className="text-3xl font-bold text-[#0099cc] tabular-nums mb-2">
+                ${Math.round(neighborhood.avgPrice / 1000)}K
+              </div>
+              <p className="text-[#64748b] text-sm font-medium">Average Home Price</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2 font-sans">85 days</div>
-              <p className="text-blue-100">Avg Days on Market</p>
+            <div className="bg-white border border-[#e2e8f0] rounded-2xl p-8 text-center">
+              <div className="text-3xl font-bold text-[#0099cc] tabular-nums mb-2">
+                {neighborhood.avgDOM} days
+              </div>
+              <p className="text-[#64748b] text-sm font-medium">Avg Days on Market</p>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2 font-sans">28%</div>
-              <p className="text-blue-100">Inventory Turnover</p>
+            <div className="bg-white border border-[#e2e8f0] rounded-2xl p-8 text-center">
+              <div className="text-3xl font-bold text-[#0099cc] tabular-nums mb-2">
+                {neighborhood.turnoverRate}%
+              </div>
+              <p className="text-[#64748b] text-sm font-medium">Inventory Turnover</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Investment Opportunity */}
+      {/* Schools */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">
-            A Premium Investment in Your Lifestyle
-          </h2>
-          <p className="text-gray-700 mb-6 text-lg">
-            Hamilton Creek represents Lebanon's most prestigious address. These estates combine the
-            tranquility of rural living with the convenience of being close to Corvallis and Albany.
-            Properties in this neighborhood are carefully maintained, architecturally distinguished,
-            and situated on substantial acreage.
-          </p>
-          <p className="text-gray-700">
-            Whether you're seeking a horse farm, a custom estate, or the ultimate in privacy and
-            space, Hamilton Creek offers Lebanon's finest residential properties. These homes
-            appreciate steadily and represent a significant lifestyle investment.
-          </p>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1a2b36] mb-8 tracking-tight">Schools</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {neighborhood.schools.map((school) => (
+              <div
+                key={school}
+                className="bg-[#f8fafb] border border-[#e2e8f0] rounded-2xl p-6"
+              >
+                <p className="text-[#1a2b36] font-semibold">{school}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Nearby Neighborhoods */}
-      <section className="w-full bg-[#ebeff2] py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-8 font-sans">
+      {/* What Residents Love */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1a2b36] mb-8 tracking-tight">What Residents Love</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {neighborhood.lovelist.map((item) => (
+              <div key={item} className="flex items-start gap-3 bg-white border border-[#e2e8f0] rounded-2xl p-4">
+                <span className="text-[#0099cc] font-bold mt-0.5 flex-shrink-0">+</span>
+                <span className="text-[#1a2b36] font-medium">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Other Neighborhoods */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1a2b36] mb-8 tracking-tight">
             Explore Other Lebanon Neighborhoods
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Link
-              href="/neighborhoods/south-lebanon"
-              className="p-4 bg-white rounded-lg hover:shadow-lg transition-shadow"
-            >
-              <h3 className="font-bold text-[#354652] mb-2 font-sans">South Lebanon</h3>
-              <p className="text-sm text-gray-700">Close to downtown</p>
-            </Link>
-            <Link
-              href="/neighborhoods/east-lebanon"
-              className="p-4 bg-white rounded-lg hover:shadow-lg transition-shadow"
-            >
-              <h3 className="font-bold text-[#354652] mb-2 font-sans">East Lebanon</h3>
-              <p className="text-sm text-gray-700">Gateway to Cascades</p>
-            </Link>
-            <Link
-              href="/neighborhoods/north-lebanon"
-              className="p-4 bg-white rounded-lg hover:shadow-lg transition-shadow"
-            >
-              <h3 className="font-bold text-[#354652] mb-2 font-sans">North Lebanon</h3>
-              <p className="text-sm text-gray-700">Family neighborhoods</p>
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {otherNeighborhoods.map((n) => (
+              <Link
+                key={n.slug}
+                href={`/neighborhoods/${n.slug}`}
+                className="bg-[#f8fafb] border border-[#e2e8f0] rounded-2xl p-6 hover:shadow-md hover:border-[#0099cc]/30 transition-all duration-300 group"
+              >
+                <h3 className="font-bold text-[#1a2b36] mb-2 group-hover:text-[#0099cc] transition-colors">
+                  {n.name}
+                </h3>
+                <p className="text-[#64748b] text-sm">{n.tagline}</p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

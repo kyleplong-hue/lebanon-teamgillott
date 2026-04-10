@@ -15,25 +15,16 @@ export const metadata: Metadata = {
     "Team Gillott real estate",
     "Willamette Valley homes",
   ],
-  viewport: "width=device-width, initial-scale=1",
   authors: [{ name: "Team Gillott", url: "https://www.teamgillott.com" }],
   robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lebanon.teamgillott.com",
+    url: "https://lebanon.justsoldle.com",
     siteName: "Team Gillott Lebanon Real Estate",
     title: "Lebanon, Oregon Real Estate | Team Gillott",
     description:
       "Discover your dream home in Lebanon, Corvallis, or Albany, Oregon. Expert real estate services from Team Gillott.",
-    images: [
-      {
-        url: "https://lebanon.teamgillott.com/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Team Gillott Real Estate",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
@@ -42,7 +33,7 @@ export const metadata: Metadata = {
       "Discover your dream home in Lebanon, Corvallis, or Albany, Oregon.",
   },
   alternates: {
-    canonical: "https://lebanon.teamgillott.com",
+    canonical: "https://lebanon.justsoldle.com",
   },
 };
 
@@ -65,28 +56,9 @@ const organizationSchema = {
     addressCountry: "US",
   },
   areaServed: [
-    {
-      "@type": "City",
-      name: "Lebanon",
-      addressRegion: "OR",
-    },
-    {
-      "@type": "City",
-      name: "Corvallis",
-      addressRegion: "OR",
-    },
-    {
-      "@type": "City",
-      name: "Albany",
-      addressRegion: "OR",
-    },
-  ],
-  knowsAbout: [
-    "Real Estate",
-    "Home Buying",
-    "Home Selling",
-    "Property Valuation",
-    "Neighborhood Information",
+    { "@type": "City", name: "Lebanon", addressRegion: "OR" },
+    { "@type": "City", name: "Corvallis", addressRegion: "OR" },
+    { "@type": "City", name: "Albany", addressRegion: "OR" },
   ],
 };
 
@@ -96,7 +68,6 @@ const localBusinessSchema = {
   name: "Team Gillott Real Estate",
   description:
     "Professional real estate services in Lebanon, Corvallis, and Albany, Oregon",
-  image: "https://lebanon.teamgillott.com/logo.jpg",
   url: "https://www.teamgillott.com",
   telephone: "+1-541-234-5678",
   address: {
@@ -121,20 +92,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className="h-full">
       <head>
         <SchemaMarkup schema={organizationSchema} />
         <SchemaMarkup schema={localBusinessSchema} />
         <meta name="theme-color" content="#0099cc" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta
-          name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent"
-        />
-        <meta name="format-detection" content="telephone=no" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="min-h-full flex flex-col bg-white text-dark-slate antialiased">
+      <body className="min-h-full flex flex-col bg-[#f8fafb] text-[#1a2b36] antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

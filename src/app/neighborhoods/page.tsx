@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { WebPageSchema } from '@/components/SchemaMarkup';
+import CTABanner from '@/components/CTABanner';
+import { neighborhoods } from '@/data/neighborhoods';
 
 export const metadata = {
   title: 'Lebanon, Oregon Neighborhoods | Team Gillott',
@@ -8,65 +10,6 @@ export const metadata = {
   keywords:
     'Lebanon neighborhoods, South Lebanon, East Lebanon, North Lebanon, Hamilton Creek, Lebanon OR',
 };
-
-const neighborhoods = [
-  {
-    id: 'south-lebanon',
-    name: 'South Lebanon',
-    description:
-      'Close to downtown Lebanon with walkable access to Strawberry Plaza, shops, restaurants, and community events like the Annual Strawberry Festival.',
-    priceRange: '$320K - $420K',
-    highlights: [
-      'Downtown proximity',
-      'River Park nearby',
-      'Walkable to amenities',
-      'Community events',
-    ],
-    href: '/neighborhoods/south-lebanon',
-  },
-  {
-    id: 'east-lebanon',
-    name: 'East Lebanon',
-    description:
-      'Gateway to the Cascade foothills offering larger lots, rural charm with city convenience, and excellent outdoor recreation including McDowell Creek Falls and Cheadle Lake.',
-    priceRange: '$350K - $475K',
-    highlights: [
-      'Larger lots',
-      'Rural feel',
-      'Mountain access',
-      'Outdoor recreation',
-    ],
-    href: '/neighborhoods/east-lebanon',
-  },
-  {
-    id: 'north-lebanon',
-    name: 'North Lebanon',
-    description:
-      'Family-friendly neighborhoods with newer developments, proximity to the Lowe\'s Distribution Center for employment, and excellent Highway 20 access for Corvallis and Albany commutes.',
-    priceRange: '$375K - $450K',
-    highlights: [
-      'New construction',
-      'Family-friendly',
-      'Employment hub access',
-      'Easy commute',
-    ],
-    href: '/neighborhoods/north-lebanon',
-  },
-  {
-    id: 'hamilton-creek',
-    name: 'Hamilton Creek',
-    description:
-      'Upscale southwestern Lebanon with rolling hills, expansive green spaces, custom estates, and a premium price point for those seeking privacy and acreage.',
-    priceRange: '$425K - $600K+',
-    highlights: [
-      'Premium estates',
-      'Rolling hills',
-      'Privacy & space',
-      'Custom builds',
-    ],
-    href: '/neighborhoods/hamilton-creek',
-  },
-];
 
 export default function NeighborhoodsIndex() {
   return (
@@ -79,79 +22,102 @@ export default function NeighborhoodsIndex() {
 
       {/* Hero Section */}
       <section className="w-full bg-gradient-to-b from-[#0099cc] to-[#0077aa] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4 font-sans">
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
             Lebanon, Oregon Neighborhoods
           </h1>
-          <p className="text-lg text-blue-100">
+          <p className="text-lg text-blue-100 max-w-2xl">
             Discover distinct neighborhoods from downtown to the foothills, each offering unique
             character and lifestyle opportunities.
           </p>
         </div>
       </section>
 
-      {/* Neighborhoods Grid */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {neighborhoods.map(neighborhood => (
-              <div
-                key={neighborhood.id}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden border-l-4 border-[#0099cc]"
+      {/* Neighborhoods Grid - Asymmetric Layout */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-max">
+            {/* Featured card - spans 2 rows */}
+            {neighborhoods.slice(0, 1).map((neighborhood) => (
+              <Link
+                key={neighborhood.slug}
+                href={`/neighborhoods/${neighborhood.slug}`}
+                className="md:col-span-1 md:row-span-2 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:border-[#0099cc]/30 transition-all duration-300 border border-[#e2e8f0] flex flex-col group"
               >
-                <div className="p-8">
-                  <h2 className="text-2xl font-bold text-[#354652] mb-2 font-sans">
+                <div className="p-8 flex-1 flex flex-col">
+                  <h2 className="text-2xl font-bold text-[#1a2b36] mb-2 tracking-tight group-hover:text-[#0099cc] transition-colors">
                     {neighborhood.name}
                   </h2>
-                  <div className="text-[#ca3121] font-semibold mb-4">{neighborhood.priceRange}</div>
-                  <p className="text-gray-700 mb-6">{neighborhood.description}</p>
-
-                  <div className="mb-6">
-                    <h3 className="text-sm font-bold text-[#354652] mb-3 uppercase tracking-wide font-sans">
-                      Highlights
-                    </h3>
+                  <p className="text-[#0099cc] font-semibold text-sm mb-4">
+                    ${Math.round(neighborhood.priceRange.low / 1000)}K – ${Math.round(neighborhood.priceRange.high / 1000)}K
+                  </p>
+                  <p className="text-[#1a2b36] mb-6 leading-relaxed flex-1">
+                    {neighborhood.description}
+                  </p>
+                  <div className="space-y-3">
+                    <p className="text-xs font-semibold text-[#64748b] uppercase tracking-tight">Highlights</p>
                     <div className="flex flex-wrap gap-2">
-                      {neighborhood.highlights.map(highlight => (
+                      {neighborhood.highlights.slice(0, 4).map((highlight) => (
                         <span
                           key={highlight}
-                          className="inline-block px-3 py-1 bg-[#ebeff2] text-[#354652] text-xs font-semibold rounded-full"
+                          className="inline-block px-3 py-1 bg-[#e2e8f0] text-[#1a2b36] text-xs font-medium rounded-full"
                         >
                           {highlight}
                         </span>
                       ))}
                     </div>
                   </div>
-
-                  <Link
-                    href={neighborhood.href}
-                    className="inline-block px-6 py-3 bg-[#0099cc] text-white font-semibold rounded-lg hover:bg-[#0088bb] transition-colors duration-200"
-                  >
-                    Explore Full Guide →
-                  </Link>
+                  <div className="mt-6 pt-4 border-t border-[#e2e8f0]">
+                    <div className="text-[#0099cc] font-semibold text-sm">Explore Guide →</div>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
+
+            {/* Regular cards */}
+            {neighborhoods.slice(1).map((neighborhood) => (
+              <Link
+                key={neighborhood.slug}
+                href={`/neighborhoods/${neighborhood.slug}`}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:border-[#0099cc]/30 transition-all duration-300 border border-[#e2e8f0] flex flex-col group"
+              >
+                <div className="p-6 flex-1 flex flex-col">
+                  <h3 className="text-xl font-bold text-[#1a2b36] mb-2 tracking-tight group-hover:text-[#0099cc] transition-colors">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-[#0099cc] font-semibold text-sm mb-3">
+                    ${Math.round(neighborhood.priceRange.low / 1000)}K – ${Math.round(neighborhood.priceRange.high / 1000)}K
+                  </p>
+                  <p className="text-[#64748b] text-sm leading-relaxed flex-1">
+                    {neighborhood.tagline}
+                  </p>
+                  <div className="mt-4 pt-3 border-t border-[#e2e8f0]">
+                    <div className="text-[#0099cc] font-semibold text-sm">Explore →</div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Comparison Link */}
+          <div className="mt-12 text-center">
+            <Link
+              href="/compare"
+              className="inline-block px-6 py-3 bg-[#0099cc] text-white font-semibold rounded-2xl hover:bg-[#0088bb] transition-colors duration-300"
+            >
+              Compare Neighborhoods
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="w-full bg-gradient-to-r from-[#0099cc] to-[#0077aa] text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4 font-sans">Ready to Explore These Neighborhoods?</h2>
-          <p className="text-blue-100 mb-6 text-lg">
-            Contact Team Gillott to schedule a showing or get personalized neighborhood insights.
-          </p>
-          <a
-            href="https://www.teamgillott.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-[#ca3121] text-white font-semibold rounded-lg hover:bg-[#b8270d] transition-colors duration-200"
-          >
-            Contact Team Gillott
-          </a>
-        </div>
-      </section>
+      {/* CTA */}
+      <CTABanner
+        heading="Ready to Explore These Neighborhoods?"
+        subheading="Connect with Team Gillott to schedule showings and get personalized neighborhood insights."
+        ctaText="Contact Team Gillott"
+        ctaUrl="https://www.teamgillott.com"
+      />
     </>
   );
 }

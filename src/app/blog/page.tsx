@@ -68,46 +68,40 @@ export default function BlogPage() {
         url="https://lebanon.teamgillott.com/blog"
       />
 
-      {/* Hero Section */}
       <section className="w-full bg-gradient-to-b from-[#0099cc] to-[#0077aa] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-6 font-sans">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
             Lebanon Real Estate Blog
           </h1>
-          <p className="text-lg sm:text-xl text-blue-100">
+          <p className="text-lg text-blue-100">
             Stay informed on Lebanon, Corvallis, and Albany real estate trends, market insights, and community news.
           </p>
         </div>
       </section>
 
-      {/* Blog Posts Grid */}
-      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-[#f8fafb] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {blogPosts.map(post => (
               <article
                 key={post.id}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden border-l-4 border-[#0099cc]"
+                className="bg-white rounded-2xl shadow-md hover:shadow-md hover:border-[#0099cc]/30 transition-all duration-300 overflow-hidden border border-[#e2e8f0]"
               >
-                {/* Post Image Placeholder */}
                 <div className="h-48 bg-gradient-to-br from-[#0099cc] to-[#0077aa] flex items-center justify-center">
                   <div className="text-white text-center">
-                    <div className="text-5xl mb-2">📄</div>
+                    <div className="text-5xl mb-2">Article</div>
                     <p className="text-sm opacity-75">Featured Image</p>
                   </div>
                 </div>
 
-                {/* Post Content */}
                 <div className="p-6">
-                  {/* Category Tag */}
                   <div className="mb-3">
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${post.categoryColor}`}>
                       {post.category}
                     </span>
                   </div>
 
-                  {/* Date */}
-                  <p className="text-gray-500 text-sm mb-3">
+                  <p className="text-[#64748b] text-sm mb-3 tabular-nums">
                     {new Date(post.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
@@ -115,20 +109,17 @@ export default function BlogPage() {
                     })}
                   </p>
 
-                  {/* Title */}
-                  <h2 className="text-xl font-bold text-[#354652] mb-4 font-sans line-clamp-3">
+                  <h2 className="text-xl font-bold text-[#1a2b36] mb-4 tracking-tight line-clamp-3">
                     {post.title}
                   </h2>
 
-                  {/* Excerpt */}
-                  <p className="text-gray-700 text-sm leading-relaxed mb-6 line-clamp-2">
+                  <p className="text-[#1a2b36] text-sm leading-relaxed mb-6 line-clamp-2">
                     {post.excerpt}
                   </p>
 
-                  {/* Read More Link */}
                   <Link
                     href={post.href}
-                    className="inline-flex items-center gap-2 text-[#0099cc] font-semibold hover:text-[#0077aa] transition-colors"
+                    className="inline-flex items-center gap-2 text-[#0099cc] font-semibold hover:text-[#0077aa] transition-colors duration-300"
                   >
                     Read More <span>→</span>
                   </Link>
@@ -137,83 +128,79 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* Pagination / Load More */}
           <div className="text-center">
-            <p className="text-gray-600 mb-6">
+            <p className="text-[#1a2b36] mb-6">
               Showing 4 of 12 recent posts
             </p>
-            <button className="px-8 py-3 border-2 border-[#0099cc] text-[#0099cc] font-semibold rounded-lg hover:bg-[#0099cc] hover:text-white transition-colors duration-200">
+            <button className="px-8 py-3 border-2 border-[#0099cc] text-[#0099cc] font-semibold rounded-2xl hover:bg-[#0099cc] hover:text-white transition-colors duration-300">
               Load More Posts
             </button>
           </div>
         </div>
       </section>
 
-      {/* Subscribe Section */}
-      <section className="w-full bg-[#ebeff2] py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-[#354652] mb-4 font-sans">
+          <h2 className="text-3xl font-bold text-[#1a2b36] mb-4 tracking-tight">
             Subscribe for Monthly Updates
           </h2>
-          <p className="text-gray-700 mb-8">
+          <p className="text-[#1a2b36] mb-8">
             Get the latest Lebanon real estate market trends, buyer tips, and neighborhood guides delivered to your inbox every month.
           </p>
 
-          {/* Subscribe Form */}
           <form className="flex flex-col sm:flex-row gap-4">
             <input
               type="email"
               placeholder="Enter your email"
               required
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#0099cc]"
+              className="flex-1 px-4 py-3 border border-[#e2e8f0] rounded-2xl focus:outline-none focus:border-[#0099cc] focus:ring-1 focus:ring-[#0099cc] transition-colors duration-300"
             />
             <button
               type="submit"
-              className="px-8 py-3 bg-[#0099cc] text-white font-semibold rounded-lg hover:bg-[#0077aa] transition-colors duration-200 whitespace-nowrap"
+              className="px-8 py-3 bg-[#0099cc] text-white font-semibold rounded-2xl hover:bg-[#0077aa] transition-colors duration-300 whitespace-nowrap"
             >
               Subscribe
             </button>
           </form>
 
-          <p className="text-xs text-gray-600 mt-4">
+          <p className="text-xs text-[#64748b] mt-4">
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-[#f8fafb] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#354652] mb-12 text-center font-sans">
+          <h2 className="text-3xl font-bold text-[#1a2b36] mb-12 tracking-tight">
             Explore by Topic
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: 'Market Trends', icon: '📈', count: 8 },
-              { name: 'Buying Guide', icon: '🏡', count: 12 },
-              { name: 'Selling Guide', icon: '🔑', count: 6 },
-              { name: 'Neighborhoods', icon: '🗺️', count: 9 },
+              { name: 'Market Trends', label: 'Chart', count: 8 },
+              { name: 'Buying Guide', label: 'Home', count: 12 },
+              { name: 'Selling Guide', label: 'Key', count: 6 },
+              { name: 'Neighborhoods', label: 'Map', count: 9 },
             ].map(cat => (
               <div
                 key={cat.name}
-                className="p-6 bg-[#ebeff2] rounded-lg hover:shadow-md transition-shadow text-center cursor-pointer hover:bg-[#dae4eb]"
+                className="p-6 bg-white rounded-2xl hover:shadow-md hover:border-[#0099cc]/30 transition-all duration-300 text-center cursor-pointer border border-[#e2e8f0]"
               >
-                <div className="text-3xl mb-3">{cat.icon}</div>
-                <h3 className="font-bold text-[#354652] mb-2 font-sans">{cat.name}</h3>
-                <p className="text-gray-600 text-sm">{cat.count} posts</p>
+                <div className="text-3xl mb-3 font-semibold text-[#0099cc]">{cat.label}</div>
+                <h3 className="font-bold text-[#1a2b36] mb-2">{cat.name}</h3>
+                <p className="text-[#64748b] text-sm tabular-nums">{cat.count} posts</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
       <CTABanner
         heading="Ready to Get Started?"
         subheading="Whether you're buying or selling, Team Gillott is here to help."
         ctaText="Contact a Team Gillott Agent"
         ctaUrl="https://www.teamgillott.com"
+        variant="primary"
       />
     </>
   );

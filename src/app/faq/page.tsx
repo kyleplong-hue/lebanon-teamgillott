@@ -1,10 +1,6 @@
-'use client';
-
-import { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import CTABanner from '@/components/CTABanner';
 import { WebPageSchema } from '@/components/SchemaMarkup';
+import { FAQAccordion } from './faq-accordion';
 
 interface FAQItem {
   id: string;
@@ -123,111 +119,63 @@ const faqItems: FAQItem[] = [
   },
 ];
 
-function FAQAccordion() {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-
-  const toggleAccordion = (id: string) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
-
-  return (
-    <div className="space-y-3">
-      {faqItems.map((item) => (
-        <div
-          key={item.id}
-          className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
-        >
-          <button
-            onClick={() => toggleAccordion(item.id)}
-            className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors text-left"
-            aria-expanded={expandedId === item.id}
-            aria-controls={`faq-content-${item.id}`}
-          >
-            <span className="font-semibold text-[#354652] text-lg pr-4">{item.question}</span>
-            <span
-              className={`flex-shrink-0 text-[#0099cc] font-bold text-2xl transition-transform duration-200 ${
-                expandedId === item.id ? 'rotate-45' : ''
-              }`}
-            >
-              +
-            </span>
-          </button>
-          {expandedId === item.id && (
-            <div
-              id={`faq-content-${item.id}`}
-              className="px-6 py-4 bg-gray-50 border-t border-gray-200 text-[#354652]"
-            >
-              <p className="text-base leading-relaxed">{item.answer}</p>
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function FAQPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#ebeff2]">
-      <Header />
-      <main className="flex-1 w-full">
-        <section className="w-full bg-gradient-to-br from-[#0099cc] to-[#0077aa] py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 font-sans">
-              Frequently Asked Questions
-            </h1>
-            <p className="text-lg text-blue-100">
-              Get answers to common questions about buying and selling in Lebanon, Oregon
-            </p>
-          </div>
-        </section>
-
-        <section className="w-full py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-8 p-6 bg-blue-50 rounded-lg border-l-4 border-[#0099cc]">
-              <p className="text-[#354652]">
-                Have a specific question? Explore our comprehensive Q and A below. Click on any question to
-                reveal the answer. If you don't find what you are looking for, reach out to Team Gillott
-                directly.
-              </p>
-            </div>
-
-            <FAQAccordion />
-          </div>
-        </section>
-
-        <CTABanner
-          heading="Have More Questions?"
-          subheading="Talk to a local expert who knows Lebanon inside and out."
-          ctaText="Contact Team Gillott Today"
-          ctaUrl="https://www.teamgillott.com"
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: faqItems.map((item) => ({
-                '@type': 'Question',
-                name: item.question,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: item.answer,
-                },
-              })),
-            }),
-          }}
-        />
-      </main>
-      <Footer />
-
+    <>
       <WebPageSchema
         title="Frequently Asked Questions - Lebanon Real Estate"
         description="Get answers to your Lebanon real estate questions: median home prices, schools, neighborhoods, first-time buyer programs, and more."
         url="https://lebanon.teamgillott.com/faq"
       />
-    </div>
+
+      <section className="w-full bg-gradient-to-br from-[#0099cc] to-[#0077aa] py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
+            Frequently Asked Questions
+          </h1>
+          <p className="text-lg text-blue-100">
+            Get answers to common questions about buying and selling in Lebanon, Oregon
+          </p>
+        </div>
+      </section>
+
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-10 p-6 bg-gradient-to-br from-[#f8fafb] to-[#f8fafb] rounded-2xl border border-[#e2e8f0]">
+            <p className="text-[#1a2b36] leading-relaxed">
+              Have a specific question? Explore our comprehensive Q and A below. Click on any question to reveal the answer. If you don't find what you are looking for, reach out to Team Gillott directly.
+            </p>
+          </div>
+
+          <FAQAccordion items={faqItems} />
+        </div>
+      </section>
+
+      <CTABanner
+        heading="Have More Questions?"
+        subheading="Talk to a local expert who knows Lebanon inside and out."
+        ctaText="Contact Team Gillott Today"
+        ctaUrl="https://www.teamgillott.com"
+        variant="primary"
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqItems.map((item) => ({
+              '@type': 'Question',
+              name: item.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer,
+              },
+            })),
+          }),
+        }}
+      />
+    </>
   );
 }

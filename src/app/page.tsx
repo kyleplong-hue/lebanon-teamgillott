@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { WebPageSchema, LocalBusinessSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
+import { currentMonth, marketTrends, recentSales, formatPriceFull } from '@/data/market';
+import { neighborhoods } from '@/data/neighborhoods';
+import MarketSparkline from '@/components/MarketSparkline';
 
 export const metadata = {
   title: 'Lebanon, Oregon Real Estate Guide | Team Gillott',
@@ -8,55 +11,21 @@ export const metadata = {
     'Explore Lebanon, Oregon real estate with Team Gillott. Discover neighborhoods, market insights, and find your perfect home in Lebanon, Corvallis, or Albany.',
   keywords:
     'Lebanon Oregon real estate, homes for sale Lebanon OR, Team Gillott, Lebanon neighborhoods',
-  openGraph: {
-    title: 'Lebanon, Oregon Real Estate Guide',
-    description:
-      'Discover neighborhoods and find homes in Lebanon, Oregon with Team Gillott real estate services.',
-    type: 'website',
-  },
 };
 
-const neighborhoods = [
-  {
-    id: 'south-lebanon',
-    name: 'South Lebanon',
-    description: 'Close to downtown with walkable shops, restaurants, and community events.',
-    href: '/neighborhoods/south-lebanon',
-  },
-  {
-    id: 'east-lebanon',
-    name: 'East Lebanon',
-    description: 'Gateway to scenic Cascade foothills with outdoor recreation and larger lots.',
-    href: '/neighborhoods/east-lebanon',
-  },
-  {
-    id: 'north-lebanon',
-    name: 'North Lebanon',
-    description: 'Family-friendly with newer developments and excellent commuter access.',
-    href: '/neighborhoods/north-lebanon',
-  },
-  {
-    id: 'hamilton-creek',
-    name: 'Hamilton Creek',
-    description: 'Upscale, private estates on rolling hills with expansive green spaces.',
-    href: '/neighborhoods/hamilton-creek',
-  },
-];
-
-const stats = [
-  { label: 'Median Price', value: '$395K' },
-  { label: 'Avg Days on Market', value: '65 days' },
-  { label: 'Population', value: '19,950' },
-  { label: 'YoY Growth', value: '+4.6%' },
-];
-
 export default function Home() {
+  const yoyChange = (
+    ((marketTrends[marketTrends.length - 1].medianPrice - marketTrends[0].medianPrice) /
+      marketTrends[0].medianPrice) *
+    100
+  ).toFixed(1);
+
   return (
     <>
       <WebPageSchema
         title="Lebanon, Oregon Real Estate Guide"
         description="Explore neighborhoods and find your perfect home in Lebanon, Oregon with Team Gillott real estate services."
-        url="https://lebanon.teamgillott.com"
+        url="https://lebanon.justsoldle.com"
       />
       <LocalBusinessSchema
         name="Team Gillott - Lebanon Real Estate"
@@ -65,64 +34,179 @@ export default function Home() {
         areaServed={['Lebanon', 'Corvallis', 'Albany']}
       />
 
-      {/* Hero Section */}
-      <section className="w-full bg-gradient-to-b from-[#0099cc] to-[#0077aa] text-white py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 font-sans">
-            Your Guide to Lebanon, Oregon Real Estate
-          </h1>
-          <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Discover neighborhoods, market insights, and find your perfect home. Team Gillott serves
-            Lebanon, Corvallis, and Albany with professional real estate expertise.
-          </p>
-          <a
-            href="https://www.teamgillott.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-4 bg-[#ca3121] text-white font-semibold text-lg rounded-lg hover:bg-[#b8270d] transition-colors duration-200"
-          >
-            Search Homes
-          </a>
-        </div>
-      </section>
+      {/* Hero — Left-aligned, asymmetric per taste-skill */}
+      <section className="relative w-full min-h-[85vh] flex items-center overflow-hidden">
+        {/* Background gradient — not centered blue blob */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafb] via-[#e8f4f8] to-[#f8fafb]" />
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#0099cc]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-20 w-[400px] h-[400px] bg-[#0099cc]/3 rounded-full blur-3xl" />
 
-      {/* Quick Stats Bar */}
-      <section className="w-full bg-white py-12 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map(stat => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl font-bold text-[#0099cc] font-sans mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-600 text-sm">{stat.label}</div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+            {/* Left content — 3 cols */}
+            <div className="lg:col-span-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0099cc]/8 border border-[#0099cc]/15 rounded-full mb-6">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#0099cc] animate-pulse" />
+                <span className="text-xs font-medium text-[#0099cc]">
+                  Market updated {currentMonth.monthFull}
+                </span>
               </div>
-            ))}
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#1a2b36] leading-[1.08] mb-6">
+                Your guide to
+                <br />
+                <span className="text-[#0099cc]">Lebanon, Oregon</span>
+                <br />
+                real estate
+              </h1>
+
+              <p className="text-lg text-[#64748b] max-w-lg mb-8 leading-relaxed">
+                Neighborhoods, market data, and local expertise. Team Gillott
+                serves Lebanon, Corvallis, and Albany with professional real
+                estate services.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://www.teamgillott.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-[#0099cc] rounded-lg hover:bg-[#00708f] transition-all duration-200 active:scale-[0.98]"
+                >
+                  Search homes
+                  <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+                <Link
+                  href="/market-report"
+                  className="inline-flex items-center px-6 py-3 text-sm font-semibold text-[#1a2b36] bg-white border border-[#e2e8f0] rounded-lg hover:border-[#cbd5e1] hover:bg-[#f8fafb] transition-all duration-200"
+                >
+                  View market report
+                </Link>
+              </div>
+            </div>
+
+            {/* Right — Bento stat cards, 2 cols */}
+            <div className="lg:col-span-2 grid grid-cols-2 gap-3">
+              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <p className="text-xs font-medium text-[#94a3b8] uppercase tracking-wider mb-1">Median price</p>
+                <p className="text-2xl font-semibold tracking-tight text-[#1a2b36] tabular-nums">
+                  ${(currentMonth.medianPrice / 1000).toFixed(0)}K
+                </p>
+                <p className="text-xs font-medium text-emerald-600 mt-1">+{yoyChange}% YoY</p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <p className="text-xs font-medium text-[#94a3b8] uppercase tracking-wider mb-1">Days on market</p>
+                <p className="text-2xl font-semibold tracking-tight text-[#1a2b36] tabular-nums">
+                  {currentMonth.avgDOM}
+                </p>
+                <p className="text-xs font-medium text-emerald-600 mt-1">Selling faster</p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <p className="text-xs font-medium text-[#94a3b8] uppercase tracking-wider mb-1">30-yr rate</p>
+                <p className="text-2xl font-semibold tracking-tight text-[#1a2b36] tabular-nums">
+                  {currentMonth.mortgageRate}%
+                </p>
+                <p className="text-xs text-[#94a3b8] mt-1">Fixed rate</p>
+              </div>
+
+              <div className="bg-white rounded-2xl border border-[#e2e8f0] p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                <p className="text-xs font-medium text-[#94a3b8] uppercase tracking-wider mb-1">Active listings</p>
+                <p className="text-2xl font-semibold tracking-tight text-[#1a2b36] tabular-nums">
+                  {currentMonth.activeListings}
+                </p>
+                <p className="text-xs text-[#94a3b8] mt-1">{currentMonth.inventory}mo supply</p>
+              </div>
+
+              {/* Sparkline card — spans full width */}
+              <div className="col-span-2 bg-white rounded-2xl border border-[#e2e8f0] p-5 shadow-sm">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-xs font-medium text-[#94a3b8] uppercase tracking-wider">12-month trend</p>
+                  <Link href="/market-report" className="text-xs font-medium text-[#0099cc] hover:text-[#00708f] transition-colors">
+                    Details &rarr;
+                  </Link>
+                </div>
+                <MarketSparkline data={marketTrends} />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Neighborhood Preview Grid */}
-      <section className="w-full py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 text-center font-sans">
-            Explore Lebanon Neighborhoods
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {neighborhoods.map(neighborhood => (
-              <Link
-                key={neighborhood.id}
-                href={neighborhood.href}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden border-l-4 border-[#0099cc]"
-              >
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#354652] mb-3 font-sans">
-                    {neighborhood.name}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-4">{neighborhood.description}</p>
-                  <div className="text-[#0099cc] font-semibold flex items-center gap-2">
-                    Explore Guide <span>→</span>
+      {/* Neighborhoods — Asymmetric grid, not 4 equal cards */}
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="max-w-xl mb-12">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#1a2b36] mb-3">
+              Explore neighborhoods
+            </h2>
+            <p className="text-[#64748b] leading-relaxed">
+              Four distinct areas, each with its own character. Find the one
+              that fits your lifestyle.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Featured large card */}
+            <Link
+              href={`/neighborhoods/${neighborhoods[0].slug}`}
+              className="lg:row-span-2 group relative bg-white rounded-2xl border border-[#e2e8f0] overflow-hidden hover:border-[#0099cc]/30 transition-all duration-300 hover:shadow-lg"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0099cc]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative p-8 h-full flex flex-col justify-between min-h-[320px]">
+                <div>
+                  <div className="inline-flex px-2.5 py-1 bg-[#0099cc]/8 text-[#0099cc] text-xs font-semibold rounded-md mb-4">
+                    Most popular
                   </div>
+                  <h3 className="text-2xl font-semibold tracking-tight text-[#1a2b36] mb-2">
+                    {neighborhoods[0].name}
+                  </h3>
+                  <p className="text-sm text-[#64748b] leading-relaxed mb-4">
+                    {neighborhoods[0].description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {neighborhoods[0].highlights.map((h) => (
+                      <span key={h} className="px-2 py-0.5 text-xs text-[#64748b] bg-[#f1f5f9] rounded-md">
+                        {h}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center justify-between mt-6 pt-4 border-t border-[#e2e8f0]">
+                  <span className="text-sm font-semibold text-[#1a2b36] tabular-nums">
+                    ${(neighborhoods[0].priceRange.low / 1000).toFixed(0)}K &ndash; ${(neighborhoods[0].priceRange.high / 1000).toFixed(0)}K
+                  </span>
+                  <span className="text-sm font-medium text-[#0099cc] group-hover:translate-x-1 transition-transform duration-200">
+                    Explore &rarr;
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Other 3 neighborhoods */}
+            {neighborhoods.slice(1).map((n) => (
+              <Link
+                key={n.slug}
+                href={`/neighborhoods/${n.slug}`}
+                className="group bg-white rounded-2xl border border-[#e2e8f0] p-6 hover:border-[#0099cc]/30 transition-all duration-300 hover:shadow-lg"
+              >
+                <h3 className="text-lg font-semibold tracking-tight text-[#1a2b36] mb-1.5">
+                  {n.name}
+                </h3>
+                <p className="text-xs text-[#0099cc] font-medium mb-3">{n.tagline}</p>
+                <p className="text-sm text-[#64748b] leading-relaxed mb-4 line-clamp-2">
+                  {n.description}
+                </p>
+                <div className="flex items-center justify-between pt-3 border-t border-[#e2e8f0]">
+                  <span className="text-sm font-semibold text-[#1a2b36] tabular-nums">
+                    ${(n.priceRange.low / 1000).toFixed(0)}K &ndash; ${(n.priceRange.high / 1000).toFixed(0)}K
+                  </span>
+                  <span className="text-sm font-medium text-[#0099cc] group-hover:translate-x-1 transition-transform duration-200">
+                    Explore &rarr;
+                  </span>
                 </div>
               </Link>
             ))}
@@ -130,108 +214,188 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Lebanon Section */}
-      <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-8 text-center font-sans">
-            Why Lebanon?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Location & Access</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Just 25 minutes to Corvallis and Albany</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Easy Highway 20 access for regional commutes</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Strategic location between Willamette Valley cities</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Natural Beauty</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Over 300 acres of parks and green spaces</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Gateway to Cascade foothills for outdoor recreation</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Scenic hiking, water recreation, and nature trails</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Growing Economy</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Lowe's Distribution Center brings employment</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Samaritan Hospital serves regional healthcare</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-[#ca3121] font-bold">•</span>
-                  <span>Thriving community events and local businesses</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-[#0099cc] mb-4 font-sans">Affordability</h3>
-              <div className="bg-[#ebeff2] p-6 rounded-lg">
-                <div className="mb-4">
-                  <p className="text-gray-600 text-sm mb-2">Lebanon Median Home Price</p>
-                  <p className="text-3xl font-bold text-[#0099cc] font-sans">$395K</p>
+      {/* Why Lebanon — Split layout, not centered */}
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+            {/* Left — 2 cols */}
+            <div className="lg:col-span-2">
+              <h2 className="text-3xl font-semibold tracking-tight text-[#1a2b36] mb-4">
+                Why Lebanon?
+              </h2>
+              <p className="text-[#64748b] leading-relaxed mb-6">
+                30% more affordable than Corvallis, 25 minutes away,
+                and surrounded by 300+ acres of parks. Lebanon is one of
+                Oregon&apos;s best-kept secrets.
+              </p>
+              <div className="bg-[#f8fafb] rounded-2xl border border-[#e2e8f0] p-6">
+                <div className="flex items-baseline justify-between mb-3">
+                  <span className="text-sm text-[#64748b]">Lebanon</span>
+                  <span className="text-xl font-semibold tracking-tight text-[#0099cc] tabular-nums">
+                    ${(currentMonth.medianPrice / 1000).toFixed(0)}K
+                  </span>
                 </div>
-                <div>
-                  <p className="text-gray-600 text-sm mb-2">Corvallis Median Home Price</p>
-                  <p className="text-3xl font-bold text-[#ca3121] font-sans">$565K</p>
+                <div className="w-full bg-[#0099cc]/15 rounded-full h-2 mb-4">
+                  <div className="bg-[#0099cc] h-2 rounded-full" style={{ width: '70%' }} />
                 </div>
-                <p className="text-gray-600 text-sm mt-4">
-                  30% more affordable than nearby Corvallis while maintaining excellent access.
-                </p>
+                <div className="flex items-baseline justify-between mb-3">
+                  <span className="text-sm text-[#64748b]">Corvallis</span>
+                  <span className="text-xl font-semibold tracking-tight text-[#c4371a] tabular-nums">$565K</span>
+                </div>
+                <div className="w-full bg-[#c4371a]/15 rounded-full h-2">
+                  <div className="bg-[#c4371a] h-2 rounded-full" style={{ width: '100%' }} />
+                </div>
               </div>
             </div>
+
+            {/* Right — 3 cols, feature grid */}
+            <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                {
+                  title: 'Location',
+                  desc: '25 minutes to Corvallis and Albany via Highway 20. Strategic Willamette Valley position.',
+                },
+                {
+                  title: 'Nature',
+                  desc: '300+ acres of parks, Cascade foothills access, McDowell Creek Falls nearby.',
+                },
+                {
+                  title: 'Economy',
+                  desc: "Lowe's Distribution Center, Samaritan Hospital, and a growing local business scene.",
+                },
+                {
+                  title: 'Schools',
+                  desc: 'Lebanon CSD, Sand Ridge Charter (rated 9/10), and 91% graduation rate.',
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="p-5 rounded-xl border border-[#e2e8f0] hover:border-[#0099cc]/20 transition-colors duration-200"
+                >
+                  <h3 className="text-sm font-semibold text-[#1a2b36] mb-2">{item.title}</h3>
+                  <p className="text-sm text-[#64748b] leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Market Snapshot Teaser */}
-      <section className="w-full bg-gradient-to-r from-[#0099cc] via-[#0088bb] to-[#0077aa] text-white py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 font-sans">Market Snapshot</h2>
-          <p className="text-blue-100 mb-6 text-lg">
-            Get the latest Lebanon real estate market data, trends, and insights.
-          </p>
-          <Link
-            href="/market-report"
-            className="inline-block px-6 py-3 bg-white text-[#0099cc] font-semibold rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            View Full Market Report
-          </Link>
+      {/* Recently Sold — Live data feel */}
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight text-[#1a2b36] mb-1">
+                Recently sold
+              </h2>
+              <p className="text-sm text-[#64748b]">Latest closings in Lebanon</p>
+            </div>
+            <Link
+              href="/market-report"
+              className="text-sm font-medium text-[#0099cc] hover:text-[#00708f] transition-colors hidden sm:block"
+            >
+              View market report &rarr;
+            </Link>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-[#e2e8f0]">
+                  <th className="text-left text-xs font-medium text-[#94a3b8] uppercase tracking-wider pb-3 pr-4">Address</th>
+                  <th className="text-left text-xs font-medium text-[#94a3b8] uppercase tracking-wider pb-3 pr-4">Neighborhood</th>
+                  <th className="text-right text-xs font-medium text-[#94a3b8] uppercase tracking-wider pb-3 pr-4">Price</th>
+                  <th className="text-right text-xs font-medium text-[#94a3b8] uppercase tracking-wider pb-3 pr-4 hidden sm:table-cell">Beds/Baths</th>
+                  <th className="text-right text-xs font-medium text-[#94a3b8] uppercase tracking-wider pb-3 pr-4 hidden md:table-cell">Sq Ft</th>
+                  <th className="text-right text-xs font-medium text-[#94a3b8] uppercase tracking-wider pb-3 hidden lg:table-cell">DOM</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentSales.map((sale, i) => (
+                  <tr key={i} className="border-b border-[#f1f5f9] hover:bg-[#f8fafb] transition-colors">
+                    <td className="py-3.5 pr-4 text-sm font-medium text-[#1a2b36]">{sale.address}</td>
+                    <td className="py-3.5 pr-4 text-sm text-[#64748b]">{sale.neighborhood}</td>
+                    <td className="py-3.5 pr-4 text-sm font-semibold text-[#1a2b36] text-right tabular-nums">
+                      {formatPriceFull(sale.price)}
+                    </td>
+                    <td className="py-3.5 pr-4 text-sm text-[#64748b] text-right tabular-nums hidden sm:table-cell">
+                      {sale.beds}/{sale.baths}
+                    </td>
+                    <td className="py-3.5 pr-4 text-sm text-[#64748b] text-right tabular-nums hidden md:table-cell">
+                      {sale.sqft.toLocaleString()}
+                    </td>
+                    <td className="py-3.5 text-sm text-[#64748b] text-right tabular-nums hidden lg:table-cell">
+                      {sale.dom}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
+      {/* Quick Links — Resources bento */}
+      <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-semibold tracking-tight text-[#1a2b36] mb-8">
+            Resources for buyers and sellers
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              {
+                href: '/first-time-buyers',
+                title: 'First-time buyer guide',
+                desc: 'Oregon assistance programs, step-by-step process, and affordability data.',
+              },
+              {
+                href: '/selling',
+                title: 'Selling your home',
+                desc: 'Pricing strategy, staging tips, and timeline expectations for Lebanon sellers.',
+              },
+              {
+                href: '/mortgage-calculator',
+                title: 'Mortgage calculator',
+                desc: 'Estimate monthly payments with current rates and down payment scenarios.',
+              },
+              {
+                href: '/schools',
+                title: 'School guide',
+                desc: 'Lebanon CSD overview, school ratings, and how schools impact home values.',
+              },
+              {
+                href: '/faq',
+                title: 'Frequently asked questions',
+                desc: '18 answers about living in Lebanon, from property taxes to outdoor recreation.',
+              },
+              {
+                href: '/agents',
+                title: 'Meet Team Gillott',
+                desc: 'Local expertise in Lebanon, Corvallis, and Albany real estate.',
+              },
+            ].map((r) => (
+              <Link
+                key={r.href}
+                href={r.href}
+                className="group p-6 rounded-2xl border border-[#e2e8f0] hover:border-[#0099cc]/30 transition-all duration-300 hover:shadow-md"
+              >
+                <h3 className="text-base font-semibold text-[#1a2b36] mb-1.5 group-hover:text-[#0099cc] transition-colors">
+                  {r.title}
+                </h3>
+                <p className="text-sm text-[#64748b] leading-relaxed">{r.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CTABanner
-        heading="Ready to Find Your Lebanon Home?"
+        heading="Ready to find your Lebanon home?"
         subheading="Let Team Gillott guide you through every step of your real estate journey."
-        ctaText="Start Your Search"
+        ctaText="Start your search"
         ctaUrl="https://www.teamgillott.com"
+        variant="dark"
       />
     </>
   );
