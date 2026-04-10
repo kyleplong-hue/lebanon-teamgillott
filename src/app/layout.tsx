@@ -1,0 +1,144 @@
+import type { Metadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import SchemaMarkup from "@/components/SchemaMarkup";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Lebanon, Oregon Real Estate | Team Gillott",
+  description:
+    "Discover your dream home in Lebanon, Corvallis, or Albany, Oregon. Team Gillott offers expert real estate services, market insights, and neighborhood guides.",
+  keywords: [
+    "Lebanon Oregon real estate",
+    "Corvallis homes for sale",
+    "Albany Oregon properties",
+    "Team Gillott real estate",
+    "Willamette Valley homes",
+  ],
+  viewport: "width=device-width, initial-scale=1",
+  authors: [{ name: "Team Gillott", url: "https://www.teamgillott.com" }],
+  robots: "index, follow",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://lebanon.teamgillott.com",
+    siteName: "Team Gillott Lebanon Real Estate",
+    title: "Lebanon, Oregon Real Estate | Team Gillott",
+    description:
+      "Discover your dream home in Lebanon, Corvallis, or Albany, Oregon. Expert real estate services from Team Gillott.",
+    images: [
+      {
+        url: "https://lebanon.teamgillott.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Team Gillott Real Estate",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lebanon, Oregon Real Estate | Team Gillott",
+    description:
+      "Discover your dream home in Lebanon, Corvallis, or Albany, Oregon.",
+  },
+  alternates: {
+    canonical: "https://lebanon.teamgillott.com",
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  name: "Team Gillott",
+  description:
+    "Team Gillott is a premier real estate team serving Lebanon, Corvallis, and Albany, Oregon.",
+  url: "https://www.teamgillott.com",
+  sameAs: [
+    "https://www.facebook.com/teamgillott",
+    "https://www.instagram.com/teamgillott",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Team Gillott | Keller Williams",
+    addressLocality: "Lebanon",
+    addressRegion: "OR",
+    addressCountry: "US",
+  },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Lebanon",
+      addressRegion: "OR",
+    },
+    {
+      "@type": "City",
+      name: "Corvallis",
+      addressRegion: "OR",
+    },
+    {
+      "@type": "City",
+      name: "Albany",
+      addressRegion: "OR",
+    },
+  ],
+  knowsAbout: [
+    "Real Estate",
+    "Home Buying",
+    "Home Selling",
+    "Property Valuation",
+    "Neighborhood Information",
+  ],
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Team Gillott Real Estate",
+  description:
+    "Professional real estate services in Lebanon, Corvallis, and Albany, Oregon",
+  image: "https://lebanon.teamgillott.com/logo.jpg",
+  url: "https://www.teamgillott.com",
+  telephone: "+1-541-234-5678",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Team Gillott | Keller Williams",
+    addressLocality: "Lebanon",
+    addressRegion: "OR",
+    postalCode: "97355",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 44.6383,
+    longitude: -122.6375,
+  },
+  priceRange: "$$",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="h-full antialiased">
+      <head>
+        <SchemaMarkup schema={organizationSchema} />
+        <SchemaMarkup schema={localBusinessSchema} />
+        <meta name="theme-color" content="#0099cc" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body className="min-h-full flex flex-col bg-white text-dark-slate antialiased">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
