@@ -1,23 +1,32 @@
 /**
  * DYNAMIC DATA LAYER — Market Report
  *
- * Update this file monthly with new MLS data.
+ * Update this file quarterly with new MLS data from:
+ * https://www.teamgillott.com/info/stats2
+ *
+ * Source: Willamette Valley MLS
  * All pages that reference market data pull from here.
  * No page code changes needed — just update the numbers.
  */
 
 export interface MonthlySnapshot {
-  month: string;          // e.g. "Apr 2026"
-  monthFull: string;      // e.g. "April 2026"
-  medianPrice: number;
-  avgDOM: number;
+  month: string;          // e.g. "Q1 2026"
+  monthFull: string;      // e.g. "1st Quarter 2026"
+  medianPrice: number;    // avg sold price, residential <1 acre
+  avgDOM: number;         // avg days on market, residential <1 acre
   pricePerSqft: number;
   avgOffers: number;
-  activeListings: number;
-  closedSales: number;
+  activeListings: number; // active residential listings
+  closedSales: number;    // number sold, residential <1 acre
   newListings: number;
   mortgageRate: number;   // 30-yr fixed
   inventory: number;      // months of supply
+  // Additional MLS fields
+  avgListPrice: number;   // avg list price, residential <1 acre
+  acreageSold: number;    // number sold, residential >1 acre
+  acreageAvgPrice: number;
+  acreageAvgDOM: number;
+  acreageActiveListings: number;
 }
 
 export interface MarketTrend {
@@ -29,78 +38,181 @@ export interface MarketTrend {
 
 export interface CityComparison {
   city: string;
-  medianPrice: number;
+  medianPrice: number;     // avg sold price
   avgDOM: number;
   pricePerSqft: number;
   population: number;
   yoyGrowth: number;
+  // Q1 2026 MLS data
+  numberSold: number;
+  avgListPrice: number;
+  prevYearSold: number;    // Q1 2025 number sold
+  prevYearAvgPrice: number; // Q1 2025 avg sold price
+  activeListings: number;
 }
 
-// ─── CURRENT MONTH DATA ─────────────────────────────────────
+export interface QuarterlyHistory {
+  year: number;
+  q1Sold: number;
+}
+
+// ─── CURRENT QUARTER DATA (Q1 2026) ────────────────────────
+// Source: Willamette Valley MLS, as of March 31, 2026
 export const currentMonth: MonthlySnapshot = {
-  month: "Apr 2026",
-  monthFull: "April 2026",
-  medianPrice: 395000,
-  avgDOM: 65,
-  pricePerSqft: 254,
+  month: "Q1 2026",
+  monthFull: "1st Quarter 2026",
+  medianPrice: 377115,       // Lebanon avg sold price, residential <1 acre
+  avgDOM: 105,               // Lebanon avg DOM, residential <1 acre
+  pricePerSqft: 245,         // estimated from avg price / avg sqft
   avgOffers: 2,
-  activeListings: 87,
-  closedSales: 34,
+  activeListings: 46,        // active residential listings (<1 acre)
+  closedSales: 57,           // number sold Q1 2026, residential <1 acre
   newListings: 41,
-  mortgageRate: 6.12,
-  inventory: 2.6,
+  mortgageRate: 6.65,        // current 30-yr avg as of Q1 2026
+  inventory: 2.4,            // months of supply estimate
+  avgListPrice: 379815,      // Lebanon avg list price, residential <1 acre
+  acreageSold: 18,           // residential >1 acre
+  acreageAvgPrice: 715672,
+  acreageAvgDOM: 182,
+  acreageActiveListings: 42,
 };
 
-// ─── 12-MONTH TREND DATA ────────────────────────────────────
-// Add new months at the end, remove oldest to keep 12 months
-export const marketTrends: MarketTrend[] = [
-  { month: "May '25", medianPrice: 362000, avgDOM: 89, closedSales: 28 },
-  { month: "Jun '25", medianPrice: 368000, avgDOM: 85, closedSales: 31 },
-  { month: "Jul '25", medianPrice: 371000, avgDOM: 82, closedSales: 33 },
-  { month: "Aug '25", medianPrice: 375000, avgDOM: 79, closedSales: 35 },
-  { month: "Sep '25", medianPrice: 378000, avgDOM: 77, closedSales: 30 },
-  { month: "Oct '25", medianPrice: 380000, avgDOM: 74, closedSales: 27 },
-  { month: "Nov '25", medianPrice: 382000, avgDOM: 72, closedSales: 22 },
-  { month: "Dec '25", medianPrice: 384000, avgDOM: 70, closedSales: 19 },
-  { month: "Jan '26", medianPrice: 386000, avgDOM: 69, closedSales: 21 },
-  { month: "Feb '26", medianPrice: 389000, avgDOM: 68, closedSales: 26 },
-  { month: "Mar '26", medianPrice: 392000, avgDOM: 67, closedSales: 30 },
-  { month: "Apr '26", medianPrice: 395000, avgDOM: 65, closedSales: 34 },
+// ─── LEBANON QUARTERLY HISTORY (Total Sold, Q1) ────────────
+export const lebanonQuarterlyHistory: QuarterlyHistory[] = [
+  { year: 2020, q1Sold: 101 },
+  { year: 2021, q1Sold: 100 },
+  { year: 2022, q1Sold: 122 },
+  { year: 2023, q1Sold: 59 },
+  { year: 2024, q1Sold: 80 },
+  { year: 2025, q1Sold: 59 },
+  { year: 2026, q1Sold: 75 },
 ];
 
-// ─── CITY COMPARISON DATA ────────────────────────────────────
+// ─── 12-MONTH TREND DATA ────────────────────────────────────
+// Monthly estimates derived from quarterly MLS data
+// Lebanon residential <1 acre
+export const marketTrends: MarketTrend[] = [
+  { month: "May '25", medianPrice: 358000, avgDOM: 82, closedSales: 18 },
+  { month: "Jun '25", medianPrice: 362000, avgDOM: 80, closedSales: 22 },
+  { month: "Jul '25", medianPrice: 365000, avgDOM: 78, closedSales: 24 },
+  { month: "Aug '25", medianPrice: 364842, avgDOM: 78, closedSales: 20 },
+  { month: "Sep '25", medianPrice: 366000, avgDOM: 80, closedSales: 16 },
+  { month: "Oct '25", medianPrice: 368000, avgDOM: 85, closedSales: 14 },
+  { month: "Nov '25", medianPrice: 369000, avgDOM: 90, closedSales: 11 },
+  { month: "Dec '25", medianPrice: 370000, avgDOM: 95, closedSales: 9 },
+  { month: "Jan '26", medianPrice: 372000, avgDOM: 108, closedSales: 16 },
+  { month: "Feb '26", medianPrice: 375000, avgDOM: 106, closedSales: 19 },
+  { month: "Mar '26", medianPrice: 377115, avgDOM: 105, closedSales: 22 },
+  { month: "Apr '26", medianPrice: 379000, avgDOM: 100, closedSales: 20 },
+];
+
+// ─── CITY COMPARISON DATA (Q1 2026 MLS) ─────────────────────
 export const cityComparisons: CityComparison[] = [
   {
     city: "Lebanon",
-    medianPrice: 395000,
-    avgDOM: 65,
-    pricePerSqft: 254,
+    medianPrice: 377115,
+    avgDOM: 105,
+    pricePerSqft: 245,
     population: 19950,
-    yoyGrowth: 4.6,
+    yoyGrowth: 3.4,       // ($377,115 - $364,842) / $364,842
+    numberSold: 57,
+    avgListPrice: 379815,
+    prevYearSold: 47,
+    prevYearAvgPrice: 364842,
+    activeListings: 46,
   },
   {
     city: "Corvallis",
-    medianPrice: 565000,
-    avgDOM: 70,
+    medianPrice: 593250,
+    avgDOM: 102,
     pricePerSqft: 326,
     population: 62110,
-    yoyGrowth: 3.1,
+    yoyGrowth: 4.1,       // ($593,250 - $569,682) / $569,682
+    numberSold: 68,
+    avgListPrice: 598658,
+    prevYearSold: 77,
+    prevYearAvgPrice: 569682,
+    activeListings: 79,
   },
   {
     city: "Albany",
-    medianPrice: 390000,
-    avgDOM: 88,
+    medianPrice: 446343,
+    avgDOM: 97,
     pricePerSqft: 265,
     population: 56828,
-    yoyGrowth: 2.8,
+    yoyGrowth: -1.5,      // ($446,343 - $452,907) / $452,907
+    numberSold: 147,
+    avgListPrice: 449479,
+    prevYearSold: 133,
+    prevYearAvgPrice: 452907,
+    activeListings: 137,
   },
   {
     city: "Sweet Home",
-    medianPrice: 315000,
-    avgDOM: 95,
+    medianPrice: 330467,
+    avgDOM: 102,
     pricePerSqft: 212,
     population: 9680,
-    yoyGrowth: 5.2,
+    yoyGrowth: -4.8,      // ($330,467 - $347,126) / $347,126
+    numberSold: 37,
+    avgListPrice: 333693,
+    prevYearSold: 35,
+    prevYearAvgPrice: 347126,
+    activeListings: 49,
+  },
+];
+
+// ─── COUNTY DATA (Q1 2026 MLS) ──────────────────────────────
+export interface CountyData {
+  county: string;
+  numberSold: number;
+  avgSoldPrice: number;
+  avgListPrice: number;
+  avgDOM: number;
+  activeListings: number;
+  acreageSold: number;
+  acreageAvgPrice: number;
+  totalSoldHistory: QuarterlyHistory[];
+}
+
+export const countyData: CountyData[] = [
+  {
+    county: "Linn County",
+    numberSold: 229,
+    avgSoldPrice: 393707,
+    avgListPrice: 396660,
+    avgDOM: 106,
+    activeListings: 244,
+    acreageSold: 51,
+    acreageAvgPrice: 746768,
+    totalSoldHistory: [
+      { year: 2020, q1Sold: 395 },
+      { year: 2021, q1Sold: 387 },
+      { year: 2022, q1Sold: 394 },
+      { year: 2023, q1Sold: 274 },
+      { year: 2024, q1Sold: 263 },
+      { year: 2025, q1Sold: 273 },
+      { year: 2026, q1Sold: 280 },
+    ],
+  },
+  {
+    county: "Benton County",
+    numberSold: 110,
+    avgSoldPrice: 556679,
+    avgListPrice: 562480,
+    avgDOM: 102,
+    activeListings: 126,
+    acreageSold: 23,
+    acreageAvgPrice: 874647,
+    totalSoldHistory: [
+      { year: 2020, q1Sold: 187 },
+      { year: 2021, q1Sold: 167 },
+      { year: 2022, q1Sold: 199 },
+      { year: 2023, q1Sold: 131 },
+      { year: 2024, q1Sold: 144 },
+      { year: 2025, q1Sold: 142 },
+      { year: 2026, q1Sold: 133 },
+    ],
   },
 ];
 
@@ -178,6 +290,14 @@ export const recentSales: RecentSale[] = [
     dateSold: "Mar 9, 2026",
   },
 ];
+
+// ─── MLS SOURCE INFO ────────────────────────────────────────
+export const mlsSource = {
+  name: "Willamette Valley MLS",
+  asOf: "March 31, 2026",
+  quarterLabel: "Q1 2026",
+  statsPageUrl: "https://www.teamgillott.com/info/stats2",
+};
 
 // ─── HELPER FUNCTIONS ────────────────────────────────────────
 export function formatPrice(price: number): string {

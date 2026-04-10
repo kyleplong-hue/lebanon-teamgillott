@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import CTABanner from '@/components/CTABanner';
 import { WebPageSchema } from '@/components/SchemaMarkup';
 import { PriceTrendChart, SalesVolumeChart } from '@/components/MarketCharts';
@@ -6,10 +7,12 @@ import {
   marketTrends,
   cityComparisons,
   recentSales,
+  mlsSource,
   formatPrice,
   formatPriceFull,
   getYoYChange,
 } from '@/data/market';
+import { blogPosts } from '@/data/blog';
 
 export const metadata = {
   title: 'Lebanon, Oregon Real Estate Market Report',
@@ -331,6 +334,33 @@ export default function MarketReport() {
         </div>
       </section>
 
+      {/* Blog Cross-Link */}
+      {(() => {
+        const latestReport = blogPosts.find(p => p.category === 'Market Report');
+        if (!latestReport) return null;
+        return (
+          <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#e2e8f0]">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-[#f0f7fa] rounded-2xl p-6 md:p-8 border border-[#0099cc]/20 flex flex-col md:flex-row md:items-center gap-6">
+                <div className="flex-1">
+                  <p className="text-xs font-semibold text-[#0099cc] uppercase tracking-wider mb-2">Latest Analysis</p>
+                  <h3 className="text-xl font-bold text-[#1a2b36] tracking-tight leading-snug">
+                    {latestReport.title}
+                  </h3>
+                  <p className="text-sm text-[#64748b] mt-2 line-clamp-2">{latestReport.excerpt}</p>
+                </div>
+                <Link
+                  href={`/blog/${latestReport.slug}`}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#0099cc] text-white font-semibold rounded-xl hover:bg-[#0077aa] transition-colors whitespace-nowrap"
+                >
+                  Read full report &rarr;
+                </Link>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* CTA Banner */}
       <CTABanner
         heading="Ready to Buy or Sell in Lebanon?"
@@ -344,7 +374,11 @@ export default function MarketReport() {
       <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-[#f8fafb] border-t border-[#e2e8f0]">
         <div className="max-w-4xl mx-auto text-center text-sm text-[#64748b]">
           <p>
-            <strong className="text-[#1a2b36]">Updated monthly.</strong> Data sourced from MLS and public records. Figures are current as of {currentMonth.monthFull} and subject to change. Market data reflects Lebanon, Oregon area.
+            <strong className="text-[#1a2b36]">Updated quarterly.</strong> Data sourced from the{' '}
+            <a href={mlsSource.statsPageUrl} target="_blank" rel="noopener noreferrer" className="text-[#0099cc] underline underline-offset-2">
+              {mlsSource.name}
+            </a>
+            , as of {mlsSource.asOf}. All information deemed reliable but not guaranteed.
           </p>
         </div>
       </section>
