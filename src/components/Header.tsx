@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { List, X, CaretDown } from '@phosphor-icons/react';
+import { TEAM_URL } from '@/data/config';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -17,8 +18,16 @@ const navLinks = [
       { href: '/neighborhoods/hamilton-creek', label: 'Hamilton Creek' },
     ],
   },
+  {
+    href: '/cities/compare',
+    label: 'Cities',
+    children: [
+      { href: '/cities/albany', label: 'Albany' },
+      { href: '/cities/corvallis', label: 'Corvallis' },
+      { href: '/cities/compare', label: 'Compare Cities' },
+    ],
+  },
   { href: '/market-report', label: 'Market Report' },
-  { href: '/schools', label: 'Schools' },
   { href: '/blog', label: 'Blog' },
   { href: '/faq', label: 'FAQ' },
 ];
@@ -26,7 +35,7 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[#e2e8f0]/60">
@@ -34,11 +43,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-[#0099cc] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-[#CA3121] flex items-center justify-center">
               <span className="text-white font-bold text-sm">TG</span>
             </div>
-            <span className="text-lg font-semibold tracking-tight text-[#1a2b36] group-hover:text-[#0099cc] transition-colors duration-200">
-              Lebanon Real Estate
+            <span className="text-lg font-semibold tracking-tight text-[#354652] group-hover:text-[#CA3121] transition-colors duration-200">
+              Team Gillott
             </span>
           </Link>
 
@@ -49,25 +58,25 @@ export default function Header() {
                 <div
                   key={link.href}
                   className="relative"
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
+                  onMouseEnter={() => setDropdownOpen(link.href)}
+                  onMouseLeave={() => setDropdownOpen(null)}
                 >
                   <Link
                     href={link.href}
                     className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                      pathname.startsWith('/neighborhoods')
-                        ? 'text-[#0099cc] bg-[#0099cc]/5'
-                        : 'text-[#64748b] hover:text-[#1a2b36] hover:bg-[#f1f5f9]'
+                      pathname.startsWith(link.href.split('/').slice(0, 2).join('/'))
+                        ? 'text-[#CA3121] bg-[#CA3121]/5'
+                        : 'text-[#64748b] hover:text-[#354652] hover:bg-[#f1f5f9]'
                     }`}
                   >
                     {link.label}
                     <CaretDown
                       size={12}
                       weight="bold"
-                      className={`transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                      className={`transition-transform duration-200 ${dropdownOpen === link.href ? 'rotate-180' : ''}`}
                     />
                   </Link>
-                  {dropdownOpen && (
+                  {dropdownOpen === link.href && (
                     <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-lg shadow-black/5 border border-[#e2e8f0] py-1 animate-fade-in">
                       {link.children.map((child) => (
                         <Link
@@ -75,8 +84,8 @@ export default function Header() {
                           href={child.href}
                           className={`block px-4 py-2.5 text-sm transition-colors duration-150 ${
                             pathname === child.href
-                              ? 'text-[#0099cc] bg-[#0099cc]/5 font-medium'
-                              : 'text-[#64748b] hover:text-[#1a2b36] hover:bg-[#f8fafb]'
+                              ? 'text-[#CA3121] bg-[#CA3121]/5 font-medium'
+                              : 'text-[#64748b] hover:text-[#354652] hover:bg-[#f8fafb]'
                           }`}
                         >
                           {child.label}
@@ -91,8 +100,8 @@ export default function Header() {
                   href={link.href}
                   className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                     pathname === link.href
-                      ? 'text-[#0099cc] bg-[#0099cc]/5'
-                      : 'text-[#64748b] hover:text-[#1a2b36] hover:bg-[#f1f5f9]'
+                      ? 'text-[#CA3121] bg-[#CA3121]/5'
+                      : 'text-[#64748b] hover:text-[#354652] hover:bg-[#f1f5f9]'
                   }`}
                 >
                   {link.label}
@@ -102,10 +111,10 @@ export default function Header() {
 
             {/* CTA */}
             <a
-              href="https://www.teamgillott.com"
+              href={TEAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-2 px-4 py-2 text-sm font-semibold text-white bg-[#0099cc] rounded-lg hover:bg-[#00708f] transition-colors duration-200 active:scale-[0.98]"
+              className="ml-2 px-4 py-2 text-sm font-semibold text-white bg-[#CA3121] rounded-lg hover:bg-[#a82919] transition-colors duration-200 active:scale-[0.98]"
             >
               Search Homes
             </a>
@@ -132,8 +141,8 @@ export default function Header() {
                     onClick={() => setMobileOpen(false)}
                     className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
                       pathname === link.href
-                        ? 'text-[#0099cc] bg-[#0099cc]/5'
-                        : 'text-[#64748b] hover:text-[#1a2b36] hover:bg-[#f1f5f9]'
+                        ? 'text-[#CA3121] bg-[#CA3121]/5'
+                        : 'text-[#64748b] hover:text-[#354652] hover:bg-[#f1f5f9]'
                     }`}
                   >
                     {link.label}
@@ -147,7 +156,7 @@ export default function Header() {
                           onClick={() => setMobileOpen(false)}
                           className={`block px-3 py-2 text-sm rounded-lg transition-colors ${
                             pathname === child.href
-                              ? 'text-[#0099cc] font-medium'
+                              ? 'text-[#CA3121] font-medium'
                               : 'text-[#94a3b8] hover:text-[#64748b]'
                           }`}
                         >
@@ -159,10 +168,10 @@ export default function Header() {
                 </div>
               ))}
               <a
-                href="https://www.teamgillott.com"
+                href={TEAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 mx-3 px-4 py-2.5 text-sm font-semibold text-center text-white bg-[#0099cc] rounded-lg hover:bg-[#00708f] transition-colors"
+                className="mt-2 mx-3 px-4 py-2.5 text-sm font-semibold text-center text-white bg-[#CA3121] rounded-lg hover:bg-[#a82919] transition-colors"
               >
                 Search Homes
               </a>

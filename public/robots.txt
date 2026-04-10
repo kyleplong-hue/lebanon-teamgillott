@@ -1,4 +1,5 @@
-# robots.txt for lebanon.justsoldle.com
+# robots.txt for lebanon.justsoldle.com (staging)
+# NOTE: Update domain to lebanon.teamgillott.com when moving to production
 # Team Gillott Real Estate — Lebanon, Oregon Content Hub
 
 User-agent: *

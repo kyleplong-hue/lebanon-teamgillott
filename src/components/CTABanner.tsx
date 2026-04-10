@@ -1,5 +1,7 @@
 'use client';
 
+import { TEAM_URL } from '@/data/config';
+
 interface CTABannerProps {
   heading?: string;
   subheading?: string;
@@ -12,27 +14,27 @@ export default function CTABanner({
   heading = 'Ready to find your Lebanon home?',
   subheading = 'Let Team Gillott guide you through every step.',
   ctaText = 'Search Homes',
-  ctaUrl = 'https://www.teamgillott.com',
+  ctaUrl = TEAM_URL,
   variant = 'primary',
 }: CTABannerProps) {
   const variants = {
     primary: {
-      bg: 'bg-[#0099cc]',
+      bg: 'bg-[#CA3121]',
       heading: 'text-white',
       sub: 'text-white/70',
-      btn: 'bg-white text-[#0099cc] hover:bg-white/90',
+      btn: 'bg-white text-[#CA3121] hover:bg-white/90',
     },
     dark: {
-      bg: 'bg-[#0f1c24]',
+      bg: 'bg-[#1F2930]',
       heading: 'text-white',
       sub: 'text-[#94a3b8]',
-      btn: 'bg-[#0099cc] text-white hover:bg-[#00708f]',
+      btn: 'bg-[#CA3121] text-white hover:bg-[#a82919]',
     },
     subtle: {
       bg: 'bg-[#f1f5f9]',
-      heading: 'text-[#1a2b36]',
+      heading: 'text-[#354652]',
       sub: 'text-[#64748b]',
-      btn: 'bg-[#0099cc] text-white hover:bg-[#00708f]',
+      btn: 'bg-[#CA3121] text-white hover:bg-[#a82919]',
     },
   };
 

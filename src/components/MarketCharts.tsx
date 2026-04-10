@@ -27,8 +27,8 @@ export function PriceTrendChart() {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-3 rounded-lg shadow-lg border border-[#e2e8f0]">
-          <p className="text-sm font-semibold text-[#1a2b36]">{payload[0].payload.month}</p>
-          <p className="text-sm text-[#0099cc] font-semibold font-tabular-nums">
+          <p className="text-sm font-semibold text-[#354652]">{payload[0].payload.month}</p>
+          <p className="text-sm text-[#CA3121] font-semibold font-tabular-nums">
             ${(payload[0].value / 1000).toFixed(0)}K
           </p>
         </div>
@@ -46,8 +46,8 @@ export function PriceTrendChart() {
         >
           <defs>
             <linearGradient id="colorPrice" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#0099cc" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#0099cc" stopOpacity={0} />
+              <stop offset="5%" stopColor="#CA3121" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="#CA3121" stopOpacity={0} />
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" vertical={false} />
@@ -68,7 +68,7 @@ export function PriceTrendChart() {
           <Area
             type="monotone"
             dataKey="price"
-            stroke="#0099cc"
+            stroke="#CA3121"
             strokeWidth={2}
             fillOpacity={1}
             fill="url(#colorPrice)"
@@ -92,8 +92,8 @@ export function SalesVolumeChart() {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-3 rounded-lg shadow-lg border border-[#e2e8f0]">
-          <p className="text-sm font-semibold text-[#1a2b36]">{payload[0].payload.month}</p>
-          <p className="text-sm text-[#c4371a] font-semibold font-tabular-nums">
+          <p className="text-sm font-semibold text-[#354652]">{payload[0].payload.month}</p>
+          <p className="text-sm text-[#CA3121] font-semibold font-tabular-nums">
             {payload[0].value} sales
           </p>
         </div>
@@ -125,7 +125,7 @@ export function SalesVolumeChart() {
           <Tooltip content={<CustomTooltip />} />
           <Bar
             dataKey="sales"
-            fill="#c4371a"
+            fill="#CA3121"
             radius={[4, 4, 0, 0]}
             isAnimationActive={true}
           />

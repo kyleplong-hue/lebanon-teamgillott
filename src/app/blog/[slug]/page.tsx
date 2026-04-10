@@ -7,6 +7,7 @@ import {
   categoryColors,
 } from "@/data/blog";
 import { currentMonth, mlsSource, formatPriceFull } from "@/data/market";
+import { SITE_URL, TEAM_URL, siteUrl, teamUrl } from "@/data/config";
 import CTABanner from "@/components/CTABanner";
 
 export function generateStaticParams() {
@@ -58,16 +59,16 @@ export default async function BlogPostPage({
     author: {
       "@type": "Organization",
       name: "Team Gillott",
-      url: "https://www.teamgillott.com",
+      url: TEAM_URL,
     },
     publisher: {
       "@type": "Organization",
       name: "Team Gillott at Keller Williams Realty Mid-Willamette",
-      url: "https://lebanon.justsoldle.com",
+      url: SITE_URL,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://lebanon.justsoldle.com/blog/${post.slug}`,
+      "@id": siteUrl(`/blog/${post.slug}`),
     },
     ...(post.category === "Market Report" && {
       about: {
@@ -91,7 +92,7 @@ export default async function BlogPostPage({
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#0a2540] to-[#0e3a5c] py-16 md:py-24">
+      <section className="bg-gradient-to-br from-[#1F2930] to-[#2a3842] py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-6">
           <div className="flex items-center gap-3 mb-6">
             <span
@@ -112,7 +113,7 @@ export default async function BlogPostPage({
             {post.excerpt}
           </p>
           <div className="mt-8 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#0099cc] flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-10 h-10 rounded-full bg-[#CA3121] flex items-center justify-center text-white font-bold text-sm">
               TG
             </div>
             <div>
@@ -138,7 +139,7 @@ export default async function BlogPostPage({
                   <p className="text-xs font-medium text-[#64748b] uppercase tracking-wider">
                     {stat.label}
                   </p>
-                  <p className="text-2xl font-bold text-[#1a2b36] mt-1 tabular-nums">
+                  <p className="text-2xl font-bold text-[#354652] mt-1 tabular-nums">
                     {stat.value}
                   </p>
                   {stat.change && (
@@ -171,7 +172,7 @@ export default async function BlogPostPage({
               return (
                 <h2
                   key={i}
-                  className="text-2xl font-bold text-[#1a2b36] mt-10 mb-4 tracking-tight"
+                  className="text-2xl font-bold text-[#354652] mt-10 mb-4 tracking-tight"
                 >
                   {block.replace("## ", "")}
                 </h2>
@@ -197,7 +198,7 @@ export default async function BlogPostPage({
                 href={post.externalSourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#0099cc] underline underline-offset-2"
+                className="text-[#CA3121] underline underline-offset-2"
               >
                 {mlsSource.name}
               </a>
@@ -210,38 +211,38 @@ export default async function BlogPostPage({
         {/* Market Data Sidebar */}
         {post.category === "Market Report" && (
           <div className="mt-8 bg-[#f8fafb] rounded-2xl p-6 border border-[#e2e8f0]">
-            <h3 className="text-lg font-bold text-[#1a2b36] mb-4">
+            <h3 className="text-lg font-bold text-[#354652] mb-4">
               Current Lebanon Market Snapshot
             </h3>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <span className="text-[#64748b]">Avg Sold Price</span>
-                <p className="font-bold text-[#1a2b36] tabular-nums">
+                <p className="font-bold text-[#354652] tabular-nums">
                   {formatPriceFull(currentMonth.medianPrice)}
                 </p>
               </div>
               <div>
                 <span className="text-[#64748b]">Active Listings</span>
-                <p className="font-bold text-[#1a2b36] tabular-nums">
+                <p className="font-bold text-[#354652] tabular-nums">
                   {currentMonth.activeListings}
                 </p>
               </div>
               <div>
                 <span className="text-[#64748b]">Avg Days on Market</span>
-                <p className="font-bold text-[#1a2b36] tabular-nums">
+                <p className="font-bold text-[#354652] tabular-nums">
                   {currentMonth.avgDOM}
                 </p>
               </div>
               <div>
                 <span className="text-[#64748b]">30-Yr Mortgage Rate</span>
-                <p className="font-bold text-[#1a2b36] tabular-nums">
+                <p className="font-bold text-[#354652] tabular-nums">
                   {currentMonth.mortgageRate}%
                 </p>
               </div>
             </div>
             <Link
               href="/market-report"
-              className="inline-block mt-4 text-sm text-[#0099cc] font-medium hover:underline"
+              className="inline-block mt-4 text-sm text-[#CA3121] font-medium hover:underline"
             >
               View full market report &rarr;
             </Link>
@@ -253,7 +254,7 @@ export default async function BlogPostPage({
       {related.length > 0 && (
         <section className="bg-[#f8fafb] py-12 border-t border-[#e2e8f0]">
           <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-2xl font-bold text-[#1a2b36] mb-6 tracking-tight">
+            <h2 className="text-2xl font-bold text-[#354652] mb-6 tracking-tight">
               Related articles
             </h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -270,7 +271,7 @@ export default async function BlogPostPage({
                   >
                     {rp.category}
                   </span>
-                  <h3 className="text-lg font-bold text-[#1a2b36] mt-3 leading-snug">
+                  <h3 className="text-lg font-bold text-[#354652] mt-3 leading-snug">
                     {rp.title}
                   </h3>
                   <p className="text-sm text-[#64748b] mt-2 line-clamp-2">

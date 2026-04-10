@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import { WebPageSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
+import { siteUrl, TEAM_URL } from '@/data/config';
 
 export const metadata = {
   title: 'Selling Your Lebanon Home Guide | Team Gillott',
@@ -70,11 +72,11 @@ export default function SellingPage() {
       <WebPageSchema
         title="Selling Your Lebanon, Oregon Home — A Complete Guide"
         description="Step-by-step guide to selling your Lebanon home with Team Gillott. Learn our proven selling process."
-        url="https://lebanon.justsoldle.com/selling"
+        url={siteUrl("/selling")}
       />
 
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-b from-[#c4371a] to-[#a8300f] text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-gradient-to-b from-[#CA3121] to-[#a8300f] text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-6 tracking-tight">
             Selling Your Lebanon, Oregon Home — A Complete Guide
@@ -90,26 +92,26 @@ export default function SellingPage() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-left">
-              <div className="text-3xl font-bold text-[#c4371a] mb-2 tabular-nums">
+              <div className="text-3xl font-bold text-[#CA3121] mb-2 tabular-nums">
                 $395K
               </div>
-              <p className="text-[#1a2b36] text-sm">
+              <p className="text-[#354652] text-sm">
                 Lebanon Median Home Price
               </p>
             </div>
             <div className="text-left">
-              <div className="text-3xl font-bold text-[#c4371a] mb-2 tabular-nums">
+              <div className="text-3xl font-bold text-[#CA3121] mb-2 tabular-nums">
                 65 days
               </div>
-              <p className="text-[#1a2b36] text-sm">
+              <p className="text-[#354652] text-sm">
                 Average Days on Market
               </p>
             </div>
             <div className="text-left">
-              <div className="text-3xl font-bold text-[#c4371a] mb-2 tabular-nums">
+              <div className="text-3xl font-bold text-[#CA3121] mb-2 tabular-nums">
                 2 offers
               </div>
-              <p className="text-[#1a2b36] text-sm">
+              <p className="text-[#354652] text-sm">
                 Average Competing Offers
               </p>
             </div>
@@ -120,7 +122,7 @@ export default function SellingPage() {
       {/* Four-Step Process */}
       <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 tracking-tight">
             Our Four-Step Selling Process
           </h2>
 
@@ -133,17 +135,17 @@ export default function SellingPage() {
                 <div className="flex gap-6">
                   {/* Step Number */}
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-14 w-14 rounded-full bg-[#c4371a] text-white font-bold text-xl">
+                    <div className="flex items-center justify-center h-14 w-14 rounded-full bg-[#CA3121] text-white font-bold text-xl">
                       {step.number}
                     </div>
                   </div>
 
                   {/* Step Content */}
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-[#1a2b36] mb-3 tracking-tight">
+                    <h3 className="text-2xl font-bold text-[#354652] mb-3 tracking-tight">
                       {step.title}
                     </h3>
-                    <p className="text-[#1a2b36] leading-relaxed">
+                    <p className="text-[#354652] leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -157,7 +159,7 @@ export default function SellingPage() {
       {/* Why Sell With Team Gillott */}
       <section className="w-full bg-[#f8fafb] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 tracking-tight">
             Why Sell With Team Gillott?
           </h2>
 
@@ -165,15 +167,15 @@ export default function SellingPage() {
             {whyChoose.map((item, idx) => (
               <div key={idx} className="flex gap-4 bg-white p-6 rounded-2xl border border-[#e2e8f0] hover:shadow-md transition-all duration-300">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-[#c4371a] text-white font-bold">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-[#CA3121] text-white font-bold">
                     ✓
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#1a2b36] mb-2 tracking-tight">
+                  <h3 className="text-lg font-bold text-[#354652] mb-2 tracking-tight">
                     {item.title}
                   </h3>
-                  <p className="text-[#1a2b36]">
+                  <p className="text-[#354652]">
                     {item.description}
                   </p>
                 </div>
@@ -186,7 +188,7 @@ export default function SellingPage() {
       {/* Selling Timeline */}
       <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 tracking-tight">
             Typical Timeline
           </h2>
 
@@ -200,18 +202,18 @@ export default function SellingPage() {
               { phase: 'Closing Coordination', duration: '1–2 weeks' },
             ].map((item, idx) => (
               <div key={idx} className="flex items-center gap-4 bg-[#f8fafb] p-4 rounded-2xl border border-[#e2e8f0]">
-                <div className="text-2xl font-bold text-[#c4371a] min-w-12 tabular-nums">
+                <div className="text-2xl font-bold text-[#CA3121] min-w-12 tabular-nums">
                   {idx + 1}
                 </div>
                 <div className="flex-1">
-                  <p className="font-semibold text-[#1a2b36]">{item.phase}</p>
+                  <p className="font-semibold text-[#354652]">{item.phase}</p>
                 </div>
                 <div className="text-[#64748b] text-sm">{item.duration}</div>
               </div>
             ))}
           </div>
 
-          <p className="mt-8 text-[#1a2b36] text-sm">
+          <p className="mt-8 text-[#354652] text-sm">
             Total time to closing: typically 45–90 days depending on market conditions and your situation.
           </p>
         </div>
@@ -220,24 +222,24 @@ export default function SellingPage() {
       {/* Price Range by Area */}
       <section className="w-full bg-[#f8fafb] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 tracking-tight">
             Lebanon Pricing by Neighborhood
           </h2>
 
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b-2 border-[#c4371a]">
-                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36] text-sm">
+                <tr className="border-b-2 border-[#CA3121]">
+                  <th className="text-left py-4 px-4 font-bold text-[#354652] text-sm">
                     Neighborhood
                   </th>
-                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36] text-sm">
+                  <th className="text-left py-4 px-4 font-bold text-[#354652] text-sm">
                     Median Price
                   </th>
-                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36] text-sm">
+                  <th className="text-left py-4 px-4 font-bold text-[#354652] text-sm">
                     Range
                   </th>
-                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36] text-sm">
+                  <th className="text-left py-4 px-4 font-bold text-[#354652] text-sm">
                     Days on Market
                   </th>
                 </tr>
@@ -275,10 +277,10 @@ export default function SellingPage() {
                       idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafb]'
                     }`}
                   >
-                    <td className="py-4 px-4 text-[#1a2b36] font-semibold">
+                    <td className="py-4 px-4 text-[#354652] font-semibold">
                       {item.area}
                     </td>
-                    <td className="py-4 px-4 text-[#1a2b36] tabular-nums">{item.median}</td>
+                    <td className="py-4 px-4 text-[#354652] tabular-nums">{item.median}</td>
                     <td className="py-4 px-4 text-[#64748b]">{item.range}</td>
                     <td className="py-4 px-4 text-[#64748b]">{item.dom}</td>
                   </tr>
@@ -287,7 +289,7 @@ export default function SellingPage() {
             </table>
           </div>
 
-          <p className="mt-8 text-[#1a2b36] text-sm">
+          <p className="mt-8 text-[#354652] text-sm">
             * Data represents recent market trends in Lebanon, Oregon. Prices vary by condition, lot size, and amenities.
           </p>
         </div>
@@ -296,7 +298,7 @@ export default function SellingPage() {
       {/* Staging Tips */}
       <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 tracking-tight">
             Home Staging Tips for Lebanon Buyers
           </h2>
 
@@ -336,13 +338,13 @@ export default function SellingPage() {
               },
             ].map((section, idx) => (
               <div key={idx} className="bg-[#f8fafb] rounded-2xl p-6 border border-[#e2e8f0] hover:shadow-md transition-all duration-300">
-                <h3 className="text-xl font-bold text-[#1a2b36] mb-4 tracking-tight">
+                <h3 className="text-xl font-bold text-[#354652] mb-4 tracking-tight">
                   {section.title}
                 </h3>
                 <ul className="space-y-3">
                   {section.tips.map((tip, tipIdx) => (
-                    <li key={tipIdx} className="flex gap-3 text-[#1a2b36]">
-                      <span className="text-[#c4371a] font-bold">•</span>
+                    <li key={tipIdx} className="flex gap-3 text-[#354652]">
+                      <span className="text-[#CA3121] font-bold">•</span>
                       <span>{tip}</span>
                     </li>
                   ))}
@@ -354,7 +356,7 @@ export default function SellingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full bg-gradient-to-r from-[#c4371a] to-[#a8300f] text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-gradient-to-r from-[#CA3121] to-[#a8300f] text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-left">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 tracking-tight">
             Ready to Sell?
@@ -363,13 +365,40 @@ export default function SellingPage() {
             Get your free home valuation today and discover what your Lebanon home is worth in today's market.
           </p>
           <a
-            href="https://www.teamgillott.com"
+            href={TEAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-white text-[#c4371a] font-semibold rounded-2xl hover:shadow-md transition-all duration-300"
+            className="inline-block px-8 py-3 bg-white text-[#CA3121] font-semibold rounded-2xl hover:shadow-md transition-all duration-300"
           >
             Get Your Free Home Valuation
           </a>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold tracking-tight text-[#354652] mb-8">
+            Related Resources
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/market-report" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Current Market Data</h3>
+              <p className="text-sm text-[#64748b]">Real-time pricing trends and market conditions.</p>
+            </Link>
+            <Link href="/agents" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Meet Team Gillott</h3>
+              <p className="text-sm text-[#64748b]">Connect with our experienced selling agents.</p>
+            </Link>
+            <Link href="/neighborhoods" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Neighborhood Guides</h3>
+              <p className="text-sm text-[#64748b]">Help buyers understand neighborhood values and features.</p>
+            </Link>
+            <Link href="/mortgage-calculator" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Mortgage Calculator</h3>
+              <p className="text-sm text-[#64748b]">Help buyers calculate monthly payments and affordability.</p>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -378,7 +407,7 @@ export default function SellingPage() {
         heading="Ready to Find Your Perfect Buyer?"
         subheading="Let Team Gillott guide you through a successful home sale."
         ctaText="Schedule Your Consultation"
-        ctaUrl="https://www.teamgillott.com"
+        ctaUrl={TEAM_URL}
       />
     </>
   );

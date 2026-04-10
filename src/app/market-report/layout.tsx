@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { siteUrl } from '@/data/config';
 
 export const metadata: Metadata = {
   title: 'Lebanon, Oregon Real Estate Market Report - April 2026',
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     description:
       'Latest Lebanon real estate market data: median price $395K, homes selling 34.5% faster. Compare to Corvallis and Albany.',
     type: 'website',
-    url: 'https://lebanon.justsoldle.com/market-report',
+    url: siteUrl('/market-report'),
   },
 };
 

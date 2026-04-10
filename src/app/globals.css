@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
 
 @font-face {
   font-family: 'Geist';
@@ -18,15 +19,17 @@
 
 :root {
   --background: #f8fafb;
-  --foreground: #1a2b36;
-  --primary: #0099cc;
-  --primary-dark: #00708f;
-  --accent: #c4371a;
+  --foreground: #354652;
+  --foreground-dark: #1F2930;
+  --primary: #CA3121;
+  --primary-dark: #a82919;
+  --primary-light: #d94a3b;
+  --accent: #7B97AA;
   --surface: #ffffff;
-  --muted: #64748b;
+  --muted: #7B97AA;
   --border: #e2e8f0;
-  --font-heading: 'Geist', system-ui, -apple-system, sans-serif;
-  --font-body: 'Geist', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-body: 'Lato', system-ui, -apple-system, sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
@@ -51,19 +54,19 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Geist', system-ui, -apple-system, sans-serif;
+  font-family: 'Lato', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Geist', system-ui, -apple-system, sans-serif;
-  letter-spacing: -0.025em;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.015em;
 }
 
 /* Premium selection color */
 ::selection {
-  background: rgba(0, 153, 204, 0.15);
+  background: rgba(202, 49, 33, 0.15);
   color: var(--foreground);
 }
 

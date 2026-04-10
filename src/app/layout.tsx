@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SchemaMarkup from "@/components/SchemaMarkup";
+import { SITE_URL, TEAM_URL } from "@/data/config";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,12 +16,12 @@ export const metadata: Metadata = {
     "Team Gillott real estate",
     "Willamette Valley homes",
   ],
-  authors: [{ name: "Team Gillott", url: "https://www.teamgillott.com" }],
+  authors: [{ name: "Team Gillott", url: TEAM_URL }],
   robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://lebanon.justsoldle.com",
+    url: SITE_URL,
     siteName: "Team Gillott Lebanon Real Estate",
     title: "Lebanon, Oregon Real Estate | Team Gillott",
     description:
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
       "Discover your dream home in Lebanon, Corvallis, or Albany, Oregon.",
   },
   alternates: {
-    canonical: "https://lebanon.justsoldle.com",
+    canonical: SITE_URL,
   },
 };
 
@@ -43,7 +44,7 @@ const organizationSchema = {
   name: "Team Gillott",
   description:
     "Team Gillott is a premier real estate team serving Lebanon, Corvallis, and Albany, Oregon.",
-  url: "https://www.teamgillott.com",
+  url: TEAM_URL,
   sameAs: [
     "https://www.facebook.com/teamgillott",
     "https://www.instagram.com/teamgillott",
@@ -68,7 +69,7 @@ const localBusinessSchema = {
   name: "Team Gillott Real Estate",
   description:
     "Professional real estate services in Lebanon, Corvallis, and Albany, Oregon",
-  url: "https://www.teamgillott.com",
+  url: TEAM_URL,
   telephone: "+1-541-234-5678",
   address: {
     "@type": "PostalAddress",
@@ -96,12 +97,12 @@ export default function RootLayout({
       <head>
         <SchemaMarkup schema={organizationSchema} />
         <SchemaMarkup schema={localBusinessSchema} />
-        <meta name="theme-color" content="#0099cc" />
+        <meta name="theme-color" content="#CA3121" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="min-h-full flex flex-col bg-[#f8fafb] text-[#1a2b36] antialiased">
+      <body className="min-h-full flex flex-col bg-[#f8fafb] text-[#354652] antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

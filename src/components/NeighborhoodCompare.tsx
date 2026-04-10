@@ -28,7 +28,7 @@ export default function NeighborhoodCompare() {
       <div className="space-y-2">
         <div className="h-2 bg-[#e2e8f0] rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#0099cc] rounded-full"
+            className="h-full bg-[#CA3121] rounded-full"
             style={{
               marginLeft: `${lowPercent}%`,
               width: `${width}%`,
@@ -54,10 +54,10 @@ export default function NeighborhoodCompare() {
   }) => (
     <div className="grid grid-cols-3 gap-4 pb-4 border-b border-[#e2e8f0] last:border-b-0">
       <div className="text-sm font-medium text-[#64748b]">{label}</div>
-      <div className="text-sm font-mono tabular-nums text-[#1a2b36] font-semibold">
+      <div className="text-sm font-mono tabular-nums text-[#354652] font-semibold">
         {leftValue}
       </div>
-      <div className="text-sm font-mono tabular-nums text-[#1a2b36] font-semibold">
+      <div className="text-sm font-mono tabular-nums text-[#354652] font-semibold">
         {rightValue}
       </div>
     </div>
@@ -68,13 +68,13 @@ export default function NeighborhoodCompare() {
       {/* Dropdown Selectors */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         <div>
-          <label className="block text-sm font-semibold text-[#1a2b36] mb-2">
+          <label className="block text-sm font-semibold text-[#354652] mb-2">
             Select First Neighborhood
           </label>
           <select
             value={leftSlug}
             onChange={(e) => setLeftSlug(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg border border-[#e2e8f0] bg-white text-[#1a2b36] font-medium focus:outline-none focus:ring-2 focus:ring-[#0099cc] focus:border-transparent transition-all"
+            className="w-full px-4 py-3 rounded-lg border border-[#e2e8f0] bg-white text-[#354652] font-medium focus:outline-none focus:ring-2 focus:ring-[#CA3121] focus:border-transparent transition-all"
           >
             {neighborhoods.map((n) => (
               <option key={n.slug} value={n.slug}>
@@ -84,13 +84,13 @@ export default function NeighborhoodCompare() {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-semibold text-[#1a2b36] mb-2">
+          <label className="block text-sm font-semibold text-[#354652] mb-2">
             Select Second Neighborhood
           </label>
           <select
             value={rightSlug}
             onChange={(e) => setRightSlug(e.target.value)}
-            className="w-full px-4 py-3 rounded-lg border border-[#e2e8f0] bg-white text-[#1a2b36] font-medium focus:outline-none focus:ring-2 focus:ring-[#0099cc] focus:border-transparent transition-all"
+            className="w-full px-4 py-3 rounded-lg border border-[#e2e8f0] bg-white text-[#354652] font-medium focus:outline-none focus:ring-2 focus:ring-[#CA3121] focus:border-transparent transition-all"
           >
             {neighborhoods.map((n) => (
               <option key={n.slug} value={n.slug}>
@@ -105,7 +105,7 @@ export default function NeighborhoodCompare() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Left Card */}
         <div className="bg-[#f8fafb] border border-[#e2e8f0] rounded-2xl p-8 hover:shadow-lg transition-shadow">
-          <h2 className="text-2xl font-bold text-[#1a2b36] tracking-tight mb-1">
+          <h2 className="text-2xl font-bold text-[#354652] tracking-tight mb-1">
             {leftNeighborhood.name}
           </h2>
           <p className="text-[#64748b] text-sm mb-6">{leftNeighborhood.tagline}</p>
@@ -147,7 +147,7 @@ export default function NeighborhoodCompare() {
             <h3 className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">
               Character
             </h3>
-            <p className="text-sm text-[#1a2b36] leading-relaxed">
+            <p className="text-sm text-[#354652] leading-relaxed">
               {leftNeighborhood.character}
             </p>
           </div>
@@ -157,7 +157,7 @@ export default function NeighborhoodCompare() {
             <h3 className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">
               Property Types
             </h3>
-            <p className="text-sm text-[#1a2b36] leading-relaxed">
+            <p className="text-sm text-[#354652] leading-relaxed">
               {leftNeighborhood.propertyTypes}
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function NeighborhoodCompare() {
               {leftNeighborhood.highlights.map((highlight) => (
                 <span
                   key={highlight}
-                  className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-[#e8f4f8] text-[#0099cc]"
+                  className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-[#e8f4f8] text-[#CA3121]"
                 >
                   {highlight}
                 </span>
@@ -188,9 +188,9 @@ export default function NeighborhoodCompare() {
               {leftNeighborhood.schools.map((school) => (
                 <li
                   key={school}
-                  className="text-sm text-[#1a2b36] flex items-center"
+                  className="text-sm text-[#354652] flex items-center"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0099cc] mr-2.5" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CA3121] mr-2.5" />
                   {school}
                 </li>
               ))}
@@ -200,7 +200,7 @@ export default function NeighborhoodCompare() {
 
         {/* Right Card */}
         <div className="bg-[#f8fafb] border border-[#e2e8f0] rounded-2xl p-8 hover:shadow-lg transition-shadow">
-          <h2 className="text-2xl font-bold text-[#1a2b36] tracking-tight mb-1">
+          <h2 className="text-2xl font-bold text-[#354652] tracking-tight mb-1">
             {rightNeighborhood.name}
           </h2>
           <p className="text-[#64748b] text-sm mb-6">{rightNeighborhood.tagline}</p>
@@ -242,7 +242,7 @@ export default function NeighborhoodCompare() {
             <h3 className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">
               Character
             </h3>
-            <p className="text-sm text-[#1a2b36] leading-relaxed">
+            <p className="text-sm text-[#354652] leading-relaxed">
               {rightNeighborhood.character}
             </p>
           </div>
@@ -252,7 +252,7 @@ export default function NeighborhoodCompare() {
             <h3 className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">
               Property Types
             </h3>
-            <p className="text-sm text-[#1a2b36] leading-relaxed">
+            <p className="text-sm text-[#354652] leading-relaxed">
               {rightNeighborhood.propertyTypes}
             </p>
           </div>
@@ -266,7 +266,7 @@ export default function NeighborhoodCompare() {
               {rightNeighborhood.highlights.map((highlight) => (
                 <span
                   key={highlight}
-                  className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-[#e8f4f8] text-[#0099cc]"
+                  className="inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full bg-[#e8f4f8] text-[#CA3121]"
                 >
                   {highlight}
                 </span>
@@ -283,9 +283,9 @@ export default function NeighborhoodCompare() {
               {rightNeighborhood.schools.map((school) => (
                 <li
                   key={school}
-                  className="text-sm text-[#1a2b36] flex items-center"
+                  className="text-sm text-[#354652] flex items-center"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#0099cc] mr-2.5" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#CA3121] mr-2.5" />
                   {school}
                 </li>
               ))}

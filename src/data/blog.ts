@@ -9,6 +9,8 @@
  * market.ts so the narrative matches the numbers.
  */
 
+import { teamUrl } from './config';
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -63,7 +65,7 @@ export const blogPosts: BlogPost[] = [
     category: "Market Report",
     author: "Team Gillott",
     readTime: "6 min read",
-    externalSourceUrl: "https://www.teamgillott.com/info/stats2",
+    externalSourceUrl: teamUrl('/info/stats2'),
     seoTitle: "Lebanon Oregon Real Estate Market Report Q1 2026 | Team Gillott",
     seoDescription:
       "Q1 2026 Lebanon Oregon real estate market report. 75 homes sold, average price $377,115, 105 avg days on market. Data from Willamette Valley MLS.",

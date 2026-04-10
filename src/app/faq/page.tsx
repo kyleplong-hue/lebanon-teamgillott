@@ -1,5 +1,7 @@
+import Link from 'next/link';
 import CTABanner from '@/components/CTABanner';
 import { WebPageSchema } from '@/components/SchemaMarkup';
+import { siteUrl, TEAM_URL } from '@/data/config';
 import { FAQAccordion } from './faq-accordion';
 
 interface FAQItem {
@@ -125,15 +127,15 @@ export default function FAQPage() {
       <WebPageSchema
         title="Frequently Asked Questions - Lebanon Real Estate"
         description="Get answers to your Lebanon real estate questions: median home prices, schools, neighborhoods, first-time buyer programs, and more."
-        url="https://lebanon.justsoldle.com/faq"
+        url={siteUrl("/faq")}
       />
 
-      <section className="w-full bg-gradient-to-br from-[#0099cc] to-[#0077aa] py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-gradient-to-br from-[#CA3121] to-[#1F2930] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
             Frequently Asked Questions
           </h1>
-          <p className="text-lg text-blue-100">
+          <p className="text-lg text-white/80">
             Get answers to common questions about buying and selling in Lebanon, Oregon
           </p>
         </div>
@@ -142,7 +144,7 @@ export default function FAQPage() {
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="mb-10 p-6 bg-gradient-to-br from-[#f8fafb] to-[#f8fafb] rounded-2xl border border-[#e2e8f0]">
-            <p className="text-[#1a2b36] leading-relaxed">
+            <p className="text-[#354652] leading-relaxed">
               Have a specific question? Explore our comprehensive Q and A below. Click on any question to reveal the answer. If you don't find what you are looking for, reach out to Team Gillott directly.
             </p>
           </div>
@@ -151,11 +153,38 @@ export default function FAQPage() {
         </div>
       </section>
 
+      {/* Related Resources */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold tracking-tight text-[#354652] mb-8">
+            Related Resources
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/market-report" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Lebanon Market Report</h3>
+              <p className="text-sm text-[#64748b]">View current market data, trends, and pricing insights.</p>
+            </Link>
+            <Link href="/first-time-buyers" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">First-Time Buyers Guide</h3>
+              <p className="text-sm text-[#64748b]">Step-by-step guidance for your first home purchase.</p>
+            </Link>
+            <Link href="/schools" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Lebanon Schools Guide</h3>
+              <p className="text-sm text-[#64748b]">Explore top-rated schools and school districts.</p>
+            </Link>
+            <Link href="/neighborhoods" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Explore Neighborhoods</h3>
+              <p className="text-sm text-[#64748b]">Discover the character and charm of each Lebanon neighborhood.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CTABanner
         heading="Have More Questions?"
         subheading="Talk to a local expert who knows Lebanon inside and out."
         ctaText="Contact Team Gillott Today"
-        ctaUrl="https://www.teamgillott.com"
+        ctaUrl={TEAM_URL}
         variant="primary"
       />
 

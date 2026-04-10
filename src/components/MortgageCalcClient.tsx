@@ -6,10 +6,11 @@ import { CaretUp, CaretDown } from '@phosphor-icons/react';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
 import { currentMonth, formatPriceFull } from '@/data/market';
+import { siteUrl } from '@/data/config';
 
 const MORTGAGE_COLORS = {
-  principal: '#0099cc',
-  taxes: '#c4371a',
+  principal: '#CA3121',
+  taxes: '#CA3121',
   insurance: '#64748b',
 };
 
@@ -136,11 +137,22 @@ export default function MortgageCalcClient() {
 
   const mortgageSchema = {
     '@context': 'https://schema.org',
-    '@type': 'MortgageCalculator',
+    '@type': 'WebApplication',
     name: 'Lebanon Oregon Mortgage Calculator',
-    description: 'Free mortgage calculator for Lebanon, Oregon real estate',
-    url: 'https://lebanon.justsoldle.com/mortgage-calculator',
+    description: 'Free mortgage calculator for Lebanon, Oregon real estate. Estimate monthly payments with current rates and down payment scenarios.',
+    url: siteUrl('/mortgage-calculator'),
     applicationCategory: 'FinanceApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    provider: {
+      '@type': 'RealEstateAgent',
+      name: 'Team Gillott',
+      url: 'https://www.teamgillott.com',
+    },
   };
 
   return (
@@ -150,17 +162,17 @@ export default function MortgageCalcClient() {
       {/* Hero */}
       <section className="relative w-full pt-20 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafb] via-[#e8f4f8] to-[#f8fafb]" />
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#0099cc]/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#CA3121]/5 rounded-full blur-3xl" />
 
         <div className="relative z-10 max-w-5xl mx-auto">
-          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 bg-[#0099cc]/8 border border-[#0099cc]/15 rounded-full">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#0099cc] animate-pulse" />
-            <span className="text-xs font-medium text-[#0099cc]">
+          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 bg-[#CA3121]/8 border border-[#CA3121]/15 rounded-full">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#CA3121] animate-pulse" />
+            <span className="text-xs font-medium text-[#CA3121]">
               Real-time rates for Lebanon, Oregon
             </span>
           </div>
 
-          <h1 className="text-5xl lg:text-6xl font-semibold tracking-tight text-[#1a2b36] leading-[1.08] mb-4">
+          <h1 className="text-5xl lg:text-6xl font-semibold tracking-tight text-[#354652] leading-[1.08] mb-4">
             Mortgage Calculator
           </h1>
 
@@ -179,7 +191,7 @@ export default function MortgageCalcClient() {
             <div className="bg-white rounded-2xl border border-[#e2e8f0] p-6 space-y-6 sticky top-6">
               {/* Home Price */}
               <div>
-                <label className="block text-sm font-semibold text-[#1a2b36] mb-3">
+                <label className="block text-sm font-semibold text-[#354652] mb-3">
                   Home Price
                 </label>
                 <input
@@ -189,14 +201,14 @@ export default function MortgageCalcClient() {
                   step="10000"
                   value={homePrice}
                   onChange={(e) => setHomePrice(Number(e.target.value))}
-                  className="w-full h-2 bg-[#e2e8f0] rounded-lg appearance-none cursor-pointer accent-[#0099cc]"
+                  className="w-full h-2 bg-[#e2e8f0] rounded-lg appearance-none cursor-pointer accent-[#CA3121]"
                 />
                 <div className="flex items-center gap-2 mt-3">
                   <input
                     type="number"
                     value={homePrice}
                     onChange={(e) => setHomePrice(Number(e.target.value))}
-                    className="flex-1 px-3 py-2 bg-[#f8fafb] border border-[#e2e8f0] rounded-lg text-sm font-semibold text-[#1a2b36] tabular-nums"
+                    className="flex-1 px-3 py-2 bg-[#f8fafb] border border-[#e2e8f0] rounded-lg text-sm font-semibold text-[#354652] tabular-nums"
                   />
                   <span className="text-sm font-medium text-[#64748b]">$</span>
                 </div>
@@ -204,7 +216,7 @@ export default function MortgageCalcClient() {
 
               {/* Down Payment % */}
               <div>
-                <label className="block text-sm font-semibold text-[#1a2b36] mb-3">
+                <label className="block text-sm font-semibold text-[#354652] mb-3">
                   Down Payment %
                 </label>
                 <input
@@ -214,14 +226,14 @@ export default function MortgageCalcClient() {
                   step="1"
                   value={downPaymentPercent}
                   onChange={(e) => setDownPaymentPercent(Number(e.target.value))}
-                  className="w-full h-2 bg-[#e2e8f0] rounded-lg appearance-none cursor-pointer accent-[#0099cc]"
+                  className="w-full h-2 bg-[#e2e8f0] rounded-lg appearance-none cursor-pointer accent-[#CA3121]"
                 />
                 <div className="flex items-center gap-2 mt-3">
                   <input
                     type="number"
                     value={downPaymentPercent}
                     onChange={(e) => setDownPaymentPercent(Math.max(5, Math.min(50, Number(e.target.value))))}
-                    className="flex-1 px-3 py-2 bg-[#f8fafb] border border-[#e2e8f0] rounded-lg text-sm font-semibold text-[#1a2b36] tabular-nums"
+                    className="flex-1 px-3 py-2 bg-[#f8fafb] border border-[#e2e8f0] rounded-lg text-sm font-semibold text-[#354652] tabular-nums"
                   />
                   <span className="text-sm font-medium text-[#64748b]">%</span>
                 </div>
@@ -232,7 +244,7 @@ export default function MortgageCalcClient() {
 
               {/* Interest Rate */}
               <div>
-                <label className="block text-sm font-semibold text-[#1a2b36] mb-3">
+                <label className="block text-sm font-semibold text-[#354652] mb-3">
                   Interest Rate (%)
                 </label>
                 <input
@@ -242,7 +254,7 @@ export default function MortgageCalcClient() {
                   step="0.1"
                   value={interestRate}
                   onChange={(e) => setInterestRate(Number(e.target.value))}
-                  className="w-full h-2 bg-[#e2e8f0] rounded-lg appearance-none cursor-pointer accent-[#0099cc]"
+                  className="w-full h-2 bg-[#e2e8f0] rounded-lg appearance-none cursor-pointer accent-[#CA3121]"
                 />
                 <div className="flex items-center gap-2 mt-3">
                   <input
@@ -250,7 +262,7 @@ export default function MortgageCalcClient() {
                     value={interestRate.toFixed(2)}
                     onChange={(e) => setInterestRate(Math.max(3, Math.min(10, Number(e.target.value))))}
                     step="0.1"
-                    className="flex-1 px-3 py-2 bg-[#f8fafb] border border-[#e2e8f0] rounded-lg text-sm font-semibold text-[#1a2b36] tabular-nums"
+                    className="flex-1 px-3 py-2 bg-[#f8fafb] border border-[#e2e8f0] rounded-lg text-sm font-semibold text-[#354652] tabular-nums"
                   />
                   <span className="text-sm font-medium text-[#64748b]">%</span>
                 </div>
@@ -258,7 +270,7 @@ export default function MortgageCalcClient() {
 
               {/* Loan Term */}
               <div>
-                <label className="block text-sm font-semibold text-[#1a2b36] mb-3">
+                <label className="block text-sm font-semibold text-[#354652] mb-3">
                   Loan Term
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -266,8 +278,8 @@ export default function MortgageCalcClient() {
                     onClick={() => setLoanTerm(15)}
                     className={`py-2 px-3 rounded-lg font-semibold text-sm transition-all ${
                       loanTerm === 15
-                        ? 'bg-[#0099cc] text-white'
-                        : 'bg-[#f8fafb] border border-[#e2e8f0] text-[#1a2b36] hover:border-[#cbd5e1]'
+                        ? 'bg-[#CA3121] text-white'
+                        : 'bg-[#f8fafb] border border-[#e2e8f0] text-[#354652] hover:border-[#cbd5e1]'
                     }`}
                   >
                     15 years
@@ -276,8 +288,8 @@ export default function MortgageCalcClient() {
                     onClick={() => setLoanTerm(30)}
                     className={`py-2 px-3 rounded-lg font-semibold text-sm transition-all ${
                       loanTerm === 30
-                        ? 'bg-[#0099cc] text-white'
-                        : 'bg-[#f8fafb] border border-[#e2e8f0] text-[#1a2b36] hover:border-[#cbd5e1]'
+                        ? 'bg-[#CA3121] text-white'
+                        : 'bg-[#f8fafb] border border-[#e2e8f0] text-[#354652] hover:border-[#cbd5e1]'
                     }`}
                   >
                     30 years
@@ -295,7 +307,7 @@ export default function MortgageCalcClient() {
                 Monthly Payment
               </h2>
               <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-5xl font-semibold tracking-tight text-[#1a2b36] tabular-nums">
+                <span className="text-5xl font-semibold tracking-tight text-[#354652] tabular-nums">
                   {formatPriceFull(mortgageInfo.totalMonthly).replace('$', '')}
                 </span>
                 <span className="text-lg text-[#64748b]">/month</span>
@@ -308,7 +320,7 @@ export default function MortgageCalcClient() {
                     <div className="w-3 h-3 rounded-full" style={{ backgroundColor: MORTGAGE_COLORS.principal }} />
                     <span className="text-sm text-[#64748b]">Principal & Interest</span>
                   </div>
-                  <span className="text-sm font-semibold text-[#1a2b36] tabular-nums">
+                  <span className="text-sm font-semibold text-[#354652] tabular-nums">
                     {formatPriceFull(mortgageInfo.principalInterest)}
                   </span>
                 </div>
@@ -317,7 +329,7 @@ export default function MortgageCalcClient() {
                     <div className="w-3 h-3 rounded-full" style={{ backgroundColor: MORTGAGE_COLORS.taxes }} />
                     <span className="text-sm text-[#64748b]">Property Tax (1.07%)</span>
                   </div>
-                  <span className="text-sm font-semibold text-[#1a2b36] tabular-nums">
+                  <span className="text-sm font-semibold text-[#354652] tabular-nums">
                     {formatPriceFull(mortgageInfo.propertyTax)}
                   </span>
                 </div>
@@ -326,7 +338,7 @@ export default function MortgageCalcClient() {
                     <div className="w-3 h-3 rounded-full" style={{ backgroundColor: MORTGAGE_COLORS.insurance }} />
                     <span className="text-sm text-[#64748b]">Home Insurance</span>
                   </div>
-                  <span className="text-sm font-semibold text-[#1a2b36] tabular-nums">
+                  <span className="text-sm font-semibold text-[#354652] tabular-nums">
                     {formatPriceFull(mortgageInfo.homeInsurance)}
                   </span>
                 </div>
@@ -336,15 +348,15 @@ export default function MortgageCalcClient() {
               <div className="border-t border-[#e2e8f0] mt-6 pt-6 space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-[#64748b]">Loan Amount</span>
-                  <span className="font-semibold text-[#1a2b36] tabular-nums">{formatPriceFull(loanAmount)}</span>
+                  <span className="font-semibold text-[#354652] tabular-nums">{formatPriceFull(loanAmount)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#64748b]">{loanTerm}-year term</span>
-                  <span className="font-semibold text-[#1a2b36] tabular-nums">{loanTerm * 12} payments</span>
+                  <span className="font-semibold text-[#354652] tabular-nums">{loanTerm * 12} payments</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#64748b]">Interest Rate</span>
-                  <span className="font-semibold text-[#1a2b36] tabular-nums">{interestRate.toFixed(2)}%</span>
+                  <span className="font-semibold text-[#354652] tabular-nums">{interestRate.toFixed(2)}%</span>
                 </div>
               </div>
             </div>
@@ -400,7 +412,7 @@ export default function MortgageCalcClient() {
       {/* Comparison Table */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-16 bg-[#f8fafb]">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-semibold tracking-tight text-[#1a2b36] mb-8">
+          <h2 className="text-3xl font-semibold tracking-tight text-[#354652] mb-8">
             Down Payment Scenarios
           </h2>
 
@@ -408,10 +420,10 @@ export default function MortgageCalcClient() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-[#e2e8f0]">
-                  <th className="text-left px-4 py-4 font-semibold text-[#1a2b36]">Down Payment</th>
-                  <th className="text-right px-4 py-4 font-semibold text-[#1a2b36]">Amount</th>
-                  <th className="text-right px-4 py-4 font-semibold text-[#1a2b36]">Loan Amount</th>
-                  <th className="text-right px-4 py-4 font-semibold text-[#1a2b36]">Monthly Payment</th>
+                  <th className="text-left px-4 py-4 font-semibold text-[#354652]">Down Payment</th>
+                  <th className="text-right px-4 py-4 font-semibold text-[#354652]">Amount</th>
+                  <th className="text-right px-4 py-4 font-semibold text-[#354652]">Loan Amount</th>
+                  <th className="text-right px-4 py-4 font-semibold text-[#354652]">Monthly Payment</th>
                 </tr>
               </thead>
               <tbody>
@@ -420,20 +432,20 @@ export default function MortgageCalcClient() {
                     key={idx}
                     className={`border-b border-[#e2e8f0] ${
                       scenario.downPayment === downPaymentPercent
-                        ? 'bg-[#0099cc]/5'
+                        ? 'bg-[#CA3121]/5'
                         : ''
                     }`}
                   >
-                    <td className="px-4 py-4 font-medium text-[#1a2b36]">
+                    <td className="px-4 py-4 font-medium text-[#354652]">
                       {scenario.downPayment}%
                     </td>
-                    <td className="px-4 py-4 text-right font-semibold text-[#1a2b36] tabular-nums">
+                    <td className="px-4 py-4 text-right font-semibold text-[#354652] tabular-nums">
                       {formatPriceFull(scenario.downPaymentAmount)}
                     </td>
-                    <td className="px-4 py-4 text-right font-semibold text-[#1a2b36] tabular-nums">
+                    <td className="px-4 py-4 text-right font-semibold text-[#354652] tabular-nums">
                       {formatPriceFull(scenario.loanAmount)}
                     </td>
-                    <td className="px-4 py-4 text-right font-semibold text-[#1a2b36] tabular-nums">
+                    <td className="px-4 py-4 text-right font-semibold text-[#354652] tabular-nums">
                       {formatPriceFull(scenario.monthlyPayment)}
                     </td>
                   </tr>
@@ -447,7 +459,7 @@ export default function MortgageCalcClient() {
       {/* Affordability Guide */}
       <section className="w-full px-4 sm:px-6 lg:px-8 py-16">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-semibold tracking-tight text-[#1a2b36] mb-2">
+          <h2 className="text-3xl font-semibold tracking-tight text-[#354652] mb-2">
             What Home Price Can You Afford?
           </h2>
           <p className="text-lg text-[#64748b] mb-8 max-w-2xl">
@@ -461,20 +473,20 @@ export default function MortgageCalcClient() {
                 <p className="text-xs font-medium text-[#64748b] uppercase tracking-wider mb-3">
                   Monthly Budget
                 </p>
-                <p className="text-2xl font-semibold text-[#1a2b36] mb-4 tabular-nums">
+                <p className="text-2xl font-semibold text-[#354652] mb-4 tabular-nums">
                   {formatPriceFull(scenario.monthlyBudget)}
                 </p>
 
                 <div className="space-y-3 border-t border-[#e2e8f0] pt-4">
                   <div>
                     <p className="text-xs text-[#64748b] mb-1">Max Home Price</p>
-                    <p className="text-lg font-semibold text-[#1a2b36] tabular-nums">
+                    <p className="text-lg font-semibold text-[#354652] tabular-nums">
                       {formatPriceFull(scenario.maxHomePrice)}
                     </p>
                   </div>
                   <div>
                     <p className="text-xs text-[#64748b] mb-1">Your Down Payment</p>
-                    <p className="text-sm font-semibold text-[#0099cc] tabular-nums">
+                    <p className="text-sm font-semibold text-[#CA3121] tabular-nums">
                       {formatPriceFull(scenario.downPayment)}
                     </p>
                   </div>
@@ -483,7 +495,7 @@ export default function MortgageCalcClient() {
             ))}
           </div>
 
-          <div className="mt-8 p-4 bg-[#0099cc]/5 border border-[#0099cc]/15 rounded-lg">
+          <div className="mt-8 p-4 bg-[#CA3121]/5 border border-[#CA3121]/15 rounded-lg">
             <p className="text-sm text-[#64748b]">
               These estimates include principal, interest, property taxes (1.07% annually), and home insurance
               ($100/month). Actual costs may vary based on your specific situation, credit score, and local lender

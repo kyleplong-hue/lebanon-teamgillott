@@ -2,12 +2,14 @@
  * DYNAMIC DATA LAYER — Market Report
  *
  * Update this file quarterly with new MLS data from:
- * https://www.teamgillott.com/info/stats2
+ * teamUrl('/info/stats2') from config
  *
  * Source: Willamette Valley MLS
  * All pages that reference market data pull from here.
  * No page code changes needed — just update the numbers.
  */
+
+import { teamUrl } from './config';
 
 export interface MonthlySnapshot {
   month: string;          // e.g. "Q1 2026"
@@ -296,7 +298,7 @@ export const mlsSource = {
   name: "Willamette Valley MLS",
   asOf: "March 31, 2026",
   quarterLabel: "Q1 2026",
-  statsPageUrl: "https://www.teamgillott.com/info/stats2",
+  statsPageUrl: teamUrl('/info/stats2'),
 };
 
 // ─── HELPER FUNCTIONS ────────────────────────────────────────

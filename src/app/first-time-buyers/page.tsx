@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { WebPageSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
+import { siteUrl, TEAM_URL } from '@/data/config';
 
 export const metadata = {
   title: 'First-Time Home Buyer Guide Lebanon Oregon 2026 | Team Gillott',
@@ -119,16 +120,16 @@ export default function FirstTimeBuyersPage() {
       <WebPageSchema
         title="First-Time Home Buyer Guide — Lebanon, Oregon 2026"
         description="Complete guide for first-time homebuyers in Lebanon, Oregon, including Oregon assistance programs that can save you $60,000."
-        url="https://lebanon.justsoldle.com/first-time-buyers"
+        url={siteUrl("/first-time-buyers")}
       />
 
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-b from-[#0099cc] to-[#0077aa] text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-gradient-to-b from-[#CA3121] to-[#1F2930] text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-6 tracking-tight">
             First-Time Home Buyer Guide — Lebanon, Oregon 2026
           </h1>
-          <p className="text-lg sm:text-xl text-blue-100 max-w-2xl">
+          <p className="text-lg sm:text-xl text-white/80 max-w-2xl">
             Lebanon is one of the most affordable markets in the Willamette Valley. Median price: $395K vs $565K in Corvallis. Plus, Oregon offers generous assistance programs to help you buy.
           </p>
         </div>
@@ -137,17 +138,17 @@ export default function FirstTimeBuyersPage() {
       {/* Affordability Snapshot */}
       <section className="w-full bg-[#f8fafb] py-12 px-4 sm:px-6 lg:px-8 border-b border-[#e2e8f0]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#1a2b36] mb-8 tracking-tight">
+          <h2 className="text-3xl font-bold text-[#354652] mb-8 tracking-tight">
             Affordability Comparison
           </h2>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b-2 border-[#0099cc]">
-                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36]">City</th>
-                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36]">Median Price</th>
-                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36]">5% Down</th>
-                  <th className="text-left py-4 px-4 font-bold text-[#1a2b36]">Est. Monthly</th>
+                <tr className="border-b-2 border-[#CA3121]">
+                  <th className="text-left py-4 px-4 font-bold text-[#354652]">City</th>
+                  <th className="text-left py-4 px-4 font-bold text-[#354652]">Median Price</th>
+                  <th className="text-left py-4 px-4 font-bold text-[#354652]">5% Down</th>
+                  <th className="text-left py-4 px-4 font-bold text-[#354652]">Est. Monthly</th>
                 </tr>
               </thead>
               <tbody>
@@ -156,10 +157,10 @@ export default function FirstTimeBuyersPage() {
                     key={idx}
                     className={`border-b border-[#e2e8f0] ${idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafb]'}`}
                   >
-                    <td className="text-left py-4 px-4 font-semibold text-[#1a2b36]">
+                    <td className="text-left py-4 px-4 font-semibold text-[#354652]">
                       {city.city}
                     </td>
-                    <td className="py-4 px-4 text-[#1a2b36] font-semibold tabular-nums">
+                    <td className="py-4 px-4 text-[#354652] font-semibold tabular-nums">
                       {city.median}
                     </td>
                     <td className="py-4 px-4 text-[#64748b]">{city.downPayment}</td>
@@ -178,7 +179,7 @@ export default function FirstTimeBuyersPage() {
       {/* Six-Step Process */}
       <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 tracking-tight">
             Your Step-by-Step Path to Homeownership
           </h2>
 
@@ -191,23 +192,23 @@ export default function FirstTimeBuyersPage() {
                 <div className="flex gap-6">
                   {/* Step Number */}
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-14 w-14 rounded-full bg-[#0099cc] text-white font-bold text-xl">
+                    <div className="flex items-center justify-center h-14 w-14 rounded-full bg-[#CA3121] text-white font-bold text-xl">
                       {step.number}
                     </div>
                   </div>
 
                   {/* Step Content */}
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-[#1a2b36] mb-3 tracking-tight">
+                    <h3 className="text-2xl font-bold text-[#354652] mb-3 tracking-tight">
                       {step.title}
                     </h3>
-                    <p className="text-[#1a2b36] leading-relaxed mb-4">
+                    <p className="text-[#354652] leading-relaxed mb-4">
                       {step.description}
                     </p>
                     {step.ctaText && step.ctaLink && (
                       <Link
                         href={step.ctaLink}
-                        className="inline-flex items-center gap-2 text-[#0099cc] font-semibold hover:text-[#0077aa] transition-colors"
+                        className="inline-flex items-center gap-2 text-[#CA3121] font-semibold hover:text-[#a82919] transition-colors"
                       >
                         {step.ctaText} <span>→</span>
                       </Link>
@@ -220,7 +221,7 @@ export default function FirstTimeBuyersPage() {
           <div className="mt-12 p-6">
             <Link
               href="/mortgage-calculator"
-              className="inline-block px-6 py-3 bg-[#0099cc] text-white font-semibold rounded-2xl hover:shadow-md transition-all duration-300"
+              className="inline-block px-6 py-3 bg-[#CA3121] text-white font-semibold rounded-2xl hover:shadow-md transition-all duration-300"
             >
               Try Our Mortgage Calculator
             </Link>
@@ -231,10 +232,10 @@ export default function FirstTimeBuyersPage() {
       {/* Oregon Assistance Programs */}
       <section className="w-full bg-[#f8fafb] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-4 tracking-tight">
             Oregon First-Time Buyer Programs
           </h2>
-          <p className="text-[#1a2b36] mb-12 max-w-2xl">
+          <p className="text-[#354652] mb-12 max-w-2xl">
             Oregon is one of the most generous states for first-time buyer assistance. These programs can save you $20,000–$60,000+.
           </p>
 
@@ -246,10 +247,10 @@ export default function FirstTimeBuyersPage() {
               >
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between md:gap-6 mb-4">
                   <div>
-                    <h3 className="text-2xl font-bold text-[#1a2b36] mb-2 tracking-tight">
+                    <h3 className="text-2xl font-bold text-[#354652] mb-2 tracking-tight">
                       {program.title}
                     </h3>
-                    <p className="text-lg font-semibold text-[#0099cc] mb-3">
+                    <p className="text-lg font-semibold text-[#CA3121] mb-3">
                       {program.subtitle}
                     </p>
                   </div>
@@ -257,31 +258,31 @@ export default function FirstTimeBuyersPage() {
                     href={program.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block px-6 py-2 bg-[#0099cc] text-white font-semibold rounded-2xl hover:shadow-md transition-all duration-300 whitespace-nowrap"
+                    className="inline-block px-6 py-2 bg-[#CA3121] text-white font-semibold rounded-2xl hover:shadow-md transition-all duration-300 whitespace-nowrap"
                   >
                     Learn More →
                   </a>
                 </div>
 
                 <div className="mb-4">
-                  <p className="text-sm font-bold text-[#1a2b36] uppercase tracking-wide mb-2">
+                  <p className="text-sm font-bold text-[#354652] uppercase tracking-wide mb-2">
                     Requirements
                   </p>
                   <p className="text-[#64748b] text-sm">{program.requirements}</p>
                 </div>
 
                 <div>
-                  <p className="text-sm font-bold text-[#1a2b36] uppercase tracking-wide mb-2">
+                  <p className="text-sm font-bold text-[#354652] uppercase tracking-wide mb-2">
                     Details
                   </p>
-                  <p className="text-[#1a2b36] leading-relaxed">{program.details}</p>
+                  <p className="text-[#354652] leading-relaxed">{program.details}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 p-8 bg-blue-50 border-l-4 border-[#0099cc] rounded-2xl">
-            <p className="text-[#1a2b36]">
+          <div className="mt-12 p-8 bg-red-50 border-l-4 border-[#CA3121] rounded-2xl">
+            <p className="text-[#354652]">
               <span className="font-bold">Important:</span> Most Oregon assistance programs require you to complete homebuyer education and meet with a certified housing counselor. These sessions are often free or low-cost. We can provide referrals to approved counselors in Lebanon.
             </p>
           </div>
@@ -291,7 +292,7 @@ export default function FirstTimeBuyersPage() {
       {/* Buyer Checklist */}
       <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 tracking-tight">
             First-Time Buyer Checklist
           </h2>
 
@@ -312,11 +313,11 @@ export default function FirstTimeBuyersPage() {
             ].map((item, idx) => (
               <div key={idx} className="flex gap-3 bg-[#f8fafb] p-4 rounded-2xl border border-[#e2e8f0]">
                 <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-[#0099cc]">
+                  <div className="flex items-center justify-center h-6 w-6 rounded-full bg-[#CA3121]">
                     <span className="text-white text-sm font-bold">✓</span>
                   </div>
                 </div>
-                <p className="text-[#1a2b36]">{item}</p>
+                <p className="text-[#354652]">{item}</p>
               </div>
             ))}
           </div>
@@ -324,17 +325,17 @@ export default function FirstTimeBuyersPage() {
       </section>
 
       {/* Lebanon Neighborhoods CTA */}
-      <section className="w-full bg-gradient-to-r from-[#0099cc] to-[#0077aa] text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-gradient-to-r from-[#CA3121] to-[#1F2930] text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-left">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 tracking-tight">
             Ready to Explore Lebanon Neighborhoods?
           </h2>
-          <p className="text-lg text-blue-100 mb-8 max-w-2xl">
+          <p className="text-lg text-white/80 mb-8 max-w-2xl">
             Each neighborhood offers different lifestyles, price points, and amenities. Learn what makes each area special.
           </p>
           <Link
             href="/neighborhoods"
-            className="inline-block px-8 py-3 bg-[#c4371a] text-white font-semibold rounded-2xl hover:shadow-md transition-all duration-300"
+            className="inline-block px-8 py-3 bg-[#CA3121] text-white font-semibold rounded-2xl hover:shadow-md transition-all duration-300"
           >
             Explore Neighborhoods
           </Link>
@@ -344,7 +345,7 @@ export default function FirstTimeBuyersPage() {
       {/* FAQ Section */}
       <section className="w-full bg-[#f8fafb] py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#1a2b36] mb-12 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#354652] mb-12 tracking-tight">
             Common First-Time Buyer Questions
           </h2>
 
@@ -376,12 +377,12 @@ export default function FirstTimeBuyersPage() {
                 className="group bg-white rounded-2xl overflow-hidden border border-[#e2e8f0] hover:shadow-md transition-all duration-300"
               >
                 <summary className="p-6 cursor-pointer hover:bg-[#f8fafb] transition-colors flex items-center justify-between">
-                  <h3 className="font-bold text-[#1a2b36] tracking-tight">{item.q}</h3>
-                  <span className="text-[#0099cc] font-bold group-open:rotate-180 transition-transform">
+                  <h3 className="font-bold text-[#354652] tracking-tight">{item.q}</h3>
+                  <span className="text-[#CA3121] font-bold group-open:rotate-180 transition-transform">
                     ▼
                   </span>
                 </summary>
-                <div className="px-6 pb-6 text-[#1a2b36] border-t border-[#e2e8f0]">
+                <div className="px-6 pb-6 text-[#354652] border-t border-[#e2e8f0]">
                   {item.a}
                 </div>
               </details>
@@ -390,12 +391,65 @@ export default function FirstTimeBuyersPage() {
         </div>
       </section>
 
+      {/* FAQ Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'How much do I need to save for a down payment?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Minimum depends on your loan type. FHA loans require 3.5% down. Conventional loans typically require 5–20% down. Oregon assistance programs can help cover much of this.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What if I have bad credit?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'FHA loans accept credit scores as low as 580. Some programs target low-credit borrowers. Start by talking to a lender about your options.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What are closing costs?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Closing costs typically range from 2–5% of the purchase price and cover lender fees, appraisals, title insurance, and legal fees. Many Oregon programs help cover these.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How long does the home buying process take?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Typically 30–45 days from offer to closing, assuming no major issues. In Lebanon, the average is 65 days on market, so plan accordingly.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Can I get an inspection before making an offer?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'You can order a pre-offer inspection, but most buyers make an offer contingent on inspection. This protects you.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
+
       {/* CTA Banner */}
       <CTABanner
         heading="Talk to a Lebanon Buyer's Agent"
         subheading="Ready to start your home buying journey? Let Team Gillott guide you through every step."
         ctaText="Schedule Your Consultation"
-        ctaUrl="https://www.teamgillott.com"
+        ctaUrl={TEAM_URL}
       />
     </>
   );

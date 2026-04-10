@@ -2,17 +2,18 @@
 
 import Link from 'next/link';
 import { currentMonth } from '@/data/market';
+import { TEAM_URL } from '@/data/config';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f1c24] text-white">
+    <footer className="bg-[#1F2930] text-white">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#0099cc] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-[#CA3121] flex items-center justify-center">
                 <span className="text-white font-bold text-sm">TG</span>
               </div>
               <span className="text-lg font-semibold tracking-tight">
@@ -25,17 +26,17 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Neighborhoods */}
+          {/* Areas */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-wider text-[#64748b] mb-4">
-              Neighborhoods
+              Service Areas
             </h4>
             <ul className="space-y-2.5">
               {[
-                { href: '/neighborhoods/south-lebanon', label: 'South Lebanon' },
-                { href: '/neighborhoods/east-lebanon', label: 'East Lebanon' },
-                { href: '/neighborhoods/north-lebanon', label: 'North Lebanon' },
-                { href: '/neighborhoods/hamilton-creek', label: 'Hamilton Creek' },
+                { href: '/neighborhoods', label: 'Lebanon Neighborhoods' },
+                { href: '/cities/albany', label: 'Albany' },
+                { href: '/cities/corvallis', label: 'Corvallis' },
+                { href: '/cities/compare', label: 'Compare Cities' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -105,7 +106,7 @@ export default function Footer() {
               <div className="w-full h-px bg-[#1e293b]" />
               <Link
                 href="/market-report"
-                className="inline-block text-xs font-semibold text-[#0099cc] hover:text-[#33bbff] transition-colors mt-1"
+                className="inline-block text-xs font-semibold text-[#CA3121] hover:text-[#FF6B4A] transition-colors mt-1"
               >
                 View full report &rarr;
               </Link>
@@ -122,7 +123,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <a
-              href="https://www.teamgillott.com"
+              href={TEAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs text-[#64748b] hover:text-[#94a3b8] transition-colors"

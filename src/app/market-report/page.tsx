@@ -13,6 +13,7 @@ import {
   getYoYChange,
 } from '@/data/market';
 import { blogPosts } from '@/data/blog';
+import { siteUrl, TEAM_URL } from '@/data/config';
 
 export const metadata = {
   title: 'Lebanon, Oregon Real Estate Market Report',
@@ -20,7 +21,7 @@ export const metadata = {
   openGraph: {
     title: 'Lebanon Real Estate Market Report',
     description: 'Comprehensive market analysis for buyers and sellers in Lebanon, Oregon.',
-    url: 'https://lebanon.justsoldle.com/market-report',
+    url: siteUrl('/market-report'),
     type: 'website',
   },
 };
@@ -35,7 +36,7 @@ export default function MarketReport() {
   return (
     <main className="flex-1 w-full">
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-br from-[#0099cc] via-[#0088bb] to-[#007799] py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="w-full bg-gradient-to-br from-[#CA3121] via-[#0088bb] to-[#007799] py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=%2260%27 height=%2760%27 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27none%27 fill-rule=%27evenodd%27%3E%3Cg fill=%27%23ffffff%27 fill-opacity=%270.1%27%3E%3Cpath d=%27M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="mb-3 inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
@@ -57,7 +58,7 @@ export default function MarketReport() {
             {/* Median Price */}
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
               <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Median Price</p>
-              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+              <p className="text-4xl font-bold text-[#354652] mb-3 font-tabular-nums">
                 {formatPrice(currentMonth.medianPrice)}
               </p>
               <div className={`flex items-center gap-2 ${priceChangePercent >= 0 ? 'text-emerald-600' : 'text-red-600'}`}>
@@ -71,7 +72,7 @@ export default function MarketReport() {
             {/* Days on Market */}
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
               <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Avg Days on Market</p>
-              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+              <p className="text-4xl font-bold text-[#354652] mb-3 font-tabular-nums">
                 {currentMonth.avgDOM}
               </p>
               <div className={`flex items-center gap-2 ${domChangePercent < 0 ? 'text-emerald-600' : 'text-red-600'}`}>
@@ -85,7 +86,7 @@ export default function MarketReport() {
             {/* Price Per Sqft */}
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
               <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Price per Sq Ft</p>
-              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+              <p className="text-4xl font-bold text-[#354652] mb-3 font-tabular-nums">
                 ${currentMonth.pricePerSqft}
               </p>
               <p className="text-sm text-[#64748b]">vs. Corvallis at ${cityComparisons[1].pricePerSqft}</p>
@@ -94,7 +95,7 @@ export default function MarketReport() {
             {/* Avg Offers */}
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
               <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Avg Offers per Home</p>
-              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+              <p className="text-4xl font-bold text-[#354652] mb-3 font-tabular-nums">
                 {currentMonth.avgOffers}
               </p>
               <p className="text-sm text-[#64748b]">Competitive market</p>
@@ -103,7 +104,7 @@ export default function MarketReport() {
             {/* Active Listings */}
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 col-span-1">
               <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Active Listings</p>
-              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+              <p className="text-4xl font-bold text-[#354652] mb-3 font-tabular-nums">
                 {currentMonth.activeListings}
               </p>
               <p className="text-sm text-[#64748b]">Months of supply: {currentMonth.inventory.toFixed(1)}</p>
@@ -112,7 +113,7 @@ export default function MarketReport() {
             {/* New Listings */}
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
               <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">New Listings</p>
-              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+              <p className="text-4xl font-bold text-[#354652] mb-3 font-tabular-nums">
                 {currentMonth.newListings}
               </p>
               <p className="text-sm text-[#64748b]">This month</p>
@@ -121,7 +122,7 @@ export default function MarketReport() {
             {/* Closed Sales */}
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
               <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">Closed Sales</p>
-              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+              <p className="text-4xl font-bold text-[#354652] mb-3 font-tabular-nums">
                 {currentMonth.closedSales}
               </p>
               <p className="text-sm text-[#64748b]">This month</p>
@@ -130,7 +131,7 @@ export default function MarketReport() {
             {/* Mortgage Rate */}
             <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
               <p className="text-xs font-semibold text-[#64748b] uppercase tracking-wide mb-2">30-Yr Rate</p>
-              <p className="text-4xl font-bold text-[#1a2b36] mb-3 font-tabular-nums">
+              <p className="text-4xl font-bold text-[#354652] mb-3 font-tabular-nums">
                 {currentMonth.mortgageRate.toFixed(2)}%
               </p>
               <p className="text-sm text-[#64748b]">Current average</p>
@@ -142,19 +143,19 @@ export default function MarketReport() {
       {/* Market Trends Charts */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#1a2b36] mb-2 tracking-tight">12-Month Trends</h2>
+          <h2 className="text-3xl font-bold text-[#354652] mb-2 tracking-tight">12-Month Trends</h2>
           <p className="text-[#64748b] mb-10">See how the market has evolved over the past year</p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Price Chart */}
             <div className="bg-[#f8fafb] rounded-2xl p-6 border border-[#e2e8f0]">
-              <h3 className="text-lg font-semibold text-[#1a2b36] mb-4">Median Price Trend</h3>
+              <h3 className="text-lg font-semibold text-[#354652] mb-4">Median Price Trend</h3>
               <PriceTrendChart />
             </div>
 
             {/* Volume Chart */}
             <div className="bg-[#f8fafb] rounded-2xl p-6 border border-[#e2e8f0]">
-              <h3 className="text-lg font-semibold text-[#1a2b36] mb-4">Closed Sales Volume</h3>
+              <h3 className="text-lg font-semibold text-[#354652] mb-4">Closed Sales Volume</h3>
               <SalesVolumeChart />
             </div>
           </div>
@@ -164,7 +165,7 @@ export default function MarketReport() {
       {/* City Comparison Section */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#1a2b36] mb-2 tracking-tight">How Lebanon Compares</h2>
+          <h2 className="text-3xl font-bold text-[#354652] mb-2 tracking-tight">How Lebanon Compares</h2>
           <p className="text-[#64748b] mb-10">Lebanon vs. nearby markets</p>
 
           <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#e2e8f0]">
@@ -182,10 +183,10 @@ export default function MarketReport() {
                 <tbody>
                   {cityComparisons.map((city, idx) => (
                     <tr key={idx} className={`border-b border-[#e2e8f0] ${idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafb]'} hover:bg-[#f0f4f8] transition-colors`}>
-                      <td className="px-6 py-4 font-semibold text-[#1a2b36]">{city.city}</td>
-                      <td className="px-6 py-4 text-[#1a2b36] font-tabular-nums">{formatPriceFull(city.medianPrice)}</td>
-                      <td className="px-6 py-4 text-[#1a2b36] font-tabular-nums">{city.avgDOM} days</td>
-                      <td className="px-6 py-4 text-[#1a2b36] font-tabular-nums">${city.pricePerSqft}</td>
+                      <td className="px-6 py-4 font-semibold text-[#354652]">{city.city}</td>
+                      <td className="px-6 py-4 text-[#354652] font-tabular-nums">{formatPriceFull(city.medianPrice)}</td>
+                      <td className="px-6 py-4 text-[#354652] font-tabular-nums">{city.avgDOM} days</td>
+                      <td className="px-6 py-4 text-[#354652] font-tabular-nums">${city.pricePerSqft}</td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
                           <span className={`font-semibold font-tabular-nums ${city.yoyGrowth > 4 ? 'text-emerald-600' : 'text-[#64748b]'}`}>
@@ -193,7 +194,7 @@ export default function MarketReport() {
                           </span>
                           <div className="w-12 h-2 bg-[#e2e8f0] rounded-full overflow-hidden">
                             <div
-                              className={`h-full ${city.yoyGrowth > 4 ? 'bg-emerald-600' : 'bg-[#0099cc]'}`}
+                              className={`h-full ${city.yoyGrowth > 4 ? 'bg-emerald-600' : 'bg-[#CA3121]'}`}
                               style={{ width: `${Math.min(city.yoyGrowth * 15, 100)}%` }}
                             ></div>
                           </div>
@@ -211,7 +212,7 @@ export default function MarketReport() {
       {/* Recently Sold Homes */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#1a2b36] mb-2 tracking-tight">Recently Sold Homes</h2>
+          <h2 className="text-3xl font-bold text-[#354652] mb-2 tracking-tight">Recently Sold Homes</h2>
           <p className="text-[#64748b] mb-10">Latest market activity in Lebanon</p>
 
           <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#e2e8f0]">
@@ -231,12 +232,12 @@ export default function MarketReport() {
                     <tr key={idx} className={`border-b border-[#e2e8f0] ${idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafb]'} hover:bg-[#f0f4f8] transition-colors`}>
                       <td className="px-6 py-4">
                         <div>
-                          <p className="font-semibold text-[#1a2b36]">{sale.address}</p>
+                          <p className="font-semibold text-[#354652]">{sale.address}</p>
                           <p className="text-sm text-[#64748b]">{sale.neighborhood}</p>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-[#1a2b36] font-semibold">{sale.beds}/{sale.baths}</td>
-                      <td className="px-6 py-4 font-tabular-nums font-semibold text-[#1a2b36]">{formatPriceFull(sale.price)}</td>
+                      <td className="px-6 py-4 text-[#354652] font-semibold">{sale.beds}/{sale.baths}</td>
+                      <td className="px-6 py-4 font-tabular-nums font-semibold text-[#354652]">{formatPriceFull(sale.price)}</td>
                       <td className="px-6 py-4 font-tabular-nums text-[#64748b]">{sale.dom}d</td>
                       <td className="px-6 py-4 text-sm text-[#64748b]">{sale.dateSold}</td>
                     </tr>
@@ -251,31 +252,31 @@ export default function MarketReport() {
       {/* Buyer & Seller Insights */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-[#1a2b36] mb-12 tracking-tight">Market Insights</h2>
+          <h2 className="text-3xl font-bold text-[#354652] mb-12 tracking-tight">Market Insights</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* Buyers */}
             <div className="bg-white rounded-2xl p-8 border border-[#e2e8f0]">
-              <h3 className="text-xl font-bold text-[#1a2b36] mb-6">What This Means for Buyers</h3>
+              <h3 className="text-xl font-bold text-[#354652] mb-6">What This Means for Buyers</h3>
               <ul className="space-y-4">
                 <li className="flex gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0099cc] flex items-center justify-center text-white text-sm font-bold">1</div>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#CA3121] flex items-center justify-center text-white text-sm font-bold">1</div>
                   <div>
-                    <p className="font-semibold text-[#1a2b36] mb-1">Market Moving Fast</p>
+                    <p className="font-semibold text-[#354652] mb-1">Market Moving Fast</p>
                     <p className="text-[#64748b] text-sm">With an average of {currentMonth.avgDOM} days on market, homes aren't lingering. Be prepared to move quickly with a strong offer.</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0099cc] flex items-center justify-center text-white text-sm font-bold">2</div>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#CA3121] flex items-center justify-center text-white text-sm font-bold">2</div>
                   <div>
-                    <p className="font-semibold text-[#1a2b36] mb-1">Good Affordability</p>
+                    <p className="font-semibold text-[#354652] mb-1">Good Affordability</p>
                     <p className="text-[#64748b] text-sm">At {formatPrice(currentMonth.medianPrice)}, Lebanese homes offer strong value compared to Corvallis while maintaining vibrant community living.</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#0099cc] flex items-center justify-center text-white text-sm font-bold">3</div>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#CA3121] flex items-center justify-center text-white text-sm font-bold">3</div>
                   <div>
-                    <p className="font-semibold text-[#1a2b36] mb-1">Competitive but Fair</p>
+                    <p className="font-semibold text-[#354652] mb-1">Competitive but Fair</p>
                     <p className="text-[#64748b] text-sm">With {currentMonth.avgOffers} offers per home, you'll face competition but it's not an all-out bidding war. Smart offers can still win.</p>
                   </div>
                 </li>
@@ -284,26 +285,26 @@ export default function MarketReport() {
 
             {/* Sellers */}
             <div className="bg-white rounded-2xl p-8 border border-[#e2e8f0]">
-              <h3 className="text-xl font-bold text-[#1a2b36] mb-6">What This Means for Sellers</h3>
+              <h3 className="text-xl font-bold text-[#354652] mb-6">What This Means for Sellers</h3>
               <ul className="space-y-4">
                 <li className="flex gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#c4371a] flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#CA3121] flex items-center justify-center text-white text-sm font-bold">✓</div>
                   <div>
-                    <p className="font-semibold text-[#1a2b36] mb-1">Strong Demand</p>
+                    <p className="font-semibold text-[#354652] mb-1">Strong Demand</p>
                     <p className="text-[#64748b] text-sm">Homes are selling fast with robust buyer interest. Expect less time on market and multiple offers.</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#c4371a] flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#CA3121] flex items-center justify-center text-white text-sm font-bold">✓</div>
                   <div>
-                    <p className="font-semibold text-[#1a2b36] mb-1">Prices on the Rise</p>
+                    <p className="font-semibold text-[#354652] mb-1">Prices on the Rise</p>
                     <p className="text-[#64748b] text-sm">With a {priceChangePercent.toFixed(1)}% year-over-year increase, home values are appreciating. List now to capture momentum.</p>
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#c4371a] flex items-center justify-center text-white text-sm font-bold">✓</div>
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#CA3121] flex items-center justify-center text-white text-sm font-bold">✓</div>
                   <div>
-                    <p className="font-semibold text-[#1a2b36] mb-1">Homes Moving Quickly</p>
+                    <p className="font-semibold text-[#354652] mb-1">Homes Moving Quickly</p>
                     <p className="text-[#64748b] text-sm">Average time to sale is just {currentMonth.avgDOM} days—faster than nearly any market in the region.</p>
                   </div>
                 </li>
@@ -316,17 +317,17 @@ export default function MarketReport() {
       {/* Interest Rates Card */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-[#0099cc]/10 to-[#0088bb]/10 rounded-2xl p-8 border border-[#0099cc]/20">
-            <h3 className="text-2xl font-bold text-[#1a2b36] mb-6">Current Interest Rates</h3>
+          <div className="bg-gradient-to-br from-[#CA3121]/10 to-[#0088bb]/10 rounded-2xl p-8 border border-[#CA3121]/20">
+            <h3 className="text-2xl font-bold text-[#354652] mb-6">Current Interest Rates</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <p className="text-5xl font-bold text-[#0099cc] mb-2 font-tabular-nums">{currentMonth.mortgageRate.toFixed(2)}%</p>
+                <p className="text-5xl font-bold text-[#CA3121] mb-2 font-tabular-nums">{currentMonth.mortgageRate.toFixed(2)}%</p>
                 <p className="text-[#64748b] font-semibold">30-Year Fixed Rate</p>
                 <p className="text-sm text-[#64748b] mt-2">As of {currentMonth.monthFull}</p>
               </div>
               <div className="bg-white rounded-xl p-4 border border-[#e2e8f0]">
-                <p className="text-sm font-semibold text-[#1a2b36] mb-3">Monthly payment estimate:</p>
-                <p className="text-2xl font-bold text-[#1a2b36] mb-2 font-tabular-nums">$1,895</p>
+                <p className="text-sm font-semibold text-[#354652] mb-3">Monthly payment estimate:</p>
+                <p className="text-2xl font-bold text-[#354652] mb-2 font-tabular-nums">$1,895</p>
                 <p className="text-xs text-[#64748b]">Principal & interest on {formatPrice(currentMonth.medianPrice)} with 20% down at {currentMonth.mortgageRate.toFixed(2)}%</p>
               </div>
             </div>
@@ -341,17 +342,17 @@ export default function MarketReport() {
         return (
           <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-white border-t border-[#e2e8f0]">
             <div className="max-w-4xl mx-auto">
-              <div className="bg-[#f0f7fa] rounded-2xl p-6 md:p-8 border border-[#0099cc]/20 flex flex-col md:flex-row md:items-center gap-6">
+              <div className="bg-[#f0f7fa] rounded-2xl p-6 md:p-8 border border-[#CA3121]/20 flex flex-col md:flex-row md:items-center gap-6">
                 <div className="flex-1">
-                  <p className="text-xs font-semibold text-[#0099cc] uppercase tracking-wider mb-2">Latest Analysis</p>
-                  <h3 className="text-xl font-bold text-[#1a2b36] tracking-tight leading-snug">
+                  <p className="text-xs font-semibold text-[#CA3121] uppercase tracking-wider mb-2">Latest Analysis</p>
+                  <h3 className="text-xl font-bold text-[#354652] tracking-tight leading-snug">
                     {latestReport.title}
                   </h3>
                   <p className="text-sm text-[#64748b] mt-2 line-clamp-2">{latestReport.excerpt}</p>
                 </div>
                 <Link
                   href={`/blog/${latestReport.slug}`}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#0099cc] text-white font-semibold rounded-xl hover:bg-[#0077aa] transition-colors whitespace-nowrap"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#CA3121] text-white font-semibold rounded-xl hover:bg-[#a82919] transition-colors whitespace-nowrap"
                 >
                   Read full report &rarr;
                 </Link>
@@ -361,12 +362,39 @@ export default function MarketReport() {
         );
       })()}
 
+      {/* Related Resources */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold tracking-tight text-[#354652] mb-8">
+            Related Resources
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/compare" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Compare Neighborhoods</h3>
+              <p className="text-sm text-[#64748b]">Interactive tool for side-by-side neighborhood analysis.</p>
+            </Link>
+            <Link href="/neighborhoods" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Neighborhood Guides</h3>
+              <p className="text-sm text-[#64748b]">Detailed guides to each Lebanon neighborhood.</p>
+            </Link>
+            <Link href="/first-time-buyers" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">First-Time Buyer Guide</h3>
+              <p className="text-sm text-[#64748b]">Complete buyer resource for Lebanon home purchases.</p>
+            </Link>
+            <Link href="/selling" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Selling Your Home</h3>
+              <p className="text-sm text-[#64748b]">Complete guide to selling in today's market.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Banner */}
       <CTABanner
         heading="Ready to Buy or Sell in Lebanon?"
         subheading="Get a personalized market analysis and find your next home with Team Gillott."
         ctaText="Contact Team Gillott"
-        ctaUrl="https://www.teamgillott.com"
+        ctaUrl={TEAM_URL}
         variant="primary"
       />
 
@@ -374,8 +402,8 @@ export default function MarketReport() {
       <section className="w-full py-12 px-4 sm:px-6 lg:px-8 bg-[#f8fafb] border-t border-[#e2e8f0]">
         <div className="max-w-4xl mx-auto text-center text-sm text-[#64748b]">
           <p>
-            <strong className="text-[#1a2b36]">Updated quarterly.</strong> Data sourced from the{' '}
-            <a href={mlsSource.statsPageUrl} target="_blank" rel="noopener noreferrer" className="text-[#0099cc] underline underline-offset-2">
+            <strong className="text-[#354652]">Updated quarterly.</strong> Data sourced from the{' '}
+            <a href={mlsSource.statsPageUrl} target="_blank" rel="noopener noreferrer" className="text-[#CA3121] underline underline-offset-2">
               {mlsSource.name}
             </a>
             , as of {mlsSource.asOf}. All information deemed reliable but not guaranteed.
@@ -387,7 +415,7 @@ export default function MarketReport() {
       <WebPageSchema
         title={`Lebanon, Oregon Real Estate Market Report — ${currentMonth.monthFull}`}
         description={`Latest Lebanon real estate market data: median price ${formatPrice(currentMonth.medianPrice)}, homes selling ${domChangePercent < 0 ? 'faster' : 'slower'} YoY. Compare to Corvallis and Albany.`}
-        url="https://lebanon.justsoldle.com/market-report"
+        url={siteUrl('/market-report')}
       />
     </main>
   );

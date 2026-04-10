@@ -1,5 +1,6 @@
 # Team Gillott — Lebanon, Oregon Real Estate
-# https://lebanon.justsoldle.com
+# https://lebanon.justsoldle.com (staging — production: lebanon.teamgillott.com)
+# NOTE: Update domain references when moving to production
 
 ## Entity
 - Name: Team Gillott (Gillott Home Team)
@@ -45,7 +46,7 @@
 
 ## Key Pages
 - /                          — Lebanon real estate overview and market snapshot
-- /neighborhoods/            — Neighborhood guides (4 areas)
+- /neighborhoods/            — Neighborhood guides (4 Lebanon areas)
 - /market-report/            — Quarterly market data with charts and city comparisons
 - /blog/                     — Quarterly market reports, buyer/seller guides
 - /blog/q1-2026-lebanon-market-report — Latest quarterly analysis with MLS data
@@ -56,6 +57,23 @@
 - /faq/                      — Frequently asked questions about Lebanon real estate
 - /selling/                  — Home selling guide for Lebanon, Oregon
 - /agents/                   — Team Gillott agent profiles
+- /cities/albany             — Albany, OR real estate guide: neighborhoods, market data, employers
+- /cities/corvallis          — Corvallis, OR real estate guide: OSU, tech sector, neighborhoods
+- /cities/compare            — Side-by-side comparison of Lebanon, Albany, Corvallis, Sweet Home
+
+## Albany Market Data (Q1 2026)
+- Albany avg sold price: $446,343 (-1.5% YoY)
+- Albany homes sold Q1: 147 (up from 133)
+- Albany avg days on market: 97
+- Albany active listings: 137
+- Top neighborhoods: Historic Districts, North Albany, South Albany, East Albany
+
+## Corvallis Market Data (Q1 2026)
+- Corvallis avg sold price: $593,250 (+4.1% YoY)
+- Corvallis homes sold Q1: 68 (down from 77)
+- Corvallis avg days on market: 102
+- Corvallis active listings: 79
+- Top neighborhoods: North Corvallis, South Corvallis, West Corvallis, Downtown/Campus
 
 ## Data Source
 All market statistics sourced from the Willamette Valley MLS, as of March 31, 2026.
