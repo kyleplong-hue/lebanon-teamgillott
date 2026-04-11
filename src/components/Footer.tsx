@@ -61,6 +61,7 @@ export default function Footer() {
                 { href: '/first-time-buyers', label: 'First-Time Buyers' },
                 { href: '/schools', label: 'School Guide' },
                 { href: '/selling', label: 'Selling Guide' },
+                { href: '/moving-to-lebanon', label: 'Moving Guide' },
                 { href: '/mortgage-calculator', label: 'Mortgage Calculator' },
                 { href: '/blog', label: 'Blog' },
                 { href: '/faq', label: 'FAQ' },

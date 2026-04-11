@@ -29,6 +29,7 @@ const navLinks = [
     ],
   },
   { href: '/market-report', label: 'Market Report' },
+  { href: '/moving-to-lebanon', label: 'Moving Guide' },
   { href: '/blog', label: 'Blog' },
   { href: '/faq', label: 'FAQ' },
 ];
