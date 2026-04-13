@@ -3,6 +3,7 @@ import NeighborhoodCompare from '@/components/NeighborhoodCompare';
 import CTABanner from '@/components/CTABanner';
 import { WebPageSchema } from '@/components/SchemaMarkup';
 import { siteUrl, TEAM_URL } from '@/data/config';
+import { HERO_COMPARE } from '@/data/hero-images';
 
 export const metadata = {
   title: 'Compare Neighborhoods | Lebanon, Oregon Real Estate',
@@ -22,8 +23,12 @@ export default function ComparePage() {
       />
 
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-b from-[#CA3121] to-[#1F2930] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      <section
+        className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center text-white"
+        style={{ backgroundImage: `url('${HERO_COMPARE}')` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
             Compare Lebanon Neighborhoods
           </h1>

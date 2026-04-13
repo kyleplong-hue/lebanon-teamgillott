@@ -7,6 +7,7 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
 import { currentMonth, formatPriceFull } from '@/data/market';
 import { siteUrl } from '@/data/config';
+import { HERO_MORTGAGE } from '@/data/hero-images';
 
 const MORTGAGE_COLORS = {
   principal: '#CA3121',
@@ -160,23 +161,25 @@ export default function MortgageCalcClient() {
       <SchemaMarkup schema={mortgageSchema} />
 
       {/* Hero */}
-      <section className="relative w-full pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafb] via-[#e8f4f8] to-[#f8fafb]" />
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#CA3121]/5 rounded-full blur-3xl" />
+      <section
+        className="relative w-full pt-20 pb-16 px-4 sm:px-6 lg:px-8 bg-cover bg-center"
+        style={{ backgroundImage: `url('${HERO_MORTGAGE}')` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 max-w-5xl mx-auto">
-          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 bg-[#CA3121]/8 border border-[#CA3121]/15 rounded-full">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#CA3121] animate-pulse" />
-            <span className="text-xs font-medium text-[#CA3121]">
+          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 bg-white/15 border border-white/25 rounded-full">
+            <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+            <span className="text-xs font-medium text-white/90">
               Real-time rates for Lebanon, Oregon
             </span>
           </div>
 
-          <h1 className="text-5xl lg:text-6xl font-semibold tracking-tight text-[#354652] leading-[1.08] mb-4">
+          <h1 className="text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.08] mb-4">
             Mortgage Calculator
           </h1>
 
-          <p className="text-lg text-[#64748b] max-w-2xl">
+          <p className="text-lg text-white/80 max-w-2xl">
             Explore your affordability and see payment breakdowns. Calculate scenarios instantly using current
             Lebanon market rates.
           </p>

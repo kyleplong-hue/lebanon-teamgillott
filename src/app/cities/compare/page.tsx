@@ -4,6 +4,7 @@ import { WebPageSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
 import { cityComparisons, formatPriceFull, mlsSource } from '@/data/market';
 import { siteUrl, TEAM_URL } from '@/data/config';
+import { HERO_CITIES_COMPARE } from '@/data/hero-images';
 
 export const metadata: Metadata = {
   title: 'Compare Lebanon vs Albany vs Corvallis | Team Gillott',
@@ -35,8 +36,12 @@ export default function CityComparePage() {
       />
 
       {/* Hero */}
-      <section className="w-full bg-gradient-to-br from-[#CA3121] to-[#1F2930] py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section
+        className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center"
+        style={{ backgroundImage: `url('${HERO_CITIES_COMPARE}')` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white mb-4">
             Compare Willamette Valley cities
           </h1>

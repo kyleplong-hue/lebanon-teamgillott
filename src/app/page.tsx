@@ -5,6 +5,7 @@ import { currentMonth, marketTrends, recentSales, formatPriceFull } from '@/data
 import { neighborhoods } from '@/data/neighborhoods';
 import { SITE_URL, TEAM_URL } from '@/data/config';
 import MarketSparkline from '@/components/MarketSparkline';
+import { HERO_HOME } from '@/data/hero-images';
 
 export const metadata = {
   title: 'Lebanon, Oregon Real Estate Guide | Team Gillott',
@@ -36,32 +37,32 @@ export default function Home() {
       />
 
       {/* Hero — Left-aligned, asymmetric per taste-skill */}
-      <section className="relative w-full min-h-[85vh] flex items-center overflow-hidden">
-        {/* Background gradient — not centered blue blob */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafb] via-[#e8f4f8] to-[#f8fafb]" />
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#CA3121]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-20 w-[400px] h-[400px] bg-[#CA3121]/3 rounded-full blur-3xl" />
+      <section
+        className="relative w-full min-h-[85vh] flex items-center overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url('${HERO_HOME}')` }}
+      >
+        <div className="absolute inset-0 bg-black/45" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
             {/* Left content — 3 cols */}
             <div className="lg:col-span-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#CA3121]/8 border border-[#CA3121]/15 rounded-full mb-6">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#CA3121] animate-pulse" />
-                <span className="text-xs font-medium text-[#CA3121]">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/15 border border-white/25 rounded-full mb-6">
+                <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                <span className="text-xs font-medium text-white/90">
                   Market updated {currentMonth.monthFull}
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-[#354652] leading-[1.08] mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.08] mb-6">
                 Your guide to
                 <br />
-                <span className="text-[#CA3121]">Lebanon, Oregon</span>
+                <span className="text-white">Lebanon, Oregon</span>
                 <br />
                 real estate
               </h1>
 
-              <p className="text-lg text-[#64748b] max-w-lg mb-8 leading-relaxed">
+              <p className="text-lg text-white/80 max-w-lg mb-8 leading-relaxed">
                 Neighborhoods, market data, and local expertise. Team Gillott
                 serves Lebanon, Corvallis, and Albany with professional real
                 estate services.
@@ -81,7 +82,7 @@ export default function Home() {
                 </a>
                 <Link
                   href="/market-report"
-                  className="inline-flex items-center px-6 py-3 text-sm font-semibold text-[#354652] bg-white border border-[#e2e8f0] rounded-lg hover:border-[#cbd5e1] hover:bg-[#f8fafb] transition-all duration-200"
+                  className="inline-flex items-center px-6 py-3 text-sm font-semibold text-[#354652] bg-white border border-white/20 rounded-lg hover:bg-white/90 transition-all duration-200"
                 >
                   View market report
                 </Link>

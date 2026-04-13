@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { WebPageSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
 import { siteUrl, TEAM_URL } from '@/data/config';
+import { HERO_FIRST_TIME_BUYERS } from '@/data/hero-images';
 
 export const metadata = {
   title: 'First-Time Home Buyer Guide Lebanon Oregon 2026 | Team Gillott',
@@ -124,8 +125,12 @@ export default function FirstTimeBuyersPage() {
       />
 
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-b from-[#CA3121] to-[#1F2930] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-left">
+      <section
+        className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center text-white"
+        style={{ backgroundImage: `url('${HERO_FIRST_TIME_BUYERS}')` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 max-w-4xl mx-auto text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-6 tracking-tight">
             First-Time Home Buyer Guide — Lebanon, Oregon 2026
           </h1>

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { WebPageSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
 import { siteUrl, TEAM_URL } from '@/data/config';
+import { HERO_SELLING } from '@/data/hero-images';
 
 export const metadata = {
   title: 'Selling Your Lebanon Home Guide | Team Gillott',
@@ -76,12 +77,16 @@ export default function SellingPage() {
       />
 
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-b from-[#CA3121] to-[#a8300f] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-left">
+      <section
+        className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center text-white"
+        style={{ backgroundImage: `url('${HERO_SELLING}')` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 max-w-4xl mx-auto text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold mb-6 tracking-tight">
             Selling Your Lebanon, Oregon Home — A Complete Guide
           </h1>
-          <p className="text-lg sm:text-xl text-orange-100 max-w-2xl">
+          <p className="text-lg sm:text-xl text-white/80 max-w-2xl">
             Lebanon homes are selling 34.5% faster than last year — seller leverage is strong heading into spring 2026.
           </p>
         </div>
@@ -361,7 +366,7 @@ export default function SellingPage() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 tracking-tight">
             Ready to Sell?
           </h2>
-          <p className="text-lg text-orange-100 mb-8 max-w-2xl">
+          <p className="text-lg text-white/80 mb-8 max-w-2xl">
             Get your free home valuation today and discover what your Lebanon home is worth in today's market.
           </p>
           <a

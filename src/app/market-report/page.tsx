@@ -14,6 +14,7 @@ import {
 } from '@/data/market';
 import { blogPosts } from '@/data/blog';
 import { siteUrl, TEAM_URL } from '@/data/config';
+import { HERO_MARKET_REPORT } from '@/data/hero-images';
 
 export const metadata = {
   title: 'Lebanon, Oregon Real Estate Market Report',
@@ -36,8 +37,11 @@ export default function MarketReport() {
   return (
     <main className="flex-1 w-full">
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-br from-[#CA3121] via-[#0088bb] to-[#007799] py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=%2260%27 height=%2760%27 viewBox=%270 0 60 60%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cg fill=%27none%27 fill-rule=%27evenodd%27%3E%3Cg fill=%27%23ffffff%27 fill-opacity=%270.1%27%3E%3Cpath d=%27M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%27/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+      <section
+        className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center overflow-hidden"
+        style={{ backgroundImage: `url('${HERO_MARKET_REPORT}')` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 max-w-4xl mx-auto">
           <div className="mb-3 inline-flex items-center px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
             <span className="text-sm font-semibold text-white">{currentMonth.monthFull}</span>

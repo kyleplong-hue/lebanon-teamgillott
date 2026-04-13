@@ -8,6 +8,7 @@ import {
 } from "@/data/blog";
 import { currentMonth, mlsSource, formatPriceFull } from "@/data/market";
 import { SITE_URL, TEAM_URL, siteUrl, teamUrl } from "@/data/config";
+import { HERO_BLOG } from "@/data/hero-images";
 import CTABanner from "@/components/CTABanner";
 
 /**
@@ -145,8 +146,12 @@ export default async function BlogPostPage({
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-[#1F2930] to-[#2a3842] py-16 md:py-24">
-        <div className="max-w-3xl mx-auto px-6">
+      <section
+        className="relative bg-cover bg-center py-16 md:py-24"
+        style={{ backgroundImage: `url('${HERO_BLOG}')` }}
+      >
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative z-10 max-w-3xl mx-auto px-6">
           <div className="flex items-center gap-3 mb-6">
             <span
               className={`text-xs font-medium px-3 py-1 rounded-full ${

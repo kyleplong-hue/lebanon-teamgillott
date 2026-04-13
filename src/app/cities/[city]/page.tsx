@@ -6,6 +6,13 @@ import { formatPriceFull, mlsSource } from '@/data/market';
 import { siteUrl, TEAM_URL } from '@/data/config';
 import { WebPageSchema, LocalBusinessSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
+import { HERO_ALBANY, HERO_CORVALLIS, HERO_SWEET_HOME } from '@/data/hero-images';
+
+const cityHeroImages: Record<string, string> = {
+  albany: HERO_ALBANY,
+  corvallis: HERO_CORVALLIS,
+  'sweet-home': HERO_SWEET_HOME,
+};
 
 interface PageProps {
   params: Promise<{ city: string }>;
@@ -63,9 +70,11 @@ export default async function CityPage({ params }: PageProps) {
       />
 
       {/* Hero */}
-      <section className="relative w-full min-h-[70vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#CA3121] to-[#1F2930]" />
-        <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl" />
+      <section
+        className="relative w-full min-h-[70vh] flex items-center overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url('${cityHeroImages[city.slug] || HERO_ALBANY}')` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">

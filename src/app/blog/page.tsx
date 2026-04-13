@@ -3,6 +3,7 @@ import { WebPageSchema } from "@/components/SchemaMarkup";
 import CTABanner from "@/components/CTABanner";
 import { blogPosts, categoryColors } from "@/data/blog";
 import { siteUrl, TEAM_URL } from "@/data/config";
+import { HERO_BLOG } from "@/data/hero-images";
 
 export const metadata = {
   title: "Lebanon Real Estate Blog | Market Reports & Guides",
@@ -32,8 +33,12 @@ export default function BlogPage() {
       />
 
       {/* Hero */}
-      <section className="w-full bg-gradient-to-br from-[#1F2930] to-[#2a3842] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
+      <section
+        className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center text-white"
+        style={{ backgroundImage: `url('${HERO_BLOG}')` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
             Lebanon Real Estate Blog
           </h1>

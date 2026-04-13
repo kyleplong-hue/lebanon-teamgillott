@@ -3,6 +3,7 @@ import { WebPageSchema, LocalBusinessSchema } from '@/components/SchemaMarkup';
 import CTABanner from '@/components/CTABanner';
 import { getNeighborhood, getOtherNeighborhoods } from '@/data/neighborhoods';
 import { siteUrl, TEAM_URL } from '@/data/config';
+import { HERO_NORTH_LEBANON } from '@/data/hero-images';
 
 export const metadata = {
   title: 'North Lebanon Real Estate Guide | Team Gillott',
@@ -33,8 +34,12 @@ export default function NorthLebanon() {
       />
 
       {/* Hero Section */}
-      <section className="w-full bg-gradient-to-b from-[#CA3121] to-[#1F2930] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+      <section
+        className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-cover bg-center text-white"
+        style={{ backgroundImage: `url('${HERO_NORTH_LEBANON}')` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 max-w-5xl mx-auto">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">
             {neighborhood.name}
           </h1>
@@ -43,7 +48,7 @@ export default function NorthLebanon() {
           </p>
           <div className="flex items-baseline gap-6">
             <div>
-              <div className="text-3xl font-bold text-[#CA3121] tabular-nums">
+              <div className="text-3xl font-bold text-white tabular-nums">
                 ${Math.round(neighborhood.priceRange.low / 1000)}K – ${Math.round(neighborhood.priceRange.high / 1000)}K
               </div>
               <div className="text-white/80 text-sm">Typical Price Range</div>
