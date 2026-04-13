@@ -15,9 +15,9 @@
 export const HERO_HOME =
   'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&h=800&fit=crop&q=80';
 
-// Oregon small town aerial with green trees and homes
+// Oregon small town — tree-lined street with Pacific Northwest charm
 export const HERO_MOVING_GUIDE =
-  'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1920&h=800&fit=crop&q=80';
+  'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1920&h=800&fit=crop&q=80';
 
 // Suburban neighborhood homes — aerial view
 export const HERO_NEIGHBORHOODS =
@@ -27,13 +27,13 @@ export const HERO_NEIGHBORHOODS =
 export const HERO_SOUTH_LEBANON =
   'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1920&h=800&fit=crop&q=80';
 
-// East Lebanon — Cascade foothills, forests, mountains
+// East Lebanon — Oregon Cascade mountain range with evergreen forest
 export const HERO_EAST_LEBANON =
-  'https://images.unsplash.com/photo-1511497584788-876760111969?w=1920&h=800&fit=crop&q=80';
+  'https://images.unsplash.com/photo-1509225770129-c6fe4bacfe67?w=1920&h=800&fit=crop&q=80';
 
-// North Lebanon — modern family neighborhood
+// North Lebanon — typical residential subdivision street with houses
 export const HERO_NORTH_LEBANON =
-  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&h=800&fit=crop&q=80';
+  'https://images.unsplash.com/photo-1560184897-502a475f7a0d?w=1920&h=800&fit=crop&q=80';
 
 // Hamilton Creek — rural estate, rolling hills, luxury property
 export const HERO_HAMILTON_CREEK =
@@ -83,10 +83,10 @@ export const HERO_ALBANY =
 export const HERO_CORVALLIS =
   'https://images.unsplash.com/photo-1562774053-701939374585?w=1920&h=800&fit=crop&q=80';
 
-// Sweet Home — Cascade Range gateway / mountain road
+// Sweet Home — calm lake surrounded by evergreen forest (Foster Lake vibes)
 export const HERO_SWEET_HOME =
-  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&h=800&fit=crop&q=80';
+  'https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=1920&h=800&fit=crop&q=80';
 
-// Cities compare — valley panorama
+// Cities compare — green farmland valley with river (Willamette Valley / Linn-Benton County)
 export const HERO_CITIES_COMPARE =
-  'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&h=800&fit=crop&q=80';
+  'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1920&h=800&fit=crop&q=80';

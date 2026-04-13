@@ -109,10 +109,10 @@ export default async function CityPage({ params }: PageProps) {
                   </svg>
                 </a>
                 <Link
-                  href="/market-report"
+                  href={`/market-report/${city.slug}`}
                   className="inline-flex items-center px-6 py-3 text-sm font-semibold text-white border border-white/30 rounded-lg hover:bg-white/10 transition-all duration-200"
                 >
-                  Market report
+                  {city.name} market report
                 </Link>
               </div>
             </div>

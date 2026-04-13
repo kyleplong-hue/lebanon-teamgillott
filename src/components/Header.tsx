@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { List, X, CaretDown } from '@phosphor-icons/react';
 import { TEAM_URL } from '@/data/config';
 
@@ -28,7 +28,16 @@ const navLinks = [
       { href: '/cities/compare', label: 'Compare Cities' },
     ],
   },
-  { href: '/market-report', label: 'Market Report' },
+  {
+    href: '/market-report',
+    label: 'Market Report',
+    children: [
+      { href: '/market-report', label: 'Lebanon' },
+      { href: '/market-report/albany', label: 'Albany' },
+      { href: '/market-report/corvallis', label: 'Corvallis' },
+      { href: '/market-report/sweet-home', label: 'Sweet Home' },
+    ],
+  },
   { href: '/moving-to-lebanon', label: 'Moving Guide' },
   { href: '/blog', label: 'Blog' },
   { href: '/faq', label: 'FAQ' },
@@ -38,6 +47,16 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openDropdown = useCallback((href: string) => {
+    if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null; }
+    setDropdownOpen(href);
+  }, []);
+
+  const closeDropdown = useCallback(() => {
+    closeTimer.current = setTimeout(() => setDropdownOpen(null), 150);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-[#e2e8f0]/60">
@@ -60,8 +79,8 @@ export default function Header() {
                 <div
                   key={link.href}
                   className="relative"
-                  onMouseEnter={() => setDropdownOpen(link.href)}
-                  onMouseLeave={() => setDropdownOpen(null)}
+                  onMouseEnter={() => openDropdown(link.href)}
+                  onMouseLeave={closeDropdown}
                 >
                   <Link
                     href={link.href}
@@ -79,20 +98,22 @@ export default function Header() {
                     />
                   </Link>
                   {dropdownOpen === link.href && (
-                    <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-xl shadow-lg shadow-black/5 border border-[#e2e8f0] py-1 animate-fade-in">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className={`block px-4 py-2.5 text-sm transition-colors duration-150 ${
-                            pathname === child.href
-                              ? 'text-[#CA3121] bg-[#CA3121]/5 font-medium'
-                              : 'text-[#64748b] hover:text-[#354652] hover:bg-[#f8fafb]'
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                    <div className="absolute top-full left-0 pt-2 w-48">
+                      <div className="bg-white rounded-xl shadow-lg shadow-black/5 border border-[#e2e8f0] py-1 animate-fade-in">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className={`block px-4 py-2.5 text-sm transition-colors duration-150 ${
+                              pathname === child.href
+                                ? 'text-[#CA3121] bg-[#CA3121]/5 font-medium'
+                                : 'text-[#64748b] hover:text-[#354652] hover:bg-[#f8fafb]'
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>

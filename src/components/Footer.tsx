@@ -57,7 +57,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5">
               {[
-                { href: '/market-report', label: 'Market Report' },
+                { href: '/market-report', label: 'Lebanon Market Report' },
+                { href: '/market-report/albany', label: 'Albany Market Report' },
+                { href: '/market-report/corvallis', label: 'Corvallis Market Report' },
+                { href: '/market-report/sweet-home', label: 'Sweet Home Market Report' },
                 { href: '/first-time-buyers', label: 'First-Time Buyers' },
                 { href: '/schools', label: 'School Guide' },
                 { href: '/selling', label: 'Selling Guide' },

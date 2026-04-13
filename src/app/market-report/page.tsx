@@ -187,7 +187,18 @@ export default function MarketReport() {
                 <tbody>
                   {cityComparisons.map((city, idx) => (
                     <tr key={idx} className={`border-b border-[#e2e8f0] ${idx % 2 === 0 ? 'bg-white' : 'bg-[#f8fafb]'} hover:bg-[#f0f4f8] transition-colors`}>
-                      <td className="px-6 py-4 font-semibold text-[#354652]">{city.city}</td>
+                      <td className="px-6 py-4 font-semibold text-[#354652]">
+                        {city.city === 'Lebanon' ? (
+                          <span className="text-[#CA3121]">{city.city}</span>
+                        ) : (
+                          <Link
+                            href={`/market-report/${city.city.toLowerCase().replace(' ', '-')}`}
+                            className="text-[#CA3121] hover:underline"
+                          >
+                            {city.city}
+                          </Link>
+                        )}
+                      </td>
                       <td className="px-6 py-4 text-[#354652] font-tabular-nums">{formatPriceFull(city.medianPrice)}</td>
                       <td className="px-6 py-4 text-[#354652] font-tabular-nums">{city.avgDOM} days</td>
                       <td className="px-6 py-4 text-[#354652] font-tabular-nums">${city.pricePerSqft}</td>
@@ -366,8 +377,33 @@ export default function MarketReport() {
         );
       })()}
 
-      {/* Related Resources */}
+      {/* Other City Market Reports */}
       <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold tracking-tight text-[#354652] mb-8">
+            Other City Market Reports
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {cityComparisons.filter(c => c.city !== 'Lebanon').map((c) => (
+              <Link
+                key={c.city}
+                href={`/market-report/${c.city.toLowerCase().replace(' ', '-')}`}
+                className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300"
+              >
+                <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">
+                  {c.city} Market Report
+                </h3>
+                <p className="text-sm text-[#64748b]">
+                  Avg price {formatPrice(c.medianPrice)} &middot; {c.numberSold} sold Q1
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-semibold tracking-tight text-[#354652] mb-8">
             Related Resources
