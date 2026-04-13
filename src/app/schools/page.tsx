@@ -304,9 +304,9 @@ export default function SchoolsPage() {
               <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Lebanon Market Report</h3>
               <p className="text-sm text-[#64748b]">Current market data and pricing trends in Lebanon.</p>
             </Link>
-            <Link href="/faq" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
-              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Frequently Asked Questions</h3>
-              <p className="text-sm text-[#64748b]">Get answers to common home buying and school questions.</p>
+            <Link href="/moving-to-lebanon" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Moving to Lebanon Guide</h3>
+              <p className="text-sm text-[#64748b]">Complete relocation resource with schools, employers, and community info.</p>
             </Link>
           </div>
         </div>

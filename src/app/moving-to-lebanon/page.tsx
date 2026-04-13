@@ -19,9 +19,9 @@ import {
 } from '@/data/moving-guide';
 
 export const metadata = {
-  title: 'Moving to Lebanon, Oregon — The Complete 2026 Relocation Guide | Team Gillott',
+  title: 'Moving to Lebanon, Oregon — 2026 Relocation Guide',
   description:
-    'Everything you need to know about moving to Lebanon, Oregon. Schools, employers, healthcare, outdoor recreation, cost of living, neighborhoods, and community resources.',
+    'Everything you need for moving to Lebanon, OR. Schools, employers, healthcare, outdoor recreation, cost of living, and neighborhoods.',
   keywords:
     'moving to Lebanon Oregon, relocating to Lebanon OR, Lebanon Oregon relocation guide, living in Lebanon Oregon, Lebanon community guide',
   openGraph: {
@@ -36,8 +36,8 @@ export default function MovingToLebanonPage() {
   return (
     <>
       <WebPageSchema
-        title="Moving to Lebanon, Oregon — The Complete 2026 Relocation Guide"
-        description="Everything you need to know about moving to Lebanon, Oregon. Schools, employers, healthcare, outdoor recreation, cost of living, neighborhoods, and community resources."
+        title="Moving to Lebanon, Oregon — 2026 Relocation Guide"
+        description="Everything you need for moving to Lebanon, OR. Schools, employers, healthcare, outdoor recreation, cost of living, and neighborhoods."
         url={siteUrl('/moving-to-lebanon')}
       />
 

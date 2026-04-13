@@ -112,6 +112,25 @@ export default function NeighborhoodsIndex() {
         </div>
       </section>
 
+      {/* Related Resources */}
+      <section className="w-full py-16 px-4 sm:px-6 lg:px-8 bg-[#f8fafb]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-semibold tracking-tight text-[#354652] mb-8">
+            Related Resources
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Link href="/moving-to-lebanon" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Moving to Lebanon Guide</h3>
+              <p className="text-sm text-[#64748b]">Complete relocation resource — city services, employers, healthcare, and more.</p>
+            </Link>
+            <Link href="/schools" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">School Guide</h3>
+              <p className="text-sm text-[#64748b]">How schools impact home values and neighborhood selection.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <CTABanner
         heading="Ready to Explore These Neighborhoods?"

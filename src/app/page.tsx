@@ -366,6 +366,11 @@ export default function Home() {
                 desc: 'Lebanon CSD overview, school ratings, and how schools impact home values.',
               },
               {
+                href: '/moving-to-lebanon',
+                title: 'Moving to Lebanon guide',
+                desc: 'Schools, employers, healthcare, recreation, and everything for your move.',
+              },
+              {
                 href: '/faq',
                 title: 'Frequently asked questions',
                 desc: '18 answers about living in Lebanon, from property taxes to outdoor recreation.',

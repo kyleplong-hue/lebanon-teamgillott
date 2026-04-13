@@ -176,6 +176,10 @@ export default function FAQPage() {
               <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Explore Neighborhoods</h3>
               <p className="text-sm text-[#64748b]">Discover the character and charm of each Lebanon neighborhood.</p>
             </Link>
+            <Link href="/moving-to-lebanon" className="group p-5 bg-white rounded-2xl border border-[#e2e8f0] hover:border-[#CA3121]/30 hover:shadow-md transition-all duration-300">
+              <h3 className="text-base font-semibold text-[#354652] group-hover:text-[#CA3121] transition-colors mb-1">Moving to Lebanon Guide</h3>
+              <p className="text-sm text-[#64748b]">The complete relocation resource — city services, jobs, healthcare, and more.</p>
+            </Link>
           </div>
         </div>
       </section>
